@@ -12,7 +12,7 @@ import {
 
 export default function Academics() {
   return (
-    <main className="pt-16">
+    <main>
       <div className="bg-white">
         <HeroAcademics />
         <CurriculumStructure />

@@ -54,7 +54,7 @@ export default function AchievementSection() {
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent"></div>
 
               {/* Floating Badge */}
               <div className="absolute top-6 left-6 bg-orange-500 backdrop-blur-md px-4 py-2 shadow-lg">

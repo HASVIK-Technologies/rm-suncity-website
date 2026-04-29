@@ -54,7 +54,7 @@ const items = [
 
 export default function Highlights() {
   return (
-    <section className="pb-12 bg-white">
+    <section className="pt-1 pb-12 bg-white">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -67,7 +67,7 @@ export default function Highlights() {
           modules={[Autoplay]}
           autoplay={{ delay: 2000 }}
           loop
-          spaceBetween={0}
+          spaceBetween={4}
           breakpoints={{
             0: { slidesPerView: 1 },
             640: { slidesPerView: 2 },
@@ -93,7 +93,7 @@ export default function Highlights() {
                     {item.title}
                   </h5>
 
-                  <p className="text-gray-600 text-sm leading-relaxed grow line-clamp-3">
+                  <p className="text-gray-600 text-sm leading-relaxed grow">
                     {item.description}
                   </p>
                 </div>

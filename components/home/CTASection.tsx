@@ -10,7 +10,7 @@ import {
 
 export default function VisitSection() {
   return (
-    <section className="relative pt-20 pb-50 bg-amber-600">
+    <section className="relative pt-20 pb-50 bg-gradient-to-r from-amber-500 to-yellow-400">
       <div className="absolute inset-0 opacity-15" style={{ background: 'url(/images/bg_img1.png)' }}></div>
       <div className="max-w-7xl mx-auto px-6 xl:px-0">
         <motion.div
@@ -51,7 +51,7 @@ export default function VisitSection() {
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 href="mailto:rmsuncity2012@gmail.com"
-                className="text-lg w-full sm:w-auto flex justify-center items-center gap-2 border-2 border-white text-white px-6 py-3 font-semibold hover:bg-white hover:border-white hover:text-orange-600 transition"
+                className="text-lg w-full sm:w-auto flex justify-center items-center gap-2 border-2 border-white bg-white text-orange-600 px-6 py-3 font-semibold hover:bg-transparent hover:border-white hover:text-white transition"
               >
                 <BiEnvelope className="text-xl" />
                 Email Us

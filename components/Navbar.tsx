@@ -31,7 +31,7 @@ export default function Navbar() {
   return (
     <>
       {/* 🔹 Top Bar (Normal Flow) */}
-      <div className="bg-white border-b">
+      <div className="bg-white border-b hidden md:flex">
         <div className="max-w-7xl mx-auto flex items-center px-6 h-7 text-sm text-gray-900">
           <TfiEmail className="me-3 text-blue-600 text-lg text-semibold" />
           <span className="me-6">{contactDetails.emailId}</span>

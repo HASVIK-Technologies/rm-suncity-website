@@ -10,7 +10,7 @@ import {
 
 export default function VisitSection() {
   return (
-    <section className="relative pt-20 pb-50 bg-gradient-to-r from-amber-500 to-yellow-400">
+    <section className="relative pt-20 pb-100 bg-gradient-to-r from-amber-500 to-yellow-400">
       <div className="absolute inset-0 opacity-15" style={{ background: 'url(/images/bg_img1.png)' }}></div>
       <div className="max-w-7xl mx-auto px-6 xl:px-0">
         <motion.div
@@ -97,7 +97,7 @@ export default function VisitSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="bg-white/70 overflow-hidden absolute z-20 -bottom-44 w-full xl:w-7xl left-0 xl:left-auto h-80 shadow-lg"
+            className="bg-white/70 overflow-hidden absolute z-20 bottom-0 w-full xl:w-7xl left-0 xl:left-auto h-80 shadow-lg"
           >
             <div className="absolute flex gap-4 top-2 left-2 z-30 bg-white/90 px-4 py-2">
               <div className="grow">

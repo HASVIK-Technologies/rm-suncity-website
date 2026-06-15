@@ -6,14 +6,14 @@ import AboutCounts from "./AboutCounts";
 
 export default function StorySection() {
   return (
-    <section className="relative py-20 bg-gray-50">
+    <section className="relative py-6 -mt-20">
       <div
         className="absolute inset-0 opacity-40"
         style={{ background: "url(/images/bg_img1.png)" }}
       ></div>
 
       {/* COUNTS (unchanged) */}
-      <div className="bg-transparent relative z-10 -mt-30 grid md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 mb-16 max-w-7xl mx-auto">
+      <div className="bg-transparent grid md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 mb-16 max-w-7xl mx-auto">
         <AboutCounts />
       </div>
 

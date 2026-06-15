@@ -8,7 +8,7 @@ const countWidgets = [
   {
     title: "Years of Excellence",
     description: "Delivering consistent quality education and strong values.",
-    count: 9,
+    count: 15,
     suffix: "+",
     icon: BiMedal,
   },
@@ -29,7 +29,7 @@ const countWidgets = [
   {
     title: "Classrooms",
     description: "Well-equipped spaces designed for focused learning.",
-    count: 30,
+    count: 20,
     suffix: "+",
     icon: BiHomeAlt,
   },
@@ -58,7 +58,7 @@ export default function AboutCounts({ shadow = "" }) {
             {/* TOP SECTION */}
             <div className="py-4 flex justify-between items-start">
               <div>
-                <p className="text-white font-semibold text-md tracking-wide mb-3">
+                <p className="text-white font-semibold text-lg tracking-wide mb-3">
                   {widget.title}
                 </p>
                 <p className="text-gray-300 text-xs mt-1 leading-relaxed max-w-[80%]">

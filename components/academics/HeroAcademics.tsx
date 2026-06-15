@@ -7,7 +7,7 @@ export default function HeroAcademics() {
     <section
       className="relative py-60 text-center overflow-hidden"
       style={{
-        background: "url(/images/hero5.jpg) no-repeat center center/cover",
+        background: "url(/images/classroom.jpeg) no-repeat center center/cover",
       }}
     >
       <motion.div

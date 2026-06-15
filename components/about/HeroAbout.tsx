@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 export default function HeroAbout() {
   return (
     <section
-      className="relative py-60 text-center overflow-hidden"
+      className="relative py-60 text-center"
       style={{
-        background: "url(/images/hero4.jpg) no-repeat center center/cover",
+        background: "url(/images/computer-lab.jpeg) no-repeat center center/cover",
       }}
     >
       <div className="bg-gradient-to-r from-black/50 to-gray-900/50 absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">

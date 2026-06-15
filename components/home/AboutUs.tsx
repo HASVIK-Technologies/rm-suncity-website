@@ -21,13 +21,13 @@ export default function AboutSection() {
             className="px-10"
           >
             <p className="text-gray-700 leading-relaxed mb-6">
-              RM Suncity Public School was founded with a vision to deliver
+              RM Suncity Public School was founded in 2012 with a vision to deliver
               quality education that blends academic excellence with strong
               moral values. We believe learning should shape not just minds, but
-              character and confidence. Over the years, our institution has
-              grown into a nurturing environment where students are encouraged
-              to explore, innovate, and develop into responsible individuals
-              ready to face the future.
+              character and confidence. <br />
+              Over the years, our institution has grown into a nurturing environment 
+              where students are encouraged to explore, innovate, and develop into 
+              responsible individuals ready to face the future.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
@@ -64,7 +64,7 @@ export default function AboutSection() {
 
             <motion.div initial={{ y: 50, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.5 }} className="col-span-2 md:col-span-2 p-8 text-center flex flex-col order-1 md:order-2 justify-center md:border-s md:border-e border-0 border-gray-200">
               <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[180px] font-semibold text-[#F8B82C] leading-none mb-2">
-                <CountUp end={9} duration={0.5} enableScrollSpy scrollSpyOnce />
+                <CountUp end={15} duration={0.5} enableScrollSpy scrollSpyOnce />
               </h1>
               <p className="text-gray-700  mt-3 text-lg md:text-xl font-medium uppercase tracking-wide">
                 Years of Excellence

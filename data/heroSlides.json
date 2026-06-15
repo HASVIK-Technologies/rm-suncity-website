@@ -1,0 +1,30 @@
+[
+  {
+    "src": "/images/school.jpeg",
+    "title": "RM Suncity Public School",
+    "description": "Nurturing confident learners through strong values, modern facilities, and whole-child education.",
+    "location": "Maniar, Khejuri Mod, Ballia",
+    "phone": "+91 97217 73151",
+    "email": "rmsuncity2012@gmail.com"
+  },
+  {
+    "src": "/images/computer-lab.jpeg",
+    "title": "Future-Ready Technology",
+    "description": "Empowering students with hands-on computing and digital literacy in our modern lab."
+  },
+  {
+    "src": "/images/park.jpeg",
+    "title": "Safe Green Campus",
+    "description": "A serene and secure campus that encourages outdoor learning and student wellbeing."
+  },
+  {
+    "src": "/images/sports.jpeg",
+    "title": "Active Sports Culture",
+    "description": "Building leadership and fitness through a wide range of games and physical activities."
+  },
+  {
+    "src": "/images/school-vans.jpeg",
+    "title": "Safe Transport Network",
+    "description": "Convenient, reliable transport for students across the region."
+  }
+]

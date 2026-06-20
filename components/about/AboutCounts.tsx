@@ -49,19 +49,23 @@ export default function AboutCounts({ shadow = "" }) {
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.1 }}
             className={`
-              px-5
-              group relative min-h-48 h-full overflow-hidden
-              bg-gradient-to-br from-gray-600 via-gray-700 to-gray-800 
+              px-6 py-8
+              group relative min-h-56 h-full overflow-hidden
+              bg-linear-to-br from-gray-700 via-gray-800 to-gray-900 
+              rounded-xl shadow-xl hover:shadow-2xl
+              border border-gray-600/50 hover:border-orange-500/50
+              transition-all duration-300
               ${shadow}
             `}
           >
             {/* TOP SECTION */}
+<<<<<<< HEAD
             <div className="py-4 flex justify-between items-start">
               <div>
                 <p className="text-white font-semibold text-lg tracking-wide mb-3">
                   {widget.title}
                 </p>
-                <p className="text-gray-300 text-xs mt-1 leading-relaxed max-w-[80%]">
+                <p className="text-gray-400 text-xs leading-relaxed">
                   {widget.description}
                 </p>
               </div>
@@ -69,30 +73,31 @@ export default function AboutCounts({ shadow = "" }) {
               <Icon
                 className="
                   text-[#F8B82C]
-                  opacity-90
-                  group-hover:opacity-100
-                  group-hover:scale-110
+                  opacity-100
+                  group-hover:opacity-125
+                  group-hover:scale-125
                   transition-all duration-300
+                  shrink-0 ml-4
                 "
-                size={36}
+                size={44}
               />
             </div>
 
             {/* NUMBER */}
-            <div className="absolute bottom-5 left-5">
-              <h1 className="text-3xl sm:text-5xl font-semibold text-[#F8B82C] tracking-tight">
+            <div className="absolute bottom-6 left-6">
+              <h1 className="text-5xl sm:text-6xl font-bold text-[#F8B82C] tracking-tight leading-none">
                 <CountUp
                   end={widget.count}
                   duration={2}
                   enableScrollSpy
                   scrollSpyOnce
                 />
-                <span className="text-[#F8B82C] ml-1">{widget.suffix}</span>
+                <span className="text-[#F8B82C] ml-0.5">{widget.suffix}</span>
               </h1>
             </div>
 
             {/* BOTTOM LINE */}
-            <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-orange-400 group-hover:w-full transition-all duration-300" />
+            <div className="absolute bottom-0 left-0 h-1 w-0 bg-linear-to-r from-orange-400 to-orange-600 group-hover:w-full transition-all duration-300" />
           </motion.div>
         );
       })}

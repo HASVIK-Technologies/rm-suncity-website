@@ -1,7 +1,8 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Notifications from "@/components/Notifications";
+import FloatingActions from "@/components/FloatingActions";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "RM Suncity Public School",
@@ -23,9 +24,30 @@ export default function RootLayout({
 
         {children}
 
-        <Notifications />
-
         <Footer />
+
+        <FloatingActions />
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            duration: 2500,
+            style: {
+              borderRadius: "12px",
+              background: "#111827",
+              color: "#fff",
+            },
+            success: {
+              style: {
+                background: "#16a34a",
+              },
+            },
+            error: {
+              style: {
+                background: "#dc2626",
+              },
+            },
+          }}
+        />
       </body>
     </html>
   );

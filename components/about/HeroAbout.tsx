@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 export default function HeroAbout() {
   return (
     <section
-      className="relative py-60 text-center"
+className="relative py-60 text-center"
       style={{
         background: "url(/images/computer-lab.jpeg) no-repeat center center/cover",
       }}
     >
-      <div className="bg-gradient-to-r from-black/50 to-gray-900/50 absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
+      <div className="bg-linear-to-r from-black/50 to-gray-900/50 absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
         <motion.h1
           initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -2,23 +2,28 @@
 
 import { motion } from "framer-motion";
 import MainTitle from "../MainTitle";
-import { BiBookOpen, BiLayer, BiTrendingUp } from "react-icons/bi";
+import { BiBookOpen, BiLayer, BiTrendingUp, BiHappyBeaming } from "react-icons/bi";
 
 export default function CurriculumStructure() {
   const data = [
     {
-      title: "Primary Education",
-      desc: "Building strong foundations in literacy, numeracy, and curiosity-driven learning.",
+      title: "Early Years",
+      desc: "Nursery and Kindergarten learning through play, language, and social confidence.",
+      icon: BiHappyBeaming,
+    },
+    {
+      title: "Primary School",
+      desc: "Classes 1 to 5 strengthen literacy, numeracy, scientific curiosity, and life skills.",
       icon: BiBookOpen,
     },
     {
       title: "Middle School",
-      desc: "Developing analytical thinking, creativity, and subject awareness.",
+      desc: "Classes 6 to 8 build deeper understanding, projects, and integrated learning.",
       icon: BiLayer,
     },
     {
-      title: "Secondary Education",
-      desc: "Focused academic excellence with preparation for future careers.",
+      title: "Secondary School",
+      desc: "Classes 9 and 10 focus on academic excellence, board readiness, and confidence.",
       icon: BiTrendingUp,
     },
   ];
@@ -26,11 +31,11 @@ export default function CurriculumStructure() {
   return (
     <section className="px-6 py-15 bg-white">
       <div className="max-w-7xl mx-auto">
-        <MainTitle title="Curriculum Structure" />
+        <MainTitle title="Academic Pathway" />
 
         <div className="relative mt-16">
           {/* CENTER LINE */}
-          <div className="absolute left-1/2 top-0 h-full w-[1px] bg-gray-200 -translate-x-1/2" />
+          <div className="absolute left-1/2 top-0 h-full w-px bg-gray-200 -translate-x-1/2" />
 
           <div className="flex flex-col gap-16">
             {data.map((item, i) => {

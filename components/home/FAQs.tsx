@@ -32,7 +32,7 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<null | number>(null);
 
   return (
-    <section className="pt-60 pb-20 bg-cover bg-center px-6" style={{ backgroundImage: "url('/images/background.jpg')" }}>
+    <section className="pt-20 pb-20 bg-cover bg-center px-6" style={{ backgroundImage: "url('/images/background.jpg')" }}>
       <div className="max-w-7xl mx-auto grid">
         {/* FAQ AREA */}
 

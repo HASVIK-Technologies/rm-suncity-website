@@ -17,12 +17,18 @@ export default function Navbar() {
   const [loginOpen, setLoginOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userProfile, setUserProfile] = useState<{ name: string; profileImage: string | null } | null>(null);
+  const [userProfile, setUserProfile] = useState<{
+    name: string;
+    profileImage: string | null;
+    phone: string | null;
+  } | null>(null);
   const pathname = usePathname();
   const router = useRouter();
 
   useEffect(() => {
-    const loggedIn = typeof window !== "undefined" && localStorage.getItem("adminLoggedIn") === "true";
+    const loggedIn =
+      typeof window !== "undefined" &&
+      localStorage.getItem("adminLoggedIn") === "true";
     setIsLoggedIn(loggedIn);
     // Load user profile from localStorage
     if (loggedIn) {
@@ -72,27 +78,25 @@ export default function Navbar() {
     contactNumber: "+91 9721773151",
     emailId: "rmsuncity2012@gmail.com",
     facebookPage: "https://www.facebook.com/rmsuncitymaniar",
-    instaPage: "https://www.instagram.com/rmsuncity"
+    instaPage: "https://www.instagram.com/rmsuncity",
   };
 
   return (
     <>
       {/* 🔹 Top Bar (Normal Flow) */}
-      <div className="bg-white border-b hidden md:flex">
-        <div className="max-w-7xl mx-auto flex items-center px-6 h-7 text-sm text-gray-900">
-          <TfiEmail className="me-3 text-blue-600 text-lg text-semibold" />
-          <span className="me-6">{contactDetails.emailId}</span>
+      <div className="bg-white border-b border-gray-200 hidden md:flex">
+        <div className="flex items-center justify-between px-8 h-7 max-w-7xl w-full text-sm text-gray-900 mx-auto">
+          <div className="flex items-center">
+            <TfiEmail className="me-3 text-blue-600 text-lg text-semibold" />
+            <span className="me-6">{contactDetails.emailId}</span>
 
-          <PiPhone className="me-2 text-green-600 text-lg text-semibold" />
-          <span>{contactDetails.contactNumber}</span>
+            <PiPhone className="me-2 text-green-600 text-lg text-semibold" />
+            <span>{contactDetails.contactNumber}</span>
+          </div>
 
-          <div className="grow" />
 
           <div className="flex gap-3">
-            <Link
-              href={contactDetails.facebookPage}
-              target="_blank"
-            >
+            <Link href={contactDetails.facebookPage} target="_blank">
               <FaFacebook className="text-blue-600 hover:scale-110 transition" />
             </Link>
             <Link href={contactDetails.instaPage} target="_blank">
@@ -190,7 +194,9 @@ export default function Navbar() {
                           />
                         ) : (
                           <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center text-white font-semibold text-sm ring-2 ring-orange-200">
-                            {userProfile?.name ? getInitials(userProfile.name) : "AD"}
+                            {userProfile?.name
+                              ? getInitials(userProfile.name)
+                              : "AD"}
                           </div>
                         )}
                       </div>
@@ -219,7 +225,9 @@ export default function Navbar() {
                           />
                         ) : (
                           <span className="text-xs font-semibold text-gray-600">
-                            {userProfile?.name ? getInitials(userProfile.name) : "AD"}
+                            {userProfile?.name
+                              ? getInitials(userProfile.name)
+                              : "AD"}
                           </span>
                         )}
                       </span>
@@ -362,13 +370,15 @@ export default function Navbar() {
       </motion.nav>
 
       {/* Login Popup */}
-      <LoginPopup 
-        isOpen={loginOpen} 
+      <LoginPopup
+        isOpen={loginOpen}
         onClose={() => {
           setLoginOpen(false);
-          const loggedIn = typeof window !== "undefined" && localStorage.getItem("adminLoggedIn") === "true";
+          const loggedIn =
+            typeof window !== "undefined" &&
+            localStorage.getItem("adminLoggedIn") === "true";
           setIsLoggedIn(loggedIn);
-        }} 
+        }}
       />
     </>
   );

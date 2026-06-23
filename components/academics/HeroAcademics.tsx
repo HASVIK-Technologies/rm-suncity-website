@@ -14,7 +14,7 @@ export default function HeroAcademics() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="bg-gradient-to-r from-black/50 to-gray-900/50 absolute inset-0 flex flex-col items-center justify-center"
+        className="bg-linear-to-r from-black/60 to-gray-900/60 absolute inset-0 flex flex-col items-center justify-center"
       >
         <div className="max-w-7xl mx-auto px-5 grid md:grid-cols-2 gap-10 items-center">
           <motion.div
@@ -23,24 +23,30 @@ export default function HeroAcademics() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
-              Academics That Build Futures
+              Nursery to Class 10: Learning at Every Step
             </h1>
             <p className="text-gray-200 mb-6">
-              A structured and holistic approach to education focused on
-              conceptual clarity, discipline, and real-world learning.
+              A complete school journey that balances early childhood discovery,
+              strong fundamentals, and confident Class 10 board preparation.
             </p>
 
-            <div className="mx-auto flex justify-center gap-6 text-sm text-gray-200">
-              <span><span className="text-orange-600 me-1.5">✔</span> Holistic Learning</span>
-              <span><span className="text-orange-600 me-1.5">✔</span> Expert Faculty</span>
-              <span><span className="text-orange-600 me-1.5">✔</span> Modern Curriculum</span>
+            <div className="mx-auto flex flex-col sm:flex-row justify-center gap-4 text-sm text-gray-200">
+              <span className="inline-flex items-center gap-2">
+                <span className="text-orange-600">✔</span> Age-appropriate learning
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <span className="text-orange-600">✔</span> Caring faculty
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <span className="text-orange-600">✔</span> Board-ready foundation
+              </span>
             </div>
           </motion.div>
 
           <div className="h-60 bg-gray-100 border border-gray-200 flex items-center justify-center overflow-hidden">
-           <img
+            <img
               src="/images/academics.jpg"
-              alt="Academics"
+              alt="Children in classroom"
               className="w-full object-cover"
             />
           </div>

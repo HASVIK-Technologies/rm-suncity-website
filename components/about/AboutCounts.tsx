@@ -59,7 +59,6 @@ export default function AboutCounts({ shadow = "" }) {
             `}
           >
             {/* TOP SECTION */}
-<<<<<<< HEAD
             <div className="py-4 flex justify-between items-start">
               <div>
                 <p className="text-white font-semibold text-lg tracking-wide mb-3">

@@ -10,8 +10,11 @@ import {
 
 export default function VisitSection() {
   return (
-    <section className="relative pt-20 pb-100 bg-gradient-to-r from-amber-500 to-yellow-400">
-      <div className="absolute inset-0 opacity-15" style={{ background: 'url(/images/bg_img1.png)' }}></div>
+    <section className="relative pt-20 pb-100 bg-linear-to-r from-amber-500 to-yellow-400">
+      <div
+        className="absolute inset-0 opacity-15"
+        style={{ background: "url(/images/bg_img1.png)" }}
+      ></div>
       <div className="max-w-7xl mx-auto px-6 xl:px-0">
         <motion.div
           initial={false}
@@ -89,42 +92,40 @@ export default function VisitSection() {
               Book Visit
             </motion.a>
           </motion.div>
-
-          {/* MAP AREA */}
-
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="bg-white/70 overflow-hidden absolute z-20 bottom-0 w-full xl:w-7xl left-0 xl:left-auto h-80 shadow-lg"
-          >
-            <div className="absolute flex gap-4 top-2 left-2 z-30 bg-white/90 px-4 py-2">
-              <div className="grow">
-                <h4 className="text-sm font-semibold text-gray-700">
-                  RM Suncity Public School
-                </h4>
-                <p className="text-xs text-gray-600">
-                  Maniar, Khejuri Mod, Ballia
-                </p>
-              </div>
-              <a
-                href="https://www.google.com/maps/place//@26.0122534,84.1315854,17.44z/data=!4m6!1m5!3m4!2zMjbCsDAwJzQzLjIiTiA4NMKwMDcnNTMuOCJF!8m2!3d26.012!4d84.1316?entry=ttu&g_ep=EgoyMDI2MDQwNS4wIKXMDSoASAFQAw%3D%3D"
-                target="_blank"
-                className="flex items-center gap-1 text-sm text-blue-700 hover:text-blue-900 transition"
-              >
-                <BiLinkExternal className="text-2xl" />
-              </a>
-            </div>
-            <iframe
-              className="w-full h-full"
-              src="https://maps.google.com/maps?q=26.012000,84.131611&z=17&output=embed"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </motion.div>
         </motion.div>
       </div>
+
+      {/* MAP AREA */}
+
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
+        className="bg-white/70 overflow-hidden absolute z-20 bottom-0 w-full h-80 shadow-lg mx-auto"
+      >
+        <div className="absolute flex gap-4 top-2 left-2 z-30 bg-white/90 px-4 py-2">
+          <div className="grow">
+            <h4 className="text-sm font-semibold text-gray-700">
+              RM Suncity Public School
+            </h4>
+            <p className="text-xs text-gray-600">Maniar, Khejuri Mod, Ballia</p>
+          </div>
+          <a
+            href="https://www.google.com/maps/place//@26.0122534,84.1315854,17.44z/data=!4m6!1m5!3m4!2zMjbCsDAwJzQzLjIiTiA4NMKwMDcnNTMuOCJF!8m2!3d26.012!4d84.1316?entry=ttu&g_ep=EgoyMDI2MDQwNS4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            className="flex items-center gap-1 text-sm text-blue-700 hover:text-blue-900 transition"
+          >
+            <BiLinkExternal className="text-2xl" />
+          </a>
+        </div>
+        <iframe
+          className="w-full h-full"
+          src="https://maps.google.com/maps?q=26.012000,84.131611&z=17&output=embed"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </motion.div>
     </section>
   );
 }

@@ -64,7 +64,7 @@ export default function AboutSection() {
 
             <motion.div initial={{ y: 50, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.5 }} className="col-span-2 md:col-span-2 p-8 text-center flex flex-col order-1 md:order-2 justify-center md:border-s md:border-e border-0 border-gray-200">
               <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[180px] font-semibold text-[#F8B82C] leading-none mb-2">
-                <CountUp end={15} duration={0.5} enableScrollSpy scrollSpyOnce />
+                <CountUp end={15} duration={2} enableScrollSpy scrollSpyOnce />
               </h1>
               <p className="text-gray-700  mt-3 text-lg md:text-xl font-medium uppercase tracking-wide">
                 Years of Excellence

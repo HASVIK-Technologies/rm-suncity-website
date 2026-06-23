@@ -37,7 +37,7 @@ export default function Hero() {
           <motion.div
             key={i}
             className="absolute inset-0 bg-cover bg-top"
-            style={{ backgroundImage: `url(${slide.src})` }}
+            style={{ backgroundImage: `url(${slide.src})`, backgroundColor: "rgba(0,0,0,0.4)", backgroundBlendMode: "darken" }}
             animate={{ opacity: i === index ? 1 : 0 }}
             transition={{ duration: 1.5 }}
           />

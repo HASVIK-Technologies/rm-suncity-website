@@ -84,7 +84,7 @@ export default function VisitSection() {
               whileHover={{ scale: 1.05 }}
               animate={{ scale: [1, 1.03, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
-              href="https://wa.me/919721773151?text=Hello%21%20I%20want%20to%20visit%20your%20campus.%20Please%20let%20me%20know%20the%20available%20slots."
+              href="https://wa.me/918922985156?text=Hello%21%20I%20want%20to%20visit%20your%20campus.%20Please%20let%20me%20know%20the%20available%20slots."
               target="_blank"
               className="w-full sm:w-auto flex justify-center items-center gap-2 bg-green-500 text-white px-6 py-3 font-semibold hover:bg-green-600 transition"
             >

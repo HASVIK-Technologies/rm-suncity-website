@@ -57,8 +57,8 @@ export default function NoticeWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 0.35 }}
-            className="fixed bottom-24 right-6 w-82.5 overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.6)] sm:w-90"
-            style={{ zIndex: 9999 }}
+            className="fixed bottom-24 right-6 w-82.5 shadow-[0_25px_70px_rgba(0,0,0,0.6)] sm:w-90"
+            style={{ zIndex: 10000 }}
           >
             {/* HEADER */}
             <div className="flex items-center justify-between px-5 pt-4 pb-3 bg-gray-900">

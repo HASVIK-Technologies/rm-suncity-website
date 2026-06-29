@@ -5,71 +5,65 @@ import CountUp from "react-countup";
 
 export default function PrincipalMessage() {
   return (
-    <section className="relative bg-white py-0 lg:py-10 overflow-hidden">
-      <div className="mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
-        {/* Left content */}
-        <div></div>
-
-        {/* Right Content */}
+    <section className="relative overflow-hidden bg-slate-950/5 py-12 sm:py-16">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, x: 100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9 }}
           viewport={{ once: true }}
-          className="relative px-6"
+          className="overflow-hidden rounded-[2rem] bg-white shadow-[0_40px_120px_-80px_rgba(15,23,42,0.35)] p-6 md:p-8 lg:p-10"
         >
-          {/* Accent Line */}
-          <div className="absolute -left-6 top-4 w-2 h-28 bg-orange-500"></div>
+          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] items-center">
+            <div className="py-6">
+              <span className="inline-flex items-center rounded-full bg-orange-50 px-4 py-1 text-sm font-semibold uppercase tracking-[0.24em] text-orange-700">
+                Principal’s Message
+              </span>
 
-          {/* Title */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-600 mb-6">
-            Principal's Message
-          </h2>
+              <h2 className="mt-6 text-3xl sm:text-4xl font-semibold leading-tight text-slate-950">
+                A confident message from our principal.
+              </h2>
 
-          {/* Name */}
-          <h3 className="text-xl font-semibold text-[#F8B82C] mb-4">
-            Mr. Rajesh Sony
-          </h3>
+              <p className="mt-6 max-w-2xl text-base leading-8 text-slate-700">
+                At RM Suncity Public School, strong academic performance grows from a caring school culture. We support students to discover their talents while holding fast to respect, resilience and community values.
+              </p>
 
-          {/* Message */}
-          <p className="text-gray-600 leading-relaxed mb-4">
-            At RM Suncity Public School, we believe that education is the
-            foundation for shaping responsible and confident individuals. Our
-            mission is to inspire curiosity, creativity, and strong values in
-            every student.
-          </p>
+              <div className="mt-8 space-y-6">
+                <p className="text-slate-700 leading-8">
+                  Through a balanced blend of modern learning methods and traditional values, we nurture young minds and prepare them for the challenges of tomorrow.
+                </p>
 
-          <p className="text-gray-600 leading-relaxed">
-            Through a balanced blend of modern learning methods and traditional
-            values, we strive to nurture young minds and prepare them for the
-            challenges of tomorrow.
-          </p>
+                <div className="grid gap-4 sm:grid-cols-3">
+                  {[
+                    { value: 500, label: "Happy Students" },
+                    { value: 20, label: "Years of Leadership" },
+                    { value: 25, label: "Dedicated Faculty" },
+                  ].map((item) => (
+                    <div key={item.label} className="rounded-[1.5rem] bg-slate-950/5 p-5 text-center">
+                      <p className="text-5xl font-semibold text-orange-500">
+                        <CountUp end={item.value} duration={2} enableScrollSpy scrollSpyOnce />+
+                      </p>
+                      <p className="mt-4 text-xs tracking-[0.15em] text-slate-500">
+                        {item.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-          {/* Signature */}
-          <div className="mt-6 font-medium text-gray-800">— Principal</div>
+              <p className="mt-8 text-sm font-medium uppercase tracking-[0.22em] text-slate-500">
+                — Mr. Rajnarayan Sharma, Principal
+              </p>
+            </div>
 
-          {/* Experience Text */}
-          <div className="text-5xl sm:text-7xl font-bold text-[#F8B82C] mb-3 mt-6">
-            <CountUp end={20} duration={2} enableScrollSpy scrollSpyOnce />+
+            <div className="relative">
+              <img
+                src="/images/principal.png"
+                alt="School Principal"
+                className="h-full min-h-[420px] w-full object-cover"
+              />
+            </div>
           </div>
-
-          <p className="uppercase text-sm tracking-widest text-gray-500 mb-6">
-            Years of Educational Leadership
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="relative lg:absolute -left-10 bottom-0"
-        >
-          <img
-            src="/images/principal.png"
-            alt="Principal"
-            className="w-full max-w-lg md:max-w-xl h-72 md:h-100"
-          />
         </motion.div>
       </div>
     </section>

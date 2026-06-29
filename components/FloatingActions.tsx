@@ -3,7 +3,7 @@
 import { FaWhatsapp } from "react-icons/fa";
 
 export default function FloatingActions() {
-  const whatsappNumber = "918922985156";
+  const whatsappNumber = "919235818178";
   const whatsappMessage = "Hello! I would like to inquire about RM Suncity Public School.";
 
   const handleWhatsAppClick = () => {

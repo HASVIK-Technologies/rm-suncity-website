@@ -132,7 +132,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Section - Two Column Layout */}
-      <section className="py-16 px-4">
+      <section className="py-12 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-5 gap-8 items-start">
             
@@ -164,12 +164,12 @@ export default function Contact() {
                 whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
                 className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 flex-1 flex flex-col justify-center"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
                   <FaWhatsapp className="text-white text-2xl" />
                 </div>
                 <h3 className="font-bold text-gray-900 text-lg mb-2">WhatsApp</h3>
                 <p className="text-gray-500 text-sm mb-3">Quick response</p>
-                <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="text-orange-600 font-semibold hover:text-orange-700">
+                <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="text-green-600 font-semibold hover:text-green-700">
                   +91 9235818178
                 </a>
               </motion.div>
@@ -246,7 +246,7 @@ export default function Contact() {
                         className={`w-full pl-12 pr-4 py-3 border-2 rounded-xl transition-all duration-200 outline-none text-gray-700 placeholder-gray-400 ${
                           errors.name
                             ? "border-red-300 bg-red-50 focus:border-red-500"
-                            : "border-gray-200 bg-gray-50 focus:border-blue-500 focus:bg-white"
+                            : "border-gray-200 bg-gray-50 focus:border-orange-500 focus:bg-white focus:ring-4 focus:ring-orange-100"
                         }`}
                       />
                     </div>
@@ -277,7 +277,7 @@ export default function Contact() {
                         className={`w-full pl-12 pr-4 py-3 border-2 rounded-xl transition-all duration-200 outline-none text-gray-700 placeholder-gray-400 ${
                           errors.mobile
                             ? "border-red-300 bg-red-50 focus:border-red-500"
-                            : "border-gray-200 bg-gray-50 focus:border-blue-500 focus:bg-white"
+                            : "border-gray-200 bg-gray-50 focus:border-orange-500 focus:bg-white focus:ring-4 focus:ring-orange-100"
                         }`}
                       />
                     </div>
@@ -301,7 +301,7 @@ export default function Contact() {
                         onChange={handleMessageChange}
                         placeholder="How can we help you?"
                         rows={3}
-                        className="w-full px-4 py-3 border-2 border-gray-200 bg-gray-50 rounded-xl transition-all duration-200 outline-none text-gray-700 placeholder-gray-400 focus:border-blue-500 focus:bg-white resize-none"
+                        className="w-full px-4 py-3 border-2 border-gray-200 bg-gray-50 rounded-xl transition-all duration-200 outline-none text-gray-700 placeholder-gray-400 focus:border-orange-500 focus:bg-white focus:ring-4 focus:ring-orange-100 resize-none"
                       />
                     </div>
                   </div>
@@ -315,7 +315,7 @@ export default function Contact() {
                     className={`w-full py-4 px-6 rounded-xl font-bold text-white transition-all duration-200 flex items-center justify-center gap-3 shadow-lg ${
                       isSubmitting
                         ? "bg-green-400 cursor-not-allowed"
-                        : "bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
+                        : "bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 hover:shadow-orange-200"
                     }`}
                   >
                     {isSubmitting ? (
@@ -338,8 +338,8 @@ export default function Contact() {
                 </form>
 
                 {/* Info Note */}
-                <div className="mt-6 p-4 bg-blue-50 rounded-xl border border-blue-100">
-                  <p className="text-xs text-blue-600 text-center">
+                <div className="mt-6 p-4 bg-orange-50 rounded-xl border border-orange-100">
+                  <p className="text-xs text-orange-600 text-center">
                     💬 Your message will be sent directly to our WhatsApp. Please ensure WhatsApp is installed on your device.
                   </p>
                 </div>
@@ -350,7 +350,7 @@ export default function Contact() {
       </section>
 
       {/* Google Map Section - Full Width Below Contact Section */}
-      <section className="py-12 px-4 bg-white">
+      <section className="pb-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -360,32 +360,27 @@ export default function Contact() {
             className="bg-white rounded-3xl p-4 shadow-xl border border-gray-100"
           >
             <div className="relative rounded-2xl overflow-hidden h-[450px] lg:h-[500px]">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.123456789!2d84.1316!3d26.012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDAwJzQzLjIiTiA4NMKwMDcnNTMuOCJF!5e0!3m2!1sen!2sin!4v1703123456789!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="RM Suncity Public School Location"
-                className="grayscale hover:grayscale-0 transition-all duration-500"
-              />
+              <a
+                href="https://www.google.com/maps/place//@26.0122534,84.1315854,17.44z/data=!4m6!1m5!3m4!2zMjbCsDAwJzQzLjIiTiA4NMKwMDcnNTMuOCJF!8m2!3d26.012!4d84.1316?entry=ttu&g_ep=EgoyMDI2MDQwNS4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full h-full"
+                title="Click to open in Google Maps"
+              >
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.123456789!2d84.1316!3d26.012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDAwJzQzLjIiTiA4NMKwMDcnNTMuOCJF!5e0!3m2!1sen!2sin!4v1703123456789!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="RM Suncity Public School Location"
+                  className="grayscale hover:grayscale-0 transition-all duration-500"
+                />
+              </a>
             </div>
           </motion.div>
-
-          {/* Click to Open Full Map Link */}
-          <div className="mt-4 text-center">
-            <a
-              href="https://www.google.com/maps/place//@26.0122534,84.1315854,17.44z/data=!4m6!1m5!3m4!2zMjbCsDAwJzQzLjIiTiA4NMKwMDcnNTMuOCJF!8m2!3d26.012!4d84.1316?entry=ttu&g_ep=EgoyMDI2MDQwNS4wIKXMDSoASAFQAw%3D%3D"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors"
-            >
-              <FaMapMarkerAlt />
-              View RM Suncity Public School on Google Maps
-            </a>
-          </div>
         </div>
       </section>
     </>

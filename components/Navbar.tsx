@@ -105,7 +105,7 @@ export default function Navbar() {
   ];
 
   const contactDetails = {
-    contactNumber: "+91 8922985156",
+    contactNumber: "+91 9235818178",
     emailId: "rmsuncity2012@gmail.com",
     facebookPage: "https://www.facebook.com/rmsuncitymaniar",
     instaPage: "https://www.instagram.com/rmsuncity",
@@ -440,15 +440,25 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 20 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-20 right-4 z-50 w-80 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden"
+            className="fixed top-20 right-4 z-50 w-80 bg-white rounded-xl shadow-2xl overflow-hidden"
           >
-            <div className="p-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white flex items-center justify-between">
-              <h3 className="font-semibold">Notices</h3>
-              <span className="bg-white/20 px-2 py-0.5 rounded-full text-xs">
-                {notices.filter(n => n.isNew).length} new
-              </span>
+            {/* HEADER - Full orange background with Notices and count */}
+            <div className="flex items-center justify-between px-5 py-3 bg-orange-500">
+              <div className="flex items-center gap-2">
+                <h3 className="text-white font-semibold text-lg">Notices</h3>
+                <span className="bg-white text-orange-500 px-2 py-0.5 rounded-full text-sm font-semibold">
+                  {notices.filter(n => n.isNew).length} new
+                </span>
+              </div>
+              <button
+                onClick={() => setNotificationOpen(false)}
+                aria-label="Close Notifications"
+                className="text-white hover:text-gray-200 transition p-1"
+              >
+                ✕
+              </button>
             </div>
-            <div className="relative h-96 overflow-hidden bg-gray-50">
+            <div className="relative h-96 overflow-hidden bg-white">
               <motion.div
                 animate={{ y: ["0%", "-50%"] }}
                 transition={{ duration: 20, ease: "linear", repeat: Infinity }}

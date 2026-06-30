@@ -22,14 +22,16 @@ export default function NoticeWidget() {
   const [open, setOpen] = useState(false);
 
   const newCount = notices.filter((n) => n.isNew).length;
-  const widgetBaseClass = "fixed bottom-24 right-6";
+
+  const closeNotification = () => setOpen(false);
+  const toggleNotification = () => setOpen((prev) => !prev);
 
   return (
     <div>
       {/* BELL ICON */}
       <button
-        onClick={() => setOpen((prev) => !prev)}
-        className={`${widgetBaseClass} flex items-center justify-center rounded-full bg-orange-500 text-white shadow-xl hover:shadow-2xl hover:bg-orange-600 transition-all duration-300 p-5`}
+        onClick={toggleNotification}
+        className="fixed bottom-24 right-6 flex items-center justify-center rounded-full bg-orange-500 text-white shadow-xl hover:shadow-2xl hover:bg-orange-600 transition-all duration-300 p-5"
         style={{ zIndex: 9999 }}
         aria-label={open ? "Close notices" : "Open notices"}
         title={open ? "Close notices" : "Open notices"}
@@ -41,12 +43,6 @@ export default function NoticeWidget() {
         >
           <FiBell size={32} />
         </motion.span>
-
-        {newCount > 0 && (
-          <span className="absolute -top-2 -right-1 bg-red-500 border-2 border-white text-white text-xs w-6 h-6 flex items-center justify-center rounded-full font-bold shadow-md">
-            {newCount}
-          </span>
-        )}
       </button>
 
       {/* NOTIFICATION PANEL */}
@@ -60,19 +56,19 @@ export default function NoticeWidget() {
             className="fixed bottom-24 right-6 w-82.5 overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.6)] sm:w-90"
             style={{ zIndex: 9999 }}
           >
-            {/* HEADER */}
-            <div className="flex items-center justify-between px-5 pt-4 pb-3 bg-gray-900">
-              <div>
-                <h3 className="text-white font-semibold text-lg">
-                  Notices
-                </h3>
+            {/* HEADER - Exact structure as requested */}
+            <div className="notification-header flex items-center justify-between px-5 pt-4 pb-3 bg-gray-900">
+              <div className="flex items-center gap-2">
+                <h3 className="text-white font-semibold text-lg">Notices</h3>
+                <span className="text-orange-400 font-semibold text-lg">({newCount})</span>
               </div>
 
               <button
-                onClick={() => setOpen(false)}
-                className="text-white hover:text-orange-400 transition"
+                aria-label="Close Notifications"
+                onClick={closeNotification}
+                className="text-white hover:text-orange-400 transition p-1"
               >
-                <FiX size={20} />
+                ✕
               </button>
             </div>
 

@@ -101,7 +101,7 @@ export default function Navbar() {
     { href: "/about", label: "About Us" },
     { href: "/academics", label: "Academics" },
     { href: "/gallery", label: "Gallery" },
-    { href: "/contact", label: "Contact" },
+    { href: "/contact", label: "Contact Us" },
   ];
 
   const contactDetails = {
@@ -178,7 +178,7 @@ export default function Navbar() {
                   >
                     {link.label}
 
-                    {isActive && (
+                    {/* {isActive && (
                       <motion.span
                         layoutId="nav-active"
                         transition={{
@@ -188,7 +188,7 @@ export default function Navbar() {
                         }}
                         className="absolute left-0 right-0 -bottom-1 h-0.5 bg-orange-600 rounded"
                       />
-                    )}
+                    )} */}
                   </Link>
                 </li>
               );

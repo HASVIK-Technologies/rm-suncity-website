@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
 import { Toaster } from "react-hot-toast";
+import getNotifications from "@/services/notifications";
 
 export const metadata = {
   title: "RM Suncity Public School",
@@ -12,16 +13,17 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const notifications = await getNotifications();
+  console.log("Notifications:", notifications); // Log the notifications to the console
   return (
     <html lang="en">
       <body>
         <Navbar />
-
         {children}
 
         <Footer />

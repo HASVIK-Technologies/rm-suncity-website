@@ -5,12 +5,13 @@ import {
   BiMap,
   BiLogoWhatsapp,
   BiEnvelope,
-  BiLinkExternal,
 } from "react-icons/bi";
+
+const WHATSAPP_NUMBER = "9235818178";
 
 export default function VisitSection() {
   return (
-    <section className="relative pt-20 pb-100 bg-linear-to-r from-amber-500 to-yellow-400">
+    <section className="py-16 relative bg-linear-to-r from-amber-500 to-yellow-400">
       <div
         className="absolute inset-0 opacity-15"
         style={{ background: "url(/images/bg_img1.png)" }}
@@ -43,7 +44,7 @@ export default function VisitSection() {
             <div className="flex flex-col sm:flex-row flex-wrap gap-4">
               <motion.a
                 whileHover={{ scale: 1.05 }}
-                href="https://www.google.com/maps/place//@26.0122534,84.1315854,17.44z/data=!4m6!1m5!3m4!2zMjbCsDAwJzQzLjIiTiA4NMKwMDcnNTMuOCJF!8m2!3d26.012!4d84.1316?entry=ttu&g_ep=EgoyMDI2MDQwNS4wIKXMDSoASAFQAw%3D%3D"
+                href="https://www.google.com/maps?cid=13624318445649534623&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&hl=en&gl=IN&source=embed"
                 target="_blank"
                 className="text-lg w-full sm:w-auto flex justify-center items-center gap-2 border-2 border-white bg-white text-orange-600 px-6 py-3 font-semibold hover:bg-transparent hover:border-white hover:text-white transition"
               >
@@ -84,7 +85,7 @@ export default function VisitSection() {
               whileHover={{ scale: 1.05 }}
               animate={{ scale: [1, 1.03, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
-              href="https://wa.me/919235818178?text=Hello%21%20I%20want%20to%20visit%20your%20campus.%20Please%20let%20me%20know%20the%20available%20slots."
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hello%21%20I%20want%20to%20visit%20your%20campus.%20Please%20let%20me%20know%20the%20available%20slots.`}
               target="_blank"
               className="w-full sm:w-auto flex justify-center items-center gap-2 bg-green-500 text-white px-6 py-3 font-semibold hover:bg-green-600 transition"
             >
@@ -102,26 +103,11 @@ export default function VisitSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
-        className="bg-white/70 overflow-hidden absolute z-20 bottom-0 w-full h-80 shadow-lg mx-auto"
+        className="bg-white/70 w-full max-w-7xl h-120 shadow-lg mx-auto mt-10 relative z-10"
       >
-        <div className="absolute flex gap-4 top-2 left-2 z-30 bg-white/90 px-4 py-2">
-          <div className="grow">
-            <h4 className="text-sm font-semibold text-gray-700">
-              RM Suncity Public School
-            </h4>
-            <p className="text-xs text-gray-600">Maniar, Khejuri Mod, Ballia</p>
-          </div>
-          <a
-            href="https://www.google.com/maps/place//@26.0122534,84.1315854,17.44z/data=!4m6!1m5!3m4!2zMjbCsDAwJzQzLjIiTiA4NMKwMDcnNTMuOCJF!8m2!3d26.012!4d84.1316?entry=ttu&g_ep=EgoyMDI2MDQwNS4wIKXMDSoASAFQAw%3D%3D"
-            target="_blank"
-            className="flex items-center gap-1 text-sm text-blue-700 hover:text-blue-900 transition"
-          >
-            <BiLinkExternal className="text-2xl" />
-          </a>
-        </div>
         <iframe
           className="w-full h-full"
-          src="https://maps.google.com/maps?q=26.012000,84.131611&z=17&output=embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224.15411151413903!2d84.14489172950627!3d25.985555150831157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39925c58f6612885%3A0xbd134d710bbe1e9f!2sR.M.Suncity%20Public%20School!5e0!3m2!1sen!2sin!4v1782661209131!5m2!1sen!2sin"
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>

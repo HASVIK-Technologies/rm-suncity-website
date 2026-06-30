@@ -2,6 +2,7 @@ import Hero from "@/components/home/Hero"
 import Highlights from "@/components/home/Highlights"
 import CoreValues from "@/components/home/CoreValues"
 import PrincipalMessage from "@/components/home/PrincipalMessage"
+import ManagerMessage from "@/components/home/ManagerMessage"
 import CTASection from "@/components/home/CTASection"
 import AboutUs from "@/components/home/AboutUs"
 import FAQs from "@/components/home/FAQs"
@@ -15,6 +16,7 @@ export default function Home() {
       <SchoolVideos />
       <Highlights />
       <CoreValues />
+      <ManagerMessage />
       <PrincipalMessage />
       <CTASection />
       <FAQs />

@@ -1,14 +1,15 @@
 "use client";
 
 import { FaWhatsapp } from "react-icons/fa";
+import { CONTACT } from "@/config/contact";
 
 export default function WhatsAppButton() {
-  const whatsappNumber = "+91 9235818178"; // Replace with your WhatsApp number (country code + number)
-  const whatsappMessage = "Hello! I would like to inquire about RM Suncity Public School.";
+  const whatsappMessage =
+    "Hello! I would like to inquire about RM Suncity Public School.";
 
   const handleWhatsAppClick = () => {
     const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    const whatsappUrl = `${CONTACT.whatsappUrl}?text=${encodedMessage}`;
     window.open(whatsappUrl, "_blank");
   };
 

@@ -11,6 +11,7 @@ import { BsInstagram } from "react-icons/bs";
 import { FiChevronDown, FiBell } from "react-icons/fi";
 import LoginPopup from "./LoginPopup";
 import toast from "react-hot-toast";
+import { CONTACT } from "@/config/contact";
 
 const notices = [
   { text: "Admissions open for the academic year 2025–26.", isNew: true },
@@ -105,8 +106,8 @@ export default function Navbar() {
   ];
 
   const contactDetails = {
-    contactNumber: "+91 8922985156",
-    emailId: "rmsuncity2012@gmail.com",
+    contactNumber: CONTACT.phoneDisplay,
+    emailId: CONTACT.email,
     facebookPage: "https://www.facebook.com/rmsuncitymaniar",
     instaPage: "https://www.instagram.com/rmsuncity",
   };

@@ -1,26 +1,34 @@
 "use client";
 
 import { useState } from "react";
-import { FaWhatsapp, FaUser, FaPhone, FaPaperPlane, FaEnvelope, FaMapMarkerAlt, FaClock, FaChevronRight, FaPhoneAlt } from "react-icons/fa";
+import {
+  FaWhatsapp,
+  FaUser,
+  FaPhone,
+  FaPaperPlane,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaClock,
+  FaChevronRight,
+  FaPhoneAlt,
+} from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiAlertCircle } from "react-icons/fi";
 import { MdCheckCircle } from "react-icons/md";
-import Link from "next/link";
-
-const WHATSAPP_NUMBER = "9235818178";
+import { CONTACT } from "@/config/contact";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
 };
 
 const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.1
-    }
-  }
+      staggerChildren: 0.1,
+    },
+  },
 };
 
 export default function Contact() {
@@ -60,11 +68,11 @@ export default function Contact() {
     setIsSubmitting(true);
     setShowSuccess(true);
 
-    const fullMessage = message.trim() 
+    const fullMessage = message.trim()
       ? `Hello, my name is ${name.trim()} and my mobile number is ${mobile.trim()}.\n\nMessage: ${message.trim()}`
       : `Hello, my name is ${name.trim()} and my mobile number is ${mobile.trim()}. I would like to contact you.`;
     const encodedMessage = encodeURIComponent(fullMessage);
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+    const whatsappUrl = `${CONTACT.whatsappUrl}?text=${encodedMessage}`;
 
     setTimeout(() => {
       window.open(whatsappUrl, "_blank", "noopener,noreferrer");
@@ -93,18 +101,18 @@ export default function Contact() {
   return (
     <>
       {/* Hero Section */}
-      <section 
+      <section
         className="relative py-32 px-4 overflow-hidden min-h-[500px] flex items-center"
         style={{
           backgroundImage: 'url("/images/Contactus.jpg")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
       >
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/50" />
-        
+
         {/* Content */}
         <div className="max-w-4xl mx-auto relative z-10">
           <motion.div
@@ -113,19 +121,18 @@ export default function Contact() {
             variants={staggerContainer}
             className="text-center"
           >
-            <motion.h1 
+            <motion.h1
               variants={fadeInUp}
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
             >
-              Get in
-                Touch
-              
+              Get in Touch
             </motion.h1>
-            <motion.p 
+            <motion.p
               variants={fadeInUp}
               className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed"
             >
-              Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+              Have questions? We'd love to hear from you. Send us a message and
+              we'll respond as soon as possible.
             </motion.p>
           </motion.div>
         </div>
@@ -135,7 +142,6 @@ export default function Contact() {
       <section className="py-12 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-5 gap-8 items-start">
-            
             {/* LEFT COLUMN - Contact Information Cards (40%) */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -152,10 +158,15 @@ export default function Contact() {
                 <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
                   <FaPhoneAlt className="text-white text-xl" />
                 </div>
-                <h3 className="font-bold text-gray-900 text-lg mb-2">Call Us</h3>
+                <h3 className="font-bold text-gray-900 text-lg mb-2">
+                  Call Us
+                </h3>
                 <p className="text-gray-500 text-sm mb-3">Mon-Sat: 8AM - 5PM</p>
-                <a href="tel:+919235818178" className="text-orange-600 font-semibold hover:text-orange-700">
-                  +91 9235818178
+                <a
+                  href={CONTACT.phoneUrl}
+                  className="text-orange-600 font-semibold hover:text-orange-700"
+                >
+                  {CONTACT.phoneDisplay}
                 </a>
               </motion.div>
 
@@ -167,10 +178,17 @@ export default function Contact() {
                 <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
                   <FaWhatsapp className="text-white text-2xl" />
                 </div>
-                <h3 className="font-bold text-gray-900 text-lg mb-2">WhatsApp</h3>
+                <h3 className="font-bold text-gray-900 text-lg mb-2">
+                  WhatsApp
+                </h3>
                 <p className="text-gray-500 text-sm mb-3">Quick response</p>
-                <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="text-green-600 font-semibold hover:text-green-700">
-                  +91 9235818178
+                <a
+                  href={CONTACT.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-green-600 font-semibold hover:text-green-700"
+                >
+                  {CONTACT.whatsappDisplay}
                 </a>
               </motion.div>
 
@@ -183,13 +201,17 @@ export default function Contact() {
                   <FaEnvelope className="text-white text-xl" />
                 </div>
                 <h3 className="font-bold text-gray-900 text-lg mb-2">Email</h3>
-                <p className="text-gray-500 text-sm mb-3">We reply within 24h</p>
-                <a href="mailto:rmsuncity2012@gmail.com" className="text-orange-600 font-semibold hover:text-orange-700 break-all">
-                  rmsuncity2012@gmail.com
+                <p className="text-gray-500 text-sm mb-3">
+                  We reply within 24h
+                </p>
+                <a
+                  href={CONTACT.emailUrl}
+                  className="text-orange-600 font-semibold hover:text-orange-700 break-all"
+                >
+                  {CONTACT.email}
                 </a>
               </motion.div>
-
-              </motion.div>
+            </motion.div>
 
             {/* RIGHT COLUMN - Contact Form (60%) */}
             <motion.div
@@ -230,7 +252,10 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   {/* Full Name Field */}
                   <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Full Name <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
@@ -260,7 +285,10 @@ export default function Contact() {
 
                   {/* Mobile Number Field */}
                   <div>
-                    <label htmlFor="mobile" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="mobile"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Mobile Number <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
@@ -291,8 +319,12 @@ export default function Contact() {
 
                   {/* Message Field */}
                   <div>
-                    <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                      Your Message <span className="text-gray-400">(Optional)</span>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
+                      Your Message{" "}
+                      <span className="text-gray-400">(Optional)</span>
                     </label>
                     <div className="relative">
                       <textarea
@@ -322,7 +354,11 @@ export default function Contact() {
                       <>
                         <motion.div
                           animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          transition={{
+                            duration: 1,
+                            repeat: Infinity,
+                            ease: "linear",
+                          }}
                           className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
                         />
                         Opening WhatsApp...
@@ -340,7 +376,8 @@ export default function Contact() {
                 {/* Info Note */}
                 <div className="mt-6 p-4 bg-orange-50 rounded-xl border border-orange-100">
                   <p className="text-xs text-orange-600 text-center">
-                    💬 Your message will be sent directly to our WhatsApp. Please ensure WhatsApp is installed on your device.
+                    💬 Your message will be sent directly to our WhatsApp.
+                    Please ensure WhatsApp is installed on your device.
                   </p>
                 </div>
               </div>
@@ -360,25 +397,12 @@ export default function Contact() {
             className="bg-white rounded-3xl p-4 shadow-xl border border-gray-100"
           >
             <div className="relative rounded-2xl overflow-hidden h-[450px] lg:h-[500px]">
-              <a
-                href="https://www.google.com/maps/place//@26.0122534,84.1315854,17.44z/data=!4m6!1m5!3m4!2zMjbCsDAwJzQzLjIiTiA4NMKwMDcnNTMuOCJF!8m2!3d26.012!4d84.1316?entry=ttu&g_ep=EgoyMDI2MDQwNS4wIKXMDSoASAFQAw%3D%3D"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full h-full"
-                title="Click to open in Google Maps"
-              >
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.123456789!2d84.1316!3d26.012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDAwJzQzLjIiTiA4NMKwMDcnNTMuOCJF!5e0!3m2!1sen!2sin!4v1703123456789!5m2!1sen!2sin"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="RM Suncity Public School Location"
-                  className="grayscale hover:grayscale-0 transition-all duration-500"
-                />
-              </a>
+              <iframe
+                src={CONTACT.mapEmbedUrl}
+                width="100%"
+                height="100%"
+                allowFullScreen
+              />
             </div>
           </motion.div>
         </div>

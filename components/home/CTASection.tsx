@@ -6,8 +6,7 @@ import {
   BiLogoWhatsapp,
   BiEnvelope,
 } from "react-icons/bi";
-
-const WHATSAPP_NUMBER = "9235818178";
+import { CONTACT } from "@/config/contact";
 
 export default function VisitSection() {
   return (
@@ -35,7 +34,7 @@ export default function VisitSection() {
               Plan Your Visit
             </h2>
 
-            <p className="text-gray-200 leading-relaxed mb-8 max-w-lg">
+            <p className="text-gray-100 leading-relaxed mb-8 max-w-lg">
               Visit RM Suncity Public School to explore our campus, meet our
               educators, and experience an environment designed to inspire
               learning and growth.
@@ -44,7 +43,7 @@ export default function VisitSection() {
             <div className="flex flex-col sm:flex-row flex-wrap gap-4">
               <motion.a
                 whileHover={{ scale: 1.05 }}
-                href="https://www.google.com/maps?cid=13624318445649534623&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&hl=en&gl=IN&source=embed"
+                href={CONTACT.locationUrl}
                 target="_blank"
                 className="text-lg w-full sm:w-auto flex justify-center items-center gap-2 border-2 border-white bg-white text-orange-600 px-6 py-3 font-semibold hover:bg-transparent hover:border-white hover:text-white transition"
               >
@@ -54,7 +53,7 @@ export default function VisitSection() {
 
               <motion.a
                 whileHover={{ scale: 1.05 }}
-                href="mailto:rmsuncity2012@gmail.com"
+                href={CONTACT.emailUrl}
                 className="text-lg w-full sm:w-auto flex justify-center items-center gap-2 border-2 border-white bg-white text-orange-600 px-6 py-3 font-semibold hover:bg-transparent hover:border-white hover:text-white transition"
               >
                 <BiEnvelope className="text-xl" />
@@ -85,7 +84,7 @@ export default function VisitSection() {
               whileHover={{ scale: 1.05 }}
               animate={{ scale: [1, 1.03, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hello%21%20I%20want%20to%20visit%20your%20campus.%20Please%20let%20me%20know%20the%20available%20slots.`}
+              href={`${CONTACT.whatsappUrl}?text=Hello%21%20I%20want%20to%20visit%20your%20campus.%20Please%20let%20me%20know%20the%20available%20slots.`}
               target="_blank"
               className="w-full sm:w-auto flex justify-center items-center gap-2 bg-green-500 text-white px-6 py-3 font-semibold hover:bg-green-600 transition"
             >
@@ -107,7 +106,7 @@ export default function VisitSection() {
       >
         <iframe
           className="w-full h-full"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224.15411151413903!2d84.14489172950627!3d25.985555150831157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39925c58f6612885%3A0xbd134d710bbe1e9f!2sR.M.Suncity%20Public%20School!5e0!3m2!1sen!2sin!4v1782661209131!5m2!1sen!2sin"
+          src={CONTACT.mapEmbedUrl}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>

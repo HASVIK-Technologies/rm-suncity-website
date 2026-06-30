@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import heroSlides from "@/data/heroSlides.json";
+import { CONTACT } from "@/config/contact";
 
 type Slide = {
   src: string;
@@ -86,23 +87,19 @@ export default function Hero() {
                     </div>
                   )}
 
-                  {slides[index].phone && (
-                    <div className="flex align-center gap-3 text-white mb-2 justify-center">
-                      <FaPhoneAlt className="text-white text-md sm:text-lg shrink-0" />
-                      <p className="text-sm sm:text-base font-semibold text-white">
-                        {slides[index].phone}
-                      </p>
-                    </div>
-                  )}
+                  <div className="flex align-center gap-3 text-white mb-2 justify-center">
+                    <FaPhoneAlt className="text-white text-md sm:text-lg shrink-0" />
+                    <p className="text-sm sm:text-base font-semibold text-white">
+                      {slides[index].phone ?? CONTACT.phoneNumber}
+                    </p>
+                  </div>
 
-                  {slides[index].email && (
-                    <div className="flex align-center gap-3 text-white mb-2 justify-center">
-                      <MdEmail className="text-white text-md sm:text-lg shrink-0" />
-                      <p className="text-sm sm:text-base font-semibold text-white break-all">
-                        {slides[index].email}
-                      </p>
-                    </div>
-                  )}
+                  <div className="flex align-center gap-3 text-white mb-2 justify-center">
+                    <MdEmail className="text-white text-md sm:text-lg shrink-0" />
+                    <p className="text-sm sm:text-base font-semibold text-white break-all">
+                      {slides[index].email ?? CONTACT.email}
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>

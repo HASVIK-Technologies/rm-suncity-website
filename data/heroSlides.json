@@ -3,36 +3,26 @@
     "src": "/images/school.jpeg",
     "title": "RM Suncity Public School",
     "description": "An English medium co-educational CBSE standard, offering classes from Nursery to 10th grade.",
-    "location": "Khejuri Road Pillue, Maniyar, Gor Pokhar, Ballia, Uttar Pradesh 277302",
-    "phone": "+918922985156",
-    "email": "rmsuncity2012@gmail.com"
+    "location": "Khejuri Road Pillue, Maniyar, Gor Pokhar, Ballia, Uttar Pradesh 277302"
   },
   {
     "src": "/images/computer-lab.jpeg",
     "title": "Future-Ready Technology",
-    "description": "Empowering students with hands-on computing and digital literacy in our modern lab.",
-    "phone": "+918922985156",
-    "email": "rmsuncity2012@gmail.com"
+    "description": "Empowering students with hands-on computing and digital literacy in our modern lab."
   },
   {
     "src": "/images/park.jpeg",
     "title": "Safe Green Campus",
-    "description": "A serene and secure campus that encourages outdoor learning and student wellbeing.",
-    "phone": "+918922985156",
-    "email": "rmsuncity2012@gmail.com"
+    "description": "A serene and secure campus that encourages outdoor learning and student wellbeing."
   },
   {
     "src": "/images/sports.jpeg",
     "title": "Active Sports Culture",
-    "description": "Building leadership and fitness through a wide range of games and physical activities.",
-    "phone": "+918922985156",
-    "email": "rmsuncity2012@gmail.com"
+    "description": "Building leadership and fitness through a wide range of games and physical activities."
   },
   {
     "src": "/images/school-vans.jpeg",
     "title": "Safe Transport Network",
-    "description": "Convenient, reliable transport for students across the region.",
-    "phone": "+918922985156",
-    "email": "rmsuncity2012@gmail.com"
+    "description": "Convenient, reliable transport for students across the region."
   }
 ]

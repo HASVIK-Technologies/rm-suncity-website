@@ -105,7 +105,7 @@ export default function Navbar() {
   ];
 
   const contactDetails = {
-    contactNumber: "+91 9235818178",
+    contactNumber: "+91 8922985156",
     emailId: "rmsuncity2012@gmail.com",
     facebookPage: "https://www.facebook.com/rmsuncitymaniar",
     instaPage: "https://www.instagram.com/rmsuncity",

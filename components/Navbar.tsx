@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { TfiEmail } from "react-icons/tfi";
 import { PiPhone } from "react-icons/pi";
-import { FaFacebook, FaSignOutAlt } from "react-icons/fa";
+import { FaFacebook, FaSignOutAlt, FaYoutube } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { FiChevronDown, FiBell } from "react-icons/fi";
 import LoginPopup from "./LoginPopup";
@@ -17,8 +17,14 @@ const notices = [
   { text: "Admissions open for the academic year 2025–26.", isNew: true },
   { text: "Parent Teacher Meeting scheduled for next Saturday.", isNew: true },
   { text: "Annual Sports Day will be conducted next month.", isNew: false },
-  { text: "New computer lab facilities introduced for students.", isNew: false },
-  { text: "Scholarship opportunities available for meritorious students.", isNew: false },
+  {
+    text: "New computer lab facilities introduced for students.",
+    isNew: false,
+  },
+  {
+    text: "Scholarship opportunities available for meritorious students.",
+    isNew: false,
+  },
 ];
 
 export default function Navbar() {
@@ -108,15 +114,16 @@ export default function Navbar() {
   const contactDetails = {
     contactNumber: CONTACT.phoneDisplay,
     emailId: CONTACT.email,
-    facebookPage: "https://www.facebook.com/rmsuncitymaniar",
-    instaPage: "https://www.instagram.com/rmsuncity",
+    facebookPage: CONTACT.facebook,
+    instaPage: CONTACT.instagram,
+    youtubePage: CONTACT.youtube,
   };
 
   return (
     <>
       {/* 🔹 Top Bar (Normal Flow) */}
       <div className="bg-white border-b border-gray-200 hidden md:flex">
-        <div className="flex items-center justify-between px-8 h-7 max-w-7xl w-full text-sm text-gray-900 mx-auto">
+        <div className="flex items-center justify-between px-8 h-8 max-w-7xl w-full text-sm text-gray-900 mx-auto">
           <div className="flex items-center">
             <TfiEmail className="me-3 text-blue-600 text-lg text-semibold" />
             <span className="me-6">{contactDetails.emailId}</span>
@@ -125,13 +132,15 @@ export default function Navbar() {
             <span>{contactDetails.contactNumber}</span>
           </div>
 
-
-          <div className="flex gap-3">
+          <div className="flex items-center gap-5">
             <Link href={contactDetails.facebookPage} target="_blank">
               <FaFacebook className="text-blue-600 hover:scale-110 transition" />
             </Link>
             <Link href={contactDetails.instaPage} target="_blank">
               <BsInstagram className="text-pink-500 hover:scale-110 transition" />
+            </Link>
+            <Link href={contactDetails.youtubePage} target="_blank">
+              <FaYoutube className="text-red-600 hover:scale-110 transition text-lg" />
             </Link>
           </div>
         </div>
@@ -279,18 +288,30 @@ export default function Navbar() {
                 <button
                   onClick={() => setNotificationOpen(!notificationOpen)}
                   className="relative p-2 text-gray-700 hover:text-orange-600 transition-colors"
-                  aria-label={notificationOpen ? "Close notifications" : "Open notifications"}
+                  aria-label={
+                    notificationOpen
+                      ? "Close notifications"
+                      : "Open notifications"
+                  }
                 >
                   <motion.span
-                    animate={notices.filter(n => n.isNew).length > 0 ? { scale: [1, 1.12, 1], opacity: [1, 0.75, 1] } : {}}
-                    transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+                    animate={
+                      notices.filter((n) => n.isNew).length > 0
+                        ? { scale: [1, 1.12, 1], opacity: [1, 0.75, 1] }
+                        : {}
+                    }
+                    transition={{
+                      duration: 1.2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
                     className="flex items-center justify-center"
                   >
                     <FiBell size={24} />
                   </motion.span>
-                  {notices.filter(n => n.isNew).length > 0 && (
+                  {notices.filter((n) => n.isNew).length > 0 && (
                     <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full border border-white bg-red-500 text-[10px] font-semibold text-white">
-                      {notices.filter(n => n.isNew).length}
+                      {notices.filter((n) => n.isNew).length}
                     </span>
                   )}
                 </button>
@@ -404,9 +425,9 @@ export default function Navbar() {
                     >
                       <span className="relative">
                         <FiBell size={20} />
-                        {notices.filter(n => n.isNew).length > 0 && (
+                        {notices.filter((n) => n.isNew).length > 0 && (
                           <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full border border-white bg-red-500 text-[9px] font-semibold text-white">
-                            {notices.filter(n => n.isNew).length}
+                            {notices.filter((n) => n.isNew).length}
                           </span>
                         )}
                       </span>
@@ -448,7 +469,7 @@ export default function Navbar() {
               <div className="flex items-center gap-2">
                 <h3 className="text-white font-semibold text-lg">Notices</h3>
                 <span className="bg-white text-orange-500 px-2 py-0.5 rounded-full text-sm font-semibold">
-                  {notices.filter(n => n.isNew).length} new
+                  {notices.filter((n) => n.isNew).length} new
                 </span>
               </div>
               <button
@@ -476,7 +497,11 @@ export default function Navbar() {
                     {notice.isNew && (
                       <motion.span
                         animate={{ opacity: [1, 0.45, 1], scale: [1, 1.05, 1] }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
+                        transition={{
+                          duration: 1,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        }}
                         className="bg-orange-500 px-2 py-0.5 rounded text-[10px] font-semibold text-white ml-2 flex-shrink-0"
                       >
                         NEW

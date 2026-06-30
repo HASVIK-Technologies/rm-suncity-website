@@ -6,11 +6,8 @@ import AboutCounts from "./AboutCounts";
 
 export default function StorySection() {
   return (
-<section className="relative py-6 -mt-20">
-      <div
-        className="absolute inset-0 opacity-40"
-        style={{ background: "url(/images/bg_img1.png)" }}
-      ></div>
+    <section className="relative -mt-20">
+      <div className="absolute inset-0 opacity-40"></div>
 
       {/* COUNTS (unchanged) */}
       <div className="bg-transparent grid md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 mb-16 max-w-7xl mx-auto">
@@ -19,20 +16,20 @@ export default function StorySection() {
 
       {/* <MainTitle title="Our Story" /> */}
 
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 px-6 items-center relative z-10 py-20">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 px-6 items-center relative z-10 pt-0 pb-10">
         {/* IMAGE */}
         <motion.div
           initial={{ opacity: 0, x: -60, scale: 0.95 }}
           whileInView={{ opacity: 0.9, x: 0, scale: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="relative"
+          className="relative h-full"
         >
           {/* Image */}
           <img
             src="/images/school.png"
             alt="School"
-            className="relative w-full object-cover shadow-2xl"
+            className="relative w-full h-full object-cover"
           />
 
           {/* Overlay tint */}

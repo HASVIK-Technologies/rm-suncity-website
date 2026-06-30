@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { FaFacebook, FaInstagram, FaYoutube, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { CONTACT } from "@/config/contact";
 
 const quickLinks = [
   { name: "Home", href: "/" },
@@ -20,9 +21,9 @@ const usefulLinks = [
 ];
 
 const socialLinks = [
-  { name: "Facebook", icon: FaFacebook, href: "https://facebook.com" },
-  { name: "Instagram", icon: FaInstagram, href: "https://instagram.com" },
-  { name: "YouTube", icon: FaYoutube, href: "https://youtube.com" },
+  { name: "Facebook", icon: FaFacebook, href: CONTACT.facebook },
+  { name: "Instagram", icon: FaInstagram, href: CONTACT.instagram },
+  { name: "YouTube", icon: FaYoutube, href: CONTACT.youtube },
 ];
 
 export default function Footer() {
@@ -118,25 +119,25 @@ export default function Footer() {
               <li className="flex items-start space-x-3">
                 <FaMapMarkerAlt className="text-orange-500 mt-1 flex-shrink-0" size={16} />
                 <span className="text-gray-400 text-sm leading-relaxed">
-                  RM Suncity Public School, Sector 15, Hisar, Haryana
+                  RM Suncity Public School, Khejuri Road Pillue, Maniyar, Gor Pokhar, Ballia, Uttar Pradesh 277302
                 </span>
               </li>
               <li className="flex items-center space-x-3">
                 <FaPhoneAlt className="text-orange-500 flex-shrink-0" size={16} />
-                <a href="tel:+919876543210" className="text-gray-400 hover:text-orange-400 transition-colors text-sm">
-                  +91 98765 43210
+                <a href={`tel:${CONTACT.phoneNumber}`} className="text-gray-400 hover:text-orange-400 transition-colors text-sm">
+                  {CONTACT.phoneNumber}
                 </a>
               </li>
               <li className="flex items-center space-x-3">
                 <FaEnvelope className="text-orange-500 flex-shrink-0" size={16} />
-                <a href="mailto:info@rmsuncity.edu" className="text-gray-400 hover:text-orange-400 transition-colors text-sm">
-                  info@rmsuncity.edu
+                <a href={`mailto:${CONTACT.email}`} className="text-gray-400 hover:text-orange-400 transition-colors text-sm">
+                  {CONTACT.email}
                 </a>
               </li>
               <li className="flex items-start space-x-3">
                 <FaClock className="text-orange-500 mt-1 flex-shrink-0" size={16} />
                 <span className="text-gray-400 text-sm">
-                  Mon - Sat: 8:00 AM - 3:00 PM
+                  Mon - Sat: 8:00 AM - 5:00 PM
                 </span>
               </li>
             </ul>
@@ -152,7 +153,7 @@ export default function Footer() {
               © {new Date().getFullYear()} RM Suncity Public School. All rights reserved.
             </p>
             <p className="text-gray-500 text-xs">
-              Designed & Developed by RM Suncity Public School
+              Designed & Developed by <a href="https://www.hasviktech.com" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:text-orange-400 transition-colors">HASVIK Technologies</a>
             </p>
           </div>
         </div>

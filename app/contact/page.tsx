@@ -394,9 +394,9 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-3xl p-4 shadow-xl border border-gray-100"
+            className="bg-white rounded-3xl p-[0.5] shadow-xl border border-gray-100"
           >
-            <div className="relative rounded-2xl overflow-hidden h-[450px] lg:h-[500px]">
+            <div className="relative rounded-3xl overflow-hidden h-[450px] lg:h-[500px]">
               <iframe
                 src={CONTACT.mapEmbedUrl}
                 width="100%"

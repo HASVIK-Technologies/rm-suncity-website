@@ -23,7 +23,7 @@ export default function MissionSection() {
   ];
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="pt-4 pb-10 bg-white relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute left-0 top-0 w-125 h-[500px]rounded-full"></div>
 

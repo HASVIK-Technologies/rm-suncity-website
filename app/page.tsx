@@ -1,12 +1,12 @@
 import Hero from "@/components/home/Hero"
 import Highlights from "@/components/home/Highlights"
-import CoreValues from "@/components/home/CoreValues"
 import PrincipalMessage from "@/components/home/PrincipalMessage"
 import ManagerMessage from "@/components/home/ManagerMessage"
 import CTASection from "@/components/home/CTASection"
 import AboutUs from "@/components/home/AboutUs"
 import FAQs from "@/components/home/FAQs"
 import SchoolVideos from "@/components/home/SchoolVideos"
+import Olympiad from "@/components/home/Olympiad"
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
       <AboutUs />
       <SchoolVideos />
       <Highlights />
-      <CoreValues />
+      <Olympiad />
       <ManagerMessage />
       <PrincipalMessage />
       <CTASection />

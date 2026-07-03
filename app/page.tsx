@@ -6,7 +6,7 @@ import CTASection from "@/components/home/CTASection"
 import AboutUs from "@/components/home/AboutUs"
 import FAQs from "@/components/home/FAQs"
 import Olympiad from "@/components/home/Olympiad"
-import PhotoGallery from "@/components/gallery/PhotoGallery"
+import MomentsSection from "@/components/shared/MomentsSection"
 
 export default function Home() {
   return (
@@ -14,10 +14,10 @@ export default function Home() {
       <Hero />
       <AboutUs />
       <Highlights />
+      <MomentsSection />
       <Olympiad />
       <ManagerMessage />
       <PrincipalMessage />
-      <PhotoGallery />
       <CTASection />
       <FAQs />
     </main>

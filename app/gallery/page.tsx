@@ -2,14 +2,14 @@
 
 import HeroGallery from "@/components/gallery/HeroGallery";
 import PhotoGallery from "@/components/gallery/PhotoGallery";
-import SchoolVideos from "@/components/home/SchoolVideos";
+import MomentsSection from "@/components/shared/MomentsSection";
 
 export default function Gallery() {
   return (
     <main>
       <HeroGallery />
       <PhotoGallery />
-      <SchoolVideos />
+      <MomentsSection />
     </main>
   );
 }

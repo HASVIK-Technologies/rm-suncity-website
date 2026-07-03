@@ -29,15 +29,15 @@ export default function CurriculumStructure() {
   ];
 
   return (
-    <section className="px-6 py-15 bg-white">
+    <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto">
         <MainTitle title="Academic Pathway" />
 
-        <div className="relative mt-16">
-          {/* CENTER LINE */}
-          <div className="absolute left-1/2 top-0 h-full w-px bg-gray-200 -translate-x-1/2" />
+        <div className="relative mt-10 sm:mt-16">
+          {/* CENTER LINE - Hidden on mobile, visible on md and up */}
+          <div className="hidden md:block absolute left-1/2 top-0 h-full w-px bg-gray-200 -translate-x-1/2" />
 
-          <div className="flex flex-col gap-16">
+          <div className="flex flex-col gap-8 sm:gap-12 md:gap-16">
             {data.map((item, i) => {
               const Icon = item.icon;
               const isLeft = i % 2 === 0;
@@ -45,21 +45,21 @@ export default function CurriculumStructure() {
               return (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: -100 }}
+                  initial={{ opacity: 0, y: -50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.8 }}
+                  transition={{ duration: 0.6 }}
                   className={`relative flex items-center ${
                     isLeft ? "justify-start" : "justify-end"
                   }`}
                 >
                   {/* CONTENT */}
-                  <div className="w-full md:w-[45%] border border-gray-200 p-6 bg-white">
+                  <div className="w-full sm:w-[90%] md:w-[45%] border border-gray-200 p-4 sm:p-6 bg-white rounded-lg sm:rounded-xl">
                     <span className="text-xs text-gray-400 tracking-widest">
                       0{i + 1}
                     </span>
 
-                    <h3 className="text-lg font-semibold mt-2 mb-2 text-gray-900">
+                    <h3 className="text-base sm:text-lg font-semibold mt-2 mb-2 text-gray-900">
                       {item.title}
                     </h3>
 
@@ -68,9 +68,14 @@ export default function CurriculumStructure() {
                     </p>
                   </div>
 
-                  {/* ICON DOT */}
-                  <div className="absolute left-1/2 -translate-x-1/2 bg-white border border-gray-200 w-12 h-12 flex items-center justify-center">
+                  {/* ICON DOT - Hidden on mobile, visible on md and up */}
+                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 bg-white border border-gray-200 w-12 h-12 items-center justify-center rounded-full">
                     <Icon className="text-orange-500" size={22} />
+                  </div>
+
+                  {/* Mobile icon - shown below content on mobile */}
+                  <div className="md:hidden absolute right-2 sm:right-4 top-4 bg-white border border-gray-200 w-10 h-10 items-center justify-center rounded-full flex">
+                    <Icon className="text-orange-500" size={18} />
                   </div>
                 </motion.div>
               );

@@ -18,13 +18,13 @@ export default function Academics() {
         <CurriculumStructure />
 
         {/* ================= ACADEMIC STAGES ================= */}
-        <section className="px-6 py-20 bg-gray-50">
+        <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-2xl font-semibold mb-10">
+            <h2 className="text-xl sm:text-2xl font-semibold mb-8 sm:mb-10">
               From Nursery to Class 10
             </h2>
 
-            <div className="grid gap-6 lg:grid-cols-4">
+            <div className="grid gap-4 sm:gap-6 lg:grid-cols-4">
               {[
                 {
                   title: "Nursery & KG",
@@ -45,9 +45,9 @@ export default function Academics() {
               ].map((stage, i) => (
                 <div
                   key={i}
-                  className="border border-gray-200 rounded-3xl p-6 bg-white hover:border-orange-400 transition"
+                  className="border border-gray-200 rounded-2xl sm:rounded-3xl p-4 sm:p-6 bg-white hover:border-orange-400 transition"
                 >
-                  <h3 className="text-lg font-semibold mb-3">{stage.title}</h3>
+                  <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3">{stage.title}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     {stage.desc}
                   </p>
@@ -58,13 +58,13 @@ export default function Academics() {
         </section>
 
         {/* ================= METHODOLOGY ================= */}
-        <section className="px-6 py-20">
+        <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-2xl font-semibold mb-10">
+            <h2 className="text-xl sm:text-2xl font-semibold mb-8 sm:mb-10">
               Teaching Methodology
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-10">
+            <div className="grid sm:grid-cols-2 gap-6 sm:gap-10">
               {[
                 {
                   icon: BiBrain,
@@ -90,10 +90,10 @@ export default function Academics() {
                 const Icon = item.icon;
 
                 return (
-                  <div key={i} className="flex gap-4">
-                    <Icon className="text-orange-500 mt-1" size={22} />
+                  <div key={i} className="flex gap-3 sm:gap-4">
+                    <Icon className="text-orange-500 mt-1 flex-shrink-0" size={22} />
                     <div>
-                      <h4 className="font-semibold">{item.title}</h4>
+                      <h4 className="font-semibold text-sm sm:text-base">{item.title}</h4>
                       <p className="text-gray-600 text-sm">{item.desc}</p>
                     </div>
                   </div>
@@ -104,11 +104,11 @@ export default function Academics() {
         </section>
 
         {/* ================= STAGE SUBJECTS ================= */}
-        <section className="px-6 py-20 bg-gray-50">
+        <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20 bg-gray-50">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl font-semibold mb-10">Stage-Wise Focus Areas</h2>
+            <h2 className="text-xl sm:text-2xl font-semibold mb-8 sm:mb-10">Stage-Wise Focus Areas</h2>
 
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
               {[
                 {
                   title: "Early Years",
@@ -125,10 +125,10 @@ export default function Academics() {
               ].map((subject, i) => (
                 <div
                   key={i}
-                  className="border border-gray-200 p-6 rounded-3xl bg-white"
+                  className="border border-gray-200 p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white"
                 >
-                  <h3 className="font-semibold mb-4">{subject.title}</h3>
-                  <ul className="space-y-3 text-gray-600 text-sm">
+                  <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">{subject.title}</h3>
+                  <ul className="space-y-2 sm:space-y-3 text-gray-600 text-sm">
                     {subject.items.map((item, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <span className="mt-1 text-orange-500">•</span>
@@ -143,18 +143,18 @@ export default function Academics() {
         </section>
 
         {/* ================= FACULTY ================= */}
-        <section className="px-6 py-20">
+        <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl font-semibold mb-10">Our Faculty</h2>
+            <h2 className="text-xl sm:text-2xl font-semibold mb-8 sm:mb-10">Our Faculty</h2>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
               {[
                 "Early years specialists for nursery and kindergarten",
                 "Experienced grade teachers for foundation learning",
                 "Mentors for class 9 and 10 board preparation",
               ].map((text, i) => (
-                <div key={i} className="border border-gray-200 p-6 rounded-3xl">
-                  <p className="text-gray-700">{text}</p>
+                <div key={i} className="border border-gray-200 p-4 sm:p-6 rounded-2xl sm:rounded-3xl">
+                  <p className="text-gray-700 text-sm sm:text-base">{text}</p>
                 </div>
               ))}
             </div>
@@ -162,13 +162,13 @@ export default function Academics() {
         </section>
 
         {/* ================= ASSESSMENT ================= */}
-        <section className="px-6 py-20 bg-gray-50">
+        <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20 bg-gray-50">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl font-semibold mb-10">
+            <h2 className="text-xl sm:text-2xl font-semibold mb-8 sm:mb-10">
               Assessment & Growth
             </h2>
 
-            <div className="flex flex-col md:flex-row justify-between gap-6">
+            <div className="flex flex-col sm:flex-row justify-between gap-4 sm:gap-6">
               {[
                 "Age-suitable formative assessments",
                 "Regular skill and mindset tracking",
@@ -176,10 +176,10 @@ export default function Academics() {
               ].map((step, i) => (
                 <div
                   key={i}
-                  className="flex-1 border border-gray-200 p-6 text-center rounded-3xl"
+                  className="flex-1 border border-gray-200 p-4 sm:p-6 text-center rounded-2xl sm:rounded-3xl"
                 >
                   <span className="text-sm text-gray-400">0{i + 1}</span>
-                  <p className="mt-2 font-medium">{step}</p>
+                  <p className="mt-2 font-medium text-sm sm:text-base">{step}</p>
                 </div>
               ))}
             </div>
@@ -187,13 +187,13 @@ export default function Academics() {
         </section>
 
         {/* ================= CO-CURRICULAR ================= */}
-        <section className="px-6 py-20">
+        <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl font-semibold mb-10">
+            <h2 className="text-xl sm:text-2xl font-semibold mb-8 sm:mb-10">
               Co-Curricular Activities
             </h2>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
               {[
                 { icon: BiFootball, label: "Sports" },
                 { icon: BiPaint, label: "Arts" },
@@ -204,10 +204,10 @@ export default function Academics() {
                 return (
                   <div
                     key={i}
-                    className="border border-gray-200 p-6 text-center hover:border-orange-400 transition rounded-3xl"
+                    className="border border-gray-200 p-4 sm:p-6 text-center hover:border-orange-400 transition rounded-2xl sm:rounded-3xl"
                   >
-                    <Icon className="mx-auto text-orange-500 mb-3" size={28} />
-                    <p className="font-medium">{item.label}</p>
+                    <Icon className="mx-auto text-orange-500 mb-3" size={24} />
+                    <p className="font-medium text-sm sm:text-base">{item.label}</p>
                   </div>
                 );
               })}
@@ -216,16 +216,16 @@ export default function Academics() {
         </section>
 
         {/* ================= CTA ================= */}
-        <section className="px-6 py-20 bg-gray-50">
-          <div className="max-w-4xl mx-auto text-center border border-gray-200 p-10 rounded-3xl bg-white">
-            <h2 className="text-2xl font-semibold mb-4">
+        <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20 bg-gray-50">
+          <div className="max-w-4xl mx-auto text-center border border-gray-200 p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-white">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-semibold mb-3 sm:mb-4">
               Enroll Today for a Complete School Journey
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 mb-5 sm:mb-6 text-sm sm:text-base">
               Admissions are open for Nursery through Class 10. Join a caring school environment rooted in strong academics and holistic growth.
             </p>
 
-            <button className="px-6 py-3 bg-orange-500 text-white text-sm hover:bg-orange-600 transition rounded-full">
+            <button className="px-5 sm:px-6 py-2.5 sm:py-3 bg-orange-500 text-white text-sm hover:bg-orange-600 transition rounded-full">
               Enquire Now
             </button>
           </div>

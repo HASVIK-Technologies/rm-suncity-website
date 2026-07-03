@@ -2,6 +2,12 @@ import { google } from "googleapis";
 
 export default async function notifications() {
   try {
+    // Check if required environment variables are set
+    if (!process.env.GOOGLE_SHEET_ID || !process.env.GOOGLE_CLIENT_EMAIL || !process.env.GOOGLE_PRIVATE_KEY) {
+      console.warn("Google Sheets configuration is incomplete. Skipping notifications fetch.");
+      return { success: true, notifications: [], message: "Notifications not configured" };
+    }
+
     const auth = new google.auth.GoogleAuth({
       credentials: {
         client_email: process.env.GOOGLE_CLIENT_EMAIL,

@@ -39,10 +39,10 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="space-y-4"
+            className="space-y-4 text-center md:text-left"
           >
             {/* Logo */}
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center justify-center md:justify-start space-x-3">
               <Image
                 src="/images/logo.png"
                 alt="RM Suncity Public School Logo"
@@ -58,7 +58,7 @@ export default function Footer() {
             <p className="text-gray-400 text-sm leading-relaxed">
               Nurturing young minds with excellence in education, character building, and holistic development since inception.
             </p>
-            <div className="flex space-x-3 pt-2">
+            <div className="flex justify-center md:justify-start space-x-3 pt-2">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.name}
@@ -82,18 +82,18 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="space-y-4"
+            className="space-y-4 text-center md:text-left"
           >
-            <h3 className="text-white font-semibold text-lg relative">
+            <h3 className="text-white font-semibold text-lg relative inline-block">
               Quick Links
-              <span className="absolute -bottom-1 left-0 w-12 h-0.5 bg-orange-500 rounded"></span>
+              <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-12 h-0.5 bg-orange-500 rounded"></span>
             </h3>
-            <ul className="space-y-3 pt-4">
+            <ul className="flex flex-wrap justify-center md:justify-start gap-2 pt-4">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-orange-400 transition-colors duration-300 text-sm flex items-center group"
+                    className="text-gray-400 hover:text-orange-400 transition-colors duration-300 text-sm flex items-center group px-3 py-2"
                   >
                     <span className="w-0 h-0.5 bg-orange-500 mr-2 group-hover:w-2 group-hover:mr-2 transition-all duration-300"></span>
                     {link.name}
@@ -109,32 +109,32 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="space-y-4"
+            className="space-y-4 text-center md:text-left"
           >
-            <h3 className="text-white font-semibold text-lg relative">
+            <h3 className="text-white font-semibold text-lg relative inline-block">
               Contact Info
-              <span className="absolute -bottom-1 left-0 w-12 h-0.5 bg-orange-500 rounded"></span>
+              <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-12 h-0.5 bg-orange-500 rounded"></span>
             </h3>
             <ul className="space-y-4 pt-4">
-              <li className="flex items-start space-x-3">
+              <li className="flex items-start justify-center md:justify-start space-x-3">
                 <FaMapMarkerAlt className="text-orange-500 mt-1 flex-shrink-0" size={16} />
                 <span className="text-gray-400 text-sm leading-relaxed">
                   RM Suncity Public School, Khejuri Road Pillue, Maniyar, Gor Pokhar, Ballia, Uttar Pradesh 277302
                 </span>
               </li>
-              <li className="flex items-center space-x-3">
+              <li className="flex items-center justify-center md:justify-start space-x-3">
                 <FaPhoneAlt className="text-orange-500 flex-shrink-0" size={16} />
                 <a href={`tel:${CONTACT.phoneNumber}`} className="text-gray-400 hover:text-orange-400 transition-colors text-sm">
                   {CONTACT.phoneNumber}
                 </a>
               </li>
-              <li className="flex items-center space-x-3">
+              <li className="flex items-center justify-center md:justify-start space-x-3">
                 <FaEnvelope className="text-orange-500 flex-shrink-0" size={16} />
                 <a href={`mailto:${CONTACT.email}`} className="text-gray-400 hover:text-orange-400 transition-colors text-sm">
                   {CONTACT.email}
                 </a>
               </li>
-              <li className="flex items-start space-x-3">
+              <li className="flex items-start justify-center md:justify-start space-x-3">
                 <FaClock className="text-orange-500 mt-1 flex-shrink-0" size={16} />
                 <span className="text-gray-400 text-sm">
                   Mon - Sat: 8:00 AM - 5:00 PM

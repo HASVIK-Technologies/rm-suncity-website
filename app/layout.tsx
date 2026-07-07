@@ -6,6 +6,9 @@ import NoticeWidget from "@/components/Notifications";
 import { Toaster } from "react-hot-toast";
 import { getNotifications } from "@/services/notifications";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export const metadata = {
   title: "RM Suncity Public School",
   description: "Quality education and holistic development.",

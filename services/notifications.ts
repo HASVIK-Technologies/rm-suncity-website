@@ -16,6 +16,53 @@ function normalizeHeader(header: string) {
   return header.toLowerCase().replace(/[^a-z0-9]+/g, "");
 }
 
+function normalizePrivateKey(privateKey: string | undefined) {
+  if (!privateKey) {
+    return undefined;
+  }
+
+  return privateKey
+    .trim()
+    .replace(/^['"]|['"]$/g, "")
+    .replace(/\\n/g, "\n");
+}
+
+function getSheetCredentials(env: NodeJS.ProcessEnv = process.env) {
+  const sheetId = env.GOOGLE_SHEET_ID?.trim();
+  const clientEmail = env.GOOGLE_CLIENT_EMAIL?.trim();
+  const privateKey = normalizePrivateKey(env.GOOGLE_PRIVATE_KEY);
+
+  if (sheetId && clientEmail && privateKey) {
+    return {
+      sheetId,
+      credentials: {
+        client_email: clientEmail,
+        private_key: privateKey,
+      },
+    };
+  }
+
+  const serviceAccountJson = env.GOOGLE_SERVICE_ACCOUNT || env.GOOGLE_CREDENTIALS;
+  if (serviceAccountJson) {
+    try {
+      const parsed = JSON.parse(serviceAccountJson);
+      if (parsed.client_email && parsed.private_key) {
+        return {
+          sheetId: env.GOOGLE_SHEET_ID?.trim() || parsed.spreadsheet_id || parsed.sheet_id,
+          credentials: {
+            client_email: parsed.client_email,
+            private_key: normalizePrivateKey(parsed.private_key),
+          },
+        };
+      }
+    } catch {
+      // Ignore malformed JSON and fall back to the individual env var path.
+    }
+  }
+
+  return null;
+}
+
 function toSlug(value: string) {
   return value
     .toLowerCase()
@@ -67,17 +114,15 @@ function buildNotification(row: string[], headers: string[]): NotificationItem |
 
 export async function getNotifications() {
   try {
-    // Check if required environment variables are set
-    if (!process.env.GOOGLE_SHEET_ID || !process.env.GOOGLE_CLIENT_EMAIL || !process.env.GOOGLE_PRIVATE_KEY) {
+    const credentials = getSheetCredentials();
+
+    if (!credentials?.sheetId || !credentials.credentials.client_email || !credentials.credentials.private_key) {
       console.warn("Google Sheets configuration is incomplete. Skipping notifications fetch.");
       return { success: true, notifications: [], message: "Notifications not configured" };
     }
 
     const auth = new google.auth.GoogleAuth({
-      credentials: {
-        client_email: process.env.GOOGLE_CLIENT_EMAIL,
-        private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
-      },
+      credentials: credentials.credentials,
       scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
     });
 
@@ -87,8 +132,8 @@ export async function getNotifications() {
     });
 
     const response = await sheets.spreadsheets.values.get({
-      spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: "Notifications!A:G",
+      spreadsheetId: credentials.sheetId,
+      range: "Notifications!A:Z",
     });
 
     const values = response.data.values ?? [];

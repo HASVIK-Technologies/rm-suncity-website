@@ -13,9 +13,9 @@ export default function Home() {
     <main className="bg-white">
       <Hero />
       <AboutUs />
+      <Olympiad />
       <Highlights />
       <MomentsSection />
-      <Olympiad />
       <ManagerMessage />
       <PrincipalMessage />
       <CTASection />

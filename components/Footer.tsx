@@ -84,16 +84,16 @@ export default function Footer() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="space-y-4 text-center md:text-left"
           >
-            <h3 className="text-white font-semibold text-lg relative inline-block">
+            <h3 className="text-white font-semibold text-lg flex items-center md:justify-end lg:justify-start group px-3 py-2">
               Quick Links
-              <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-12 h-0.5 bg-orange-500 rounded"></span>
+              {/* <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-12 h-0.5 bg-orange-500 rounded"></span> */}
             </h3>
-            <ul className="flex flex-wrap justify-center md:justify-start gap-2 pt-4">
+            <ul className="flex flex-wrap justify-center md:flex-col md:justify-start gap-2 pt-4">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-orange-400 transition-colors duration-300 text-sm flex items-center group px-3 py-2"
+                    className="text-gray-400 hover:text-orange-400 transition-colors duration-300 text-sm flex items-center md:justify-end lg:justify-start group px-3 py-1"
                   >
                     <span className="w-0 h-0.5 bg-orange-500 mr-2 group-hover:w-2 group-hover:mr-2 transition-all duration-300"></span>
                     {link.name}
@@ -113,7 +113,7 @@ export default function Footer() {
           >
             <h3 className="text-white font-semibold text-lg relative inline-block">
               Contact Info
-              <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-12 h-0.5 bg-orange-500 rounded"></span>
+              {/* <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-12 h-0.5 bg-orange-500 rounded"></span> */}
             </h3>
             <ul className="space-y-4 pt-4">
               <li className="flex items-start justify-center md:justify-start space-x-3">

@@ -1,6 +1,7 @@
 "use client";
 import CurriculumStructure from "@/components/academics/CurriculumStructure";
 import HeroAcademics from "@/components/academics/HeroAcademics";
+import { CONTACT } from "@/config/contact";
 import {
   BiBook,
   BiBrain,
@@ -225,9 +226,14 @@ export default function Academics() {
               Admissions are open for Nursery through Class 10. Join a caring school environment rooted in strong academics and holistic growth.
             </p>
 
-            <button className="px-5 sm:px-6 py-2.5 sm:py-3 bg-orange-500 text-white text-sm hover:bg-orange-600 transition rounded-full">
+            <a
+              href={`${CONTACT.whatsappUrl}?text=${encodeURIComponent("Hello, I would like to enquire about admissions at RM Suncity Public School.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex px-5 sm:px-6 py-2.5 sm:py-3 bg-orange-500 text-white text-sm hover:bg-orange-600 transition rounded-full"
+            >
               Enquire Now
-            </button>
+            </a>
           </div>
         </section>
       </div>

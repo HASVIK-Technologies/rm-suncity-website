@@ -187,7 +187,7 @@ export default function Academics() {
         </section>
 
         {/* ================= CO-CURRICULAR ================= */}
-        <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20">
+        <section id="co-curricular" className="px-4 sm:px-6 py-12 sm:py-16 md:py-20">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-xl sm:text-2xl font-semibold mb-8 sm:mb-10">
               Co-Curricular Activities
@@ -215,8 +215,42 @@ export default function Academics() {
           </div>
         </section>
 
+        {/* ================= CALENDER ================= */}
+        <section id="calendar" className="px-4 sm:px-6 py-12 sm:py-16 md:py-20 bg-gray-50">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-xl sm:text-2xl font-semibold mb-8 sm:mb-10">
+              Academic Calender
+            </h2>
+
+            <div className="grid gap-4 md:grid-cols-3">
+              {[
+                {
+                  title: "Term 1",
+                  detail: "Orientation, assessments, and parent meetings",
+                },
+                {
+                  title: "Term 2",
+                  detail: "Mid-year projects, exhibitions, and progress reviews",
+                },
+                {
+                  title: "Term 3",
+                  detail: "Final assessments, result sharing, and vacation planning",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="border border-gray-200 rounded-2xl sm:rounded-3xl p-4 sm:p-6 bg-white"
+                >
+                  <h3 className="font-semibold text-base sm:text-lg mb-2">{item.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{item.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ================= CTA ================= */}
-        <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20 bg-gray-50">
+        <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20 bg-white">
           <div className="max-w-4xl mx-auto text-center border border-gray-200 p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-white">
             <h2 className="text-lg sm:text-xl md:text-2xl font-semibold mb-3 sm:mb-4">
               Enroll Today for a Complete School Journey

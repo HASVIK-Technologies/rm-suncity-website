@@ -29,7 +29,7 @@ export default function CurriculumStructure() {
   ];
 
   return (
-    <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20 bg-white">
+    <section id="curriculum" className="px-4 sm:px-6 py-12 sm:py-16 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto">
         <MainTitle title="Academic Pathway" />
 

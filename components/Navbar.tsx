@@ -32,6 +32,8 @@ export default function Navbar() {
   const [loginOpen, setLoginOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [notificationOpen, setNotificationOpen] = useState(false);
+  const [academicsDropdownOpen, setAcademicsDropdownOpen] = useState(false);
+  const [mobileAcademicsOpen, setMobileAcademicsOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userProfile, setUserProfile] = useState<{
     name: string;
@@ -41,6 +43,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const notificationRef = useRef<HTMLDivElement>(null);
+  const academicsDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const loggedIn =
@@ -62,7 +65,7 @@ export default function Navbar() {
     }
   }, []);
 
-  // Close notification panel when clicking outside
+  // Close notification panel and academics dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -71,16 +74,28 @@ export default function Navbar() {
       ) {
         setNotificationOpen(false);
       }
+      if (
+        academicsDropdownRef.current &&
+        !academicsDropdownRef.current.contains(event.target as Node)
+      ) {
+        setAcademicsDropdownOpen(false);
+      }
     };
 
-    if (notificationOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setAcademicsDropdownOpen(false);
+        setMobileAcademicsOpen(false);
+      }
+    };
 
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
     };
-  }, [notificationOpen]);
+  }, []);
 
   // Helper to get initials from name
   const getInitials = (name: string): string => {
@@ -106,9 +121,15 @@ export default function Navbar() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About Us" },
-    { href: "/academics", label: "Academics" },
+    { href: "/academics", label: "Academics", hasDropdown: true },
     { href: "/gallery", label: "Gallery" },
     { href: "/contact", label: "Contact Us" },
+  ];
+
+  const academicsDropdownItems = [
+    { href: "/academics/curriculum", label: "Curriculum" },
+    { href: "/academics/co-curricular", label: "Co-Curricular Activities" },
+    { href: "/academics/calendar", label: "Academic Calendar" },
   ];
 
   const contactDetails = {
@@ -177,33 +198,192 @@ export default function Navbar() {
 
               return (
                 <li key={link.href} className="relative">
-                  <Link
-                    href={link.href}
-                    className={`relative px-2 py-2 font-semibold transition-colors duration-300
-                    ${
-                      isActive
-                        ? "text-orange-600"
-                        : "text-gray-800 hover:text-orange-600"
-                    }`}
-                  >
-                    {link.label}
+                  {link.hasDropdown ? (
+                    <div ref={academicsDropdownRef}>
+                      <button
+                        onClick={() =>
+                          setAcademicsDropdownOpen(!academicsDropdownOpen)
+                        }
+                        onMouseEnter={() => setAcademicsDropdownOpen(true)}
+                        className={`flex items-center gap-1 px-2 py-2 font-semibold transition-colors duration-300
+                        ${
+                          isActive
+                            ? "text-orange-600"
+                            : "text-gray-800 hover:text-orange-600"
+                        }`}
+                        aria-expanded={academicsDropdownOpen}
+                        aria-haspopup="true"
+                      >
+                        Academics
+                        <motion.span
+                          animate={{
+                            rotate: academicsDropdownOpen ? 180 : 0,
+                          }}
+                          transition={{ duration: 0.2, ease: "easeOut" }}
+                        >
+                          <FiChevronDown size={16} />
+                        </motion.span>
+                      </button>
 
-                    {/* {isActive && (
-                      <motion.span
-                        layoutId="nav-active"
-                        transition={{
-                          type: "spring",
-                          stiffness: 400,
-                          damping: 30,
-                        }}
-                        className="absolute left-0 right-0 -bottom-1 h-0.5 bg-orange-600 rounded"
-                      />
-                    )} */}
-                  </Link>
+                      {/* Academics Dropdown */}
+                      <AnimatePresence>
+                        {academicsDropdownOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{
+                              duration: 0.25,
+                              ease: "easeOut",
+                            }}
+                            className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50"
+                          >
+                            {academicsDropdownItems.map((item) => (
+                              <Link
+                                key={item.href}
+                                href={item.href}
+                                onClick={() =>
+                                  setAcademicsDropdownOpen(false)
+                                }
+                                className="block px-4 py-3 text-gray-700 hover:text-orange-600 hover:bg-orange-50 transition-colors duration-200"
+                              >
+                                {item.label}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className={`relative px-2 py-2 font-semibold transition-colors duration-300
+                      ${
+                        isActive
+                          ? "text-orange-600"
+                          : "text-gray-800 hover:text-orange-600"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               );
             })}
-            
+            {isLoggedIn ? (
+              <li className="relative">
+                <button
+                  onClick={() => setProfileOpen(!profileOpen)}
+                  className="flex items-center gap-2 px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-full transition-colors duration-300 shadow-sm"
+                >
+                  Admin
+                  <FiChevronDown
+                    size={16}
+                    className={`transition-transform duration-200 ${profileOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {profileOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="absolute top-full mt-2 right-0 bg-white border border-gray-200 rounded-lg shadow-lg py-2 w-56 z-50"
+                  >
+                    {/* User Info Header */}
+                    <div className="px-4 py-3 border-b border-gray-100 flex items-center gap-3">
+                      {/* Avatar */}
+                      <div className="relative flex-shrink-0">
+                        {userProfile?.profileImage ? (
+                          <img
+                            src={userProfile.profileImage}
+                            alt="Profile"
+                            className="w-10 h-10 rounded-full object-cover ring-2 ring-orange-200"
+                          />
+                        ) : (
+                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center text-white font-semibold text-sm ring-2 ring-orange-200">
+                            {userProfile?.name
+                              ? getInitials(userProfile.name)
+                              : "AD"}
+                          </div>
+                        )}
+                      </div>
+                      {/* Name */}
+                      <div className="min-w-0 flex-1">
+                        <p className="text-sm font-semibold text-gray-800 truncate">
+                          {userProfile?.name || "Admin User"}
+                        </p>
+                        <p className="text-xs text-gray-500 truncate">
+                          {userProfile?.phone || "Logged in"}
+                        </p>
+                      </div>
+                    </div>
+                    {/* Profile Link */}
+                    <Link
+                      href="/admin/add-notice"
+                      className="flex items-center gap-3 px-4 py-2.5 text-gray-800 hover:bg-orange-50 transition"
+                      onClick={() => setProfileOpen(false)}
+                    >
+                      <span className="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center">
+                        {userProfile?.profileImage ? (
+                          <img
+                            src={userProfile.profileImage}
+                            alt=""
+                            className="w-5 h-5 rounded-full object-cover"
+                          />
+                        ) : (
+                          <span className="text-xs font-semibold text-gray-600">
+                            {userProfile?.name
+                              ? getInitials(userProfile.name)
+                              : "AD"}
+                          </span>
+                        )}
+                      </span>
+                      <span className="text-sm font-medium">Profile</span>
+                    </Link>
+                    <button
+                      onClick={handleLogout}
+                      className="w-full text-left flex items-center gap-3 px-4 py-2.5 text-gray-800 hover:bg-red-50 transition border-t border-gray-100"
+                    >
+                      <FaSignOutAlt size={14} />
+                      <span className="text-sm font-medium">Logout</span>
+                    </button>
+                  </motion.div>
+                )}
+              </li>
+            ) : (
+              <li>
+                <button
+                  onClick={() => setNotificationOpen(!notificationOpen)}
+                  className="relative p-2 text-gray-700 hover:text-orange-600 transition-colors"
+                  aria-label={
+                    notificationOpen
+                      ? "Close notifications"
+                      : "Open notifications"
+                  }
+                >
+                  <motion.span
+                    animate={
+                      notices.filter((n) => n.isNew).length > 0
+                        ? { scale: [1, 1.12, 1], opacity: [1, 0.75, 1] }
+                        : {}
+                    }
+                    transition={{
+                      duration: 1.2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    className="flex items-center justify-center"
+                  >
+                    <FiBell size={24} />
+                  </motion.span>
+                  {notices.filter((n) => n.isNew).length > 0 && (
+                    <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full border border-white bg-red-500 text-[10px] font-semibold text-white">
+                      {notices.filter((n) => n.isNew).length}
+                    </span>
+                  )}
+                </button>
+              </li>
+            )}
           </ul>
 
           {/* Hamburger */}

@@ -18,7 +18,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="px-4 sm:px-6 md:px-10"
+            className="px-10"
           >
             <p className="text-gray-700 leading-relaxed mb-6">
               RM Suncity Public School was founded in 2012 with a vision to deliver

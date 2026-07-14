@@ -5,6 +5,7 @@ import { CONTACT } from "@/config/contact";
 import {
   BiBook,
   BiBrain,
+  BiChevronRight,
   BiLayer,
   BiTrendingUp,
   BiFootball,
@@ -17,46 +18,6 @@ export default function Academics() {
       <div className="bg-white">
         <HeroAcademics />
         <CurriculumStructure />
-
-        {/* ================= ACADEMIC STAGES ================= */}
-        <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-xl sm:text-2xl font-semibold mb-8 sm:mb-10">
-              From Nursery to Class 10
-            </h2>
-
-            <div className="grid gap-4 sm:gap-6 lg:grid-cols-4">
-              {[
-                {
-                  title: "Nursery & KG",
-                  desc: "Play-based learning, language development, and emotional confidence.",
-                },
-                {
-                  title: "Classes 1 to 5",
-                  desc: "Strong foundations in reading, numeracy, science, and social skills.",
-                },
-                {
-                  title: "Classes 6 to 8",
-                  desc: "Hands-on projects, concept clarity, and preparation for higher learning.",
-                },
-                {
-                  title: "Classes 9 & 10",
-                  desc: "Board exam readiness, disciplined study habits, and future guidance.",
-                },
-              ].map((stage, i) => (
-                <div
-                  key={i}
-                  className="border border-gray-200 rounded-2xl sm:rounded-3xl p-4 sm:p-6 bg-white hover:border-orange-400 transition"
-                >
-                  <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3">{stage.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {stage.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ================= METHODOLOGY ================= */}
         <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20">
@@ -190,9 +151,18 @@ export default function Academics() {
         {/* ================= CO-CURRICULAR ================= */}
         <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-xl sm:text-2xl font-semibold mb-8 sm:mb-10">
-              Co-Curricular Activities
-            </h2>
+            <div className="flex items-center justify-between mb-8 sm:mb-10">
+              <h2 className="text-xl sm:text-2xl font-semibold">
+                Co-Curricular Activities
+              </h2>
+              <a
+                href="/academics/co-curricular"
+                className="text-orange-500 hover:text-orange-600 text-sm font-medium flex items-center gap-1 transition"
+              >
+                View All
+                <BiChevronRight size={18} />
+              </a>
+            </div>
 
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
               {[

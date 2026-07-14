@@ -47,32 +47,32 @@ export default function Olympiad() {
             <img
               src="/images/olympiad1.jpeg"
               alt="Olympiad 1"
-              className="w-full md:w-[48%] lg:w-[23%] object-cover rounded-lg shadow-md"
+              className="w-[24%] object-cover rounded-lg shadow-md"
             />
             <img
               src="/images/olympiad2.jpeg"
               alt="Olympiad 2"
-              className="w-full md:w-[48%] lg:w-[23%] object-cover rounded-lg shadow-md"
+              className="w-[24%] object-cover rounded-lg shadow-md"
             />
             <img
               src="/images/olympiad3.jpeg"
               alt="Olympiad 3"
-              className="w-full md:w-[48%] lg:w-[23%] object-cover rounded-lg shadow-md"
+              className="w-[24%] object-cover rounded-lg shadow-md"
             />
             <img
               src="/images/olympiad4.jpeg"
               alt="Olympiad 4"
-              className="w-full md:w-[48%] lg:w-[23%] object-cover rounded-lg shadow-md"
+              className="w-[24%] object-cover rounded-lg shadow-md"
             />
             <img
               src="/images/olympiad-prize.jpeg"
               alt="Olympiad 5"
-              className="w-full md:w-[48%] lg:w-[47.5%] object-cover rounded-lg shadow-md"
+              className="w-[49%] object-cover rounded-lg shadow-md"
             />
             <img
               src="/images/olympiad-prize-2.jpeg"
               alt="Olympiad 5"
-              className="w-full md:w-[48%] lg:w-[47.5%] object-cover rounded-lg shadow-md"
+              className="w-[49%] object-cover rounded-lg shadow-md"
             />
           </div>
         </motion.div>

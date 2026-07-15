@@ -18,48 +18,8 @@ export default function Academics() {
         <HeroAcademics />
         <CurriculumStructure />
 
-        {/* ================= ACADEMIC STAGES ================= */}
-        <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-xl sm:text-2xl font-semibold mb-8 sm:mb-10">
-              From Nursery to Class 10
-            </h2>
-
-            <div className="grid gap-4 sm:gap-6 lg:grid-cols-4">
-              {[
-                {
-                  title: "Nursery & KG",
-                  desc: "Play-based learning, language development, and emotional confidence.",
-                },
-                {
-                  title: "Classes 1 to 5",
-                  desc: "Strong foundations in reading, numeracy, science, and social skills.",
-                },
-                {
-                  title: "Classes 6 to 8",
-                  desc: "Hands-on projects, concept clarity, and preparation for higher learning.",
-                },
-                {
-                  title: "Classes 9 & 10",
-                  desc: "Board exam readiness, disciplined study habits, and future guidance.",
-                },
-              ].map((stage, i) => (
-                <div
-                  key={i}
-                  className="border border-gray-200 rounded-2xl sm:rounded-3xl p-4 sm:p-6 bg-white hover:border-orange-400 transition"
-                >
-                  <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3">{stage.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {stage.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* ================= METHODOLOGY ================= */}
-        <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20">
+        <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-xl sm:text-2xl font-semibold mb-8 sm:mb-10">
               Teaching Methodology
@@ -105,7 +65,7 @@ export default function Academics() {
         </section>
 
         {/* ================= STAGE SUBJECTS ================= */}
-        <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20 bg-gray-50">
+        <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-xl sm:text-2xl font-semibold mb-8 sm:mb-10">Stage-Wise Focus Areas</h2>
 
@@ -137,113 +97,6 @@ export default function Academics() {
                       </li>
                     ))}
                   </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ================= FACULTY ================= */}
-        <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-xl sm:text-2xl font-semibold mb-8 sm:mb-10">Our Faculty</h2>
-
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-              {[
-                "Early years specialists for nursery and kindergarten",
-                "Experienced grade teachers for foundation learning",
-                "Mentors for class 9 and 10 board preparation",
-              ].map((text, i) => (
-                <div key={i} className="border border-gray-200 p-4 sm:p-6 rounded-2xl sm:rounded-3xl">
-                  <p className="text-gray-700 text-sm sm:text-base">{text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ================= ASSESSMENT ================= */}
-        <section className="px-4 sm:px-6 py-12 sm:py-16 md:py-20 bg-gray-50">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-xl sm:text-2xl font-semibold mb-8 sm:mb-10">
-              Assessment & Growth
-            </h2>
-
-            <div className="flex flex-col sm:flex-row justify-between gap-4 sm:gap-6">
-              {[
-                "Age-suitable formative assessments",
-                "Regular skill and mindset tracking",
-                "Parent-teacher learning updates",
-              ].map((step, i) => (
-                <div
-                  key={i}
-                  className="flex-1 border border-gray-200 p-4 sm:p-6 text-center rounded-2xl sm:rounded-3xl"
-                >
-                  <span className="text-sm text-gray-400">0{i + 1}</span>
-                  <p className="mt-2 font-medium text-sm sm:text-base">{step}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ================= CO-CURRICULAR ================= */}
-        <section id="co-curricular" className="px-4 sm:px-6 py-12 sm:py-16 md:py-20">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-xl sm:text-2xl font-semibold mb-8 sm:mb-10">
-              Co-Curricular Activities
-            </h2>
-
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-              {[
-                { icon: BiFootball, label: "Sports" },
-                { icon: BiPaint, label: "Arts" },
-                { icon: BiLayer, label: "Clubs & Activities" },
-              ].map((item, i) => {
-                const Icon = item.icon;
-
-                return (
-                  <div
-                    key={i}
-                    className="border border-gray-200 p-4 sm:p-6 text-center hover:border-orange-400 transition rounded-2xl sm:rounded-3xl"
-                  >
-                    <Icon className="mx-auto text-orange-500 mb-3" size={24} />
-                    <p className="font-medium text-sm sm:text-base">{item.label}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* ================= CALENDER ================= */}
-        <section id="calendar" className="px-4 sm:px-6 py-12 sm:py-16 md:py-20 bg-gray-50">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-xl sm:text-2xl font-semibold mb-8 sm:mb-10">
-              Academic Calender
-            </h2>
-
-            <div className="grid gap-4 md:grid-cols-3">
-              {[
-                {
-                  title: "Term 1",
-                  detail: "Orientation, assessments, and parent meetings",
-                },
-                {
-                  title: "Term 2",
-                  detail: "Mid-year projects, exhibitions, and progress reviews",
-                },
-                {
-                  title: "Term 3",
-                  detail: "Final assessments, result sharing, and vacation planning",
-                },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="border border-gray-200 rounded-2xl sm:rounded-3xl p-4 sm:p-6 bg-white"
-                >
-                  <h3 className="font-semibold text-base sm:text-lg mb-2">{item.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{item.detail}</p>
                 </div>
               ))}
             </div>

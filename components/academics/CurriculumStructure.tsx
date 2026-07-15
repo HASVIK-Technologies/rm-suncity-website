@@ -8,22 +8,26 @@ export default function CurriculumStructure() {
   const data = [
     {
       title: "Early Years",
-      desc: "Nursery and Kindergarten learning through play, language, and social confidence.",
+      desc: "Nursery and Kindergarten focus on learning through play, language development, sensory exploration, and building social confidence. Activities encourage curiosity, communication, fine motor skills, and safe risk-taking to prepare children for formal learning environments.",
+      subjects: ["Language","Play-based Learning","Social Skills"],
       icon: BiHappyBeaming,
     },
     {
       title: "Primary School",
-      desc: "Classes 1 to 5 strengthen literacy, numeracy, scientific curiosity, and life skills.",
+      desc: "Classes 1 to 5 strengthen literacy and numeracy while nurturing scientific curiosity and creative thinking. Lessons blend conceptual foundations with hands-on projects, group work, and personal development to build strong study habits and confidence.",
+      subjects: ["English","Mathematics","Environmental Science"],
       icon: BiBookOpen,
     },
     {
       title: "Middle School",
-      desc: "Classes 6 to 8 build deeper understanding, projects, and integrated learning.",
+      desc: "Classes 6 to 8 deepen subject knowledge and introduce interdisciplinary projects that connect concepts across subjects. Emphasis is on critical thinking, collaborative research, technology integration, and preparation for subject-specialisation choices ahead.",
+      subjects: ["Social Studies","Science","ICT"],
       icon: BiLayer,
     },
     {
       title: "Secondary School",
-      desc: "Classes 9 and 10 focus on academic excellence, board readiness, and confidence.",
+      desc: "Classes 9 and 10 focus on academic excellence, examination preparedness, and independent learning skills. Curriculum balances rigorous subject content, exam technique, and opportunities for leadership, mentoring, and career exploration to build confidence for higher studies.",
+      subjects: ["Physics","Mathematics","Languages"],
       icon: BiTrendingUp,
     },
   ];
@@ -66,6 +70,19 @@ export default function CurriculumStructure() {
                     <p className="text-gray-600 text-sm leading-relaxed">
                       {item.desc}
                     </p>
+
+                    {/* SUBJECT CHIPS */}
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      <strong>Subjects:</strong>
+                      {item.subjects?.map((sub, idx) => (
+                        <span
+                          key={idx}
+                          className="text-gray-600 text-sm border border-gray-200 rounded-full px-3 py-1 inline-flex items-center"
+                        >
+                          {sub}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
                   {/* ICON DOT - Hidden on mobile, visible on md and up */}

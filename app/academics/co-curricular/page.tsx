@@ -1,43 +1,38 @@
-import Link from "next/link";
+import CoCurricularHero from "@/components/academics/co-curricular/CoCurricularHero";
+import CoCurricularSection from "@/components/academics/co-curricular/CoCurricularSection";
+import { coCurricularData } from "@/data/coCurricularData";
 
 export const metadata = {
   title: "Co-Curricular | RM Suncity Public School",
-  description: "Discover the co-curricular activities at RM Suncity Public School.",
+  description: "Discover the co-curricular activities and vibrant learning experiences at RM Suncity Public School.",
 };
 
 export default function CoCurricularPage() {
   return (
-    <main className="min-h-screen bg-gray-50 px-4 py-16 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-6xl rounded-3xl border border-gray-200 bg-white p-8 shadow-sm sm:p-10">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange-500">
-          Academics
-        </p>
-        <h1 className="mt-3 text-3xl font-bold text-gray-900 sm:text-4xl">
-          Co-Curricular Activities
-        </h1>
-        <p className="mt-4 max-w-3xl text-lg text-gray-600">
-          We believe learning grows beyond the classroom through sports, arts, clubs, and hands-on experiences that build character and confidence.
-        </p>
+    <main className="bg-white">
+      <CoCurricularHero />
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {[
-            { title: "Sports", text: "Physical activity, teamwork, discipline, and healthy competition." },
-            { title: "Arts", text: "Creative expression through drawing, music, dance, and craft activities." },
-            { title: "Clubs", text: "Student-led clubs that encourage exploration, leadership, and collaboration." },
-          ].map((item) => (
-            <div key={item.title} className="rounded-2xl border border-gray-200 p-6">
-              <h2 className="text-lg font-semibold text-gray-900">{item.title}</h2>
-              <p className="mt-2 text-sm leading-7 text-gray-600">{item.text}</p>
-            </div>
-          ))}
-        </div>
+      <section className="px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-500">
+              Learning Beyond the Classroom
+            </p>
+            <h2 className="mt-3 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
+              A vibrant blend of creativity, culture, sports and excellence
+            </h2>
+            <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-gray-600 sm:text-lg">
+              Our co-curricular programmes encourage students to discover their talents, build confidence, and grow into balanced individuals.
+            </p>
+          </div>
 
-        <div className="mt-10">
-          <Link href="/academics" className="text-sm font-semibold text-orange-600 hover:text-orange-700">
-            ← Back to Academics overview
-          </Link>
+          <div className="space-y-8 md:space-y-12">
+            {coCurricularData.map((section) => (
+              <CoCurricularSection key={section.id} section={section} />
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
     </main>
   );
 }

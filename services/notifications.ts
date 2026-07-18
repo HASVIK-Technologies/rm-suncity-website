@@ -21,7 +21,10 @@ function normalizePrivateKey(privateKey: string | undefined) {
     return undefined;
   }
 
-  return privateKey.trim().replace(/^['\"]|['\"]$/g, "").replace(/\\n/g, "\n");
+  return privateKey
+    .trim()
+    .replace(/^['"]|['"]$/g, "")
+    .replace(/\\n/g, "\n");
 }
 
 function getSheetCredentials(env: NodeJS.ProcessEnv = process.env) {
@@ -43,7 +46,6 @@ function getSheetCredentials(env: NodeJS.ProcessEnv = process.env) {
   if (serviceAccountJson) {
     try {
       const parsed = JSON.parse(serviceAccountJson);
-
       if (parsed.client_email && parsed.private_key) {
         return {
           sheetId: env.GOOGLE_SHEET_ID?.trim() || parsed.spreadsheet_id || parsed.sheet_id,
@@ -69,14 +71,14 @@ function toSlug(value: string) {
     .replace(/(^-|-$)/g, "");
 }
 
-function buildNotification(row: unknown[], headers: string[]): NotificationItem | null {
+function buildNotification(row: string[], headers: string[]): NotificationItem | null {
   if (!row || !row.some((cell) => cell && String(cell).trim())) {
     return null;
   }
 
   const normalizedHeaders = headers.map((header) => normalizeHeader(header));
   const values = normalizedHeaders.reduce<Record<string, string>>((acc, header, index) => {
-    acc[header] = String(row[index] ?? "");
+    acc[header] = row[index] ?? "";
     return acc;
   }, {});
 
@@ -85,7 +87,7 @@ function buildNotification(row: unknown[], headers: string[]): NotificationItem 
     return null;
   }
 
-  const summary = String(values.shortdescription || "").trim();
+  const summary = String(values.shortDescription || "").trim();
   const content = String(values.description || "").trim();
   const category = String(values.category || "General").trim() || "General";
   const publishedAt = String(values.date || "").trim();
@@ -135,8 +137,8 @@ export async function getNotifications() {
     });
 
     const values = response.data.values ?? [];
-    const [headers, ...rows] = values as string[][];
 
+    const [headers, ...rows] = values;
     const notifications = rows
       .map((row) => buildNotification(row, headers ?? []))
       .filter((notification): notification is NotificationItem => Boolean(notification))
@@ -150,13 +152,9 @@ export async function getNotifications() {
       notifications: notifications.length ? notifications : [],
       success: true,
     };
-  } catch (error: any) {
+  } catch (error: Error | any) {
     console.error("Error fetching notifications from Google Sheet:", error);
-    return {
-      notifications: [],
-      success: false,
-      error: error.message,
-    };
+    return { notifications: [], success: false, error: error.message };
   }
 }
 

@@ -15,7 +15,7 @@ export default function VisitSection() {
         className="absolute inset-0 opacity-15"
         style={{ background: "url(/images/bg_img1.png)" }}
       ></div>
-      <div className="max-w-7xl mx-auto px-6 xl:px-0">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={false}
           whileInView="visible"

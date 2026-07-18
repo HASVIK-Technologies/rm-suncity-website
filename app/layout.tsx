@@ -2,8 +2,12 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
+import NoticeWidget from "@/components/Notifications";
 import { Toaster } from "react-hot-toast";
-import getNotifications from "@/services/notifications";
+import { getNotifications } from "@/services/notifications";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export const metadata = {
   title: "RM Suncity Public School",
@@ -18,8 +22,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const notifications = await getNotifications();
-  console.log("Notifications:", notifications); // Log the notifications to the console
+  const { notifications: notificationItems } = await getNotifications();
+
   return (
     <html lang="en">
       <body>
@@ -28,6 +32,7 @@ export default async function RootLayout({
 
         <Footer />
 
+        <NoticeWidget notifications={notificationItems} />
         <FloatingActions />
         <Toaster
           position="top-center"

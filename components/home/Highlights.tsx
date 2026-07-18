@@ -54,7 +54,7 @@ const items = [
 
 export default function Highlights() {
   return (
-    <section className="pt-1 pb-12 bg-white px-6">
+    <section className="pt-1 pb-12 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-0">
         <motion.div
           initial={{ opacity: 0 }}
@@ -76,47 +76,6 @@ export default function Highlights() {
             various activities that help them grow into confident, responsible,
             and compassionate individuals.
           </motion.p>
-          <ul className="mt-6 ps-4">
-            <li>
-              🏆 &nbsp;&nbsp; Academic Excellence with a strong focus on conceptual learning.
-            </li>
-            <li>
-              🎨 &nbsp;&nbsp; Co-curricular Activities including art, music, dance, and
-              cultural programs.
-            </li>
-            <li>
-              ⚽ &nbsp;&nbsp; Sports & Physical Education for fitness, teamwork, and
-              discipline.
-            </li>
-            <li>
-              🧠 &nbsp;&nbsp; Olympiad & Competitive Exam Preparation to enhance analytical
-              and problem-solving skills.
-            </li>
-            <li>
-              💻 &nbsp;&nbsp; Smart Classrooms & Digital Learning for an engaging educational
-              experience.
-            </li>
-            <li>
-              🎤 &nbsp;&nbsp; Personality Development & Public Speaking to build confidence
-              and communication skills.
-            </li>
-            <li>
-              🌱 &nbsp;&nbsp; Value-Based Education that instills ethics, discipline, and
-              respect.
-            </li>
-            <li>
-              🏅 &nbsp;&nbsp; Regular Competitions & Achievement Recognition to motivate and
-              celebrate excellence.
-            </li>
-            <li>
-              👨‍🏫 &nbsp;&nbsp; Experienced and Dedicated Faculty committed to every child's
-              growth.
-            </li>
-            <li>
-              🤝 &nbsp;&nbsp; Safe and Nurturing Environment where every student feels valued
-              and inspired.
-            </li>
-          </ul>
         </div>
 
         <motion.div

@@ -110,7 +110,7 @@ export default function Navbar() {
                       const isChildActive =
                         pathname === child.href || pathname.startsWith(`${child.href}/`);
 
-                      const iconMap: Record<string, JSX.Element> = {
+                      const iconMap: Record<string, React.ReactElement> = {
                         user: <FaUser className="w-4 h-4" />,
                         money: <FaMoneyBillWave className="w-4 h-4" />,
                         card: <FaCreditCard className="w-4 h-4" />,
@@ -197,7 +197,7 @@ export default function Navbar() {
                     const isChildActive =
                       pathname === child.href || pathname.startsWith(`${child.href}/`);
 
-                    const iconMap: Record<string, JSX.Element> = {
+                    const iconMap: Record<string, React.ReactElement> = {
                       user: <FaUser className="w-4 h-4" />,
                       money: <FaMoneyBillWave className="w-4 h-4" />,
                       card: <FaCreditCard className="w-4 h-4" />,

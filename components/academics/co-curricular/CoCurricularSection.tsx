@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import type { CoCurricularSectionData } from "@/data/coCurricularData";
 
 const accentStyles = {
-  orange: "from-orange-500/40 to-orange-400/20 text-orange-200",
-  sky: "from-sky-500/40 to-cyan-400/20 text-sky-200",
-  green: "from-emerald-600/40 to-lime-500/20 text-emerald-200",
-  purple: "from-violet-600/40 to-fuchsia-500/20 text-violet-200",
+  orange: "from-orange-500/20 to-orange-400/20 text-orange-200",
+  sky: "from-sky-500/20 to-cyan-400/20 text-sky-200",
+  green: "from-emerald-600/20 to-lime-500/20 text-emerald-200",
+  purple: "from-violet-600/20 to-fuchsia-500/20 text-violet-200",
 };
 
 export default function CoCurricularSection({
@@ -25,7 +25,7 @@ export default function CoCurricularSection({
           key={item.title}
           className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-orange-300"
         >
-          <h4 className="text-lg font-semibold text-gray-900">{item.title}</h4>
+          <h4 className="text-lg font-semibold text-amber-500">{item.title}</h4>
           {item.description && (
             <p className="mt-2 text-sm leading-7 text-gray-600">{item.description}</p>
           )}
@@ -45,20 +45,20 @@ export default function CoCurricularSection({
       {layout === "gallery" ? (
         <div className="grid gap-0 xl:grid-cols-[1fr_0.95fr]">
           <div className="relative min-h-[280px] overflow-hidden">
-            <div className="grid h-full grid-cols-2 gap-2 p-3 sm:p-4">
+            <div className="grid h-full grid-cols-2 gap-2 sm:p-2">
               {(section.images ?? [section.image]).slice(0, 2).map((image, index) => (
                 <img
                   key={`${section.id}-${index}`}
                   src={image}
                   alt={`${section.title} ${index + 1}`}
-                  className="h-full min-h-[140px] w-full rounded-2xl object-cover"
+                  className="h-full min-h-[140px] w-full rounded-3xl object-cover"
                 />
               ))}
             </div>
             <div className={`absolute inset-0 bg-gradient-to-r ${accent} opacity-90`} />
             <div className="absolute inset-0 flex items-end p-6 sm:p-8">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.2em]">{section.title}</p>
+              <div className="bg-black/60 p-4">
+                <p className="text-sm font-semibold text-orange-500 uppercase tracking-[0.2em]">{section.title}</p>
                 <h3 className="mt-2 text-2xl font-bold text-white sm:text-3xl">{section.subtitle}</h3>
               </div>
             </div>
@@ -71,8 +71,8 @@ export default function CoCurricularSection({
             <img src={section.image} alt={section.title} className="h-full w-full object-cover" />
             <div className={`absolute inset-0 bg-gradient-to-r ${accent} opacity-90`} />
             <div className="absolute inset-0 flex items-end p-6 sm:p-8">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.2em]">{section.title}</p>
+              <div className="bg-black/60 p-4">
+                <p className="text-sm font-semibold text-orange-500 uppercase tracking-[0.2em]">{section.title}</p>
                 <h3 className="mt-2 text-2xl font-bold text-white sm:text-3xl">{section.subtitle}</h3>
               </div>
             </div>
@@ -97,8 +97,8 @@ export default function CoCurricularSection({
             <img src={section.image} alt={section.title} className="h-full w-full object-cover" />
             <div className={`absolute inset-0 bg-gradient-to-r ${accent} opacity-90`} />
             <div className="absolute inset-0 flex items-end p-6 sm:p-8">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.2em]">{section.title}</p>
+              <div className="bg-black/60 p-4">
+                <p className="text-sm font-semibold text-orange-500 uppercase tracking-[0.2em]">{section.title}</p>
                 <h3 className="mt-2 text-2xl font-bold text-white sm:text-3xl">{section.subtitle}</h3>
               </div>
             </div>

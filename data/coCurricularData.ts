@@ -20,8 +20,8 @@ export const coCurricularData: CoCurricularSectionData[] = [
     id: "arts-creativity",
     title: "Arts & Creativity",
     subtitle: "Nurturing imagination through colour, design, and handmade expression.",
-    image: "/images/creative.jpg",
-    images: ["/images/pencils.jpg", "/images/rangoli.jpg"],
+    image: "/images/drawing.jpeg",
+    images: ["/images/drawing.jpeg", "/images/rangoli.jpg"],
     layout: "stack",
     accent: "orange",
     items: [
@@ -39,8 +39,8 @@ export const coCurricularData: CoCurricularSectionData[] = [
     id: "performing-arts",
     title: "Performing Arts",
     subtitle: "Bringing rhythm, movement, voice and stagecraft to life.",
-    image: "/images/school.jpeg",
-    images: ["/images/school.jpeg", "/images/creative.jpg"],
+    image: "/images/holistic.jpg",
+    images: ["/images/holistic.jpg", "/images/creative.jpg"],
     layout: "gallery",
     accent: "purple",
     items: [
@@ -80,10 +80,6 @@ export const coCurricularData: CoCurricularSectionData[] = [
         description: "Students learn strategy, stamina and endurance through this traditional sport.",
       },
       {
-        title: "Kho-Kho",
-        description: "Fast-paced play nurtures reflexes, quick thinking and team coordination.",
-      },
-      {
         title: "Yoga",
         description: "Mind-body balance, flexibility and concentration are developed through yoga sessions.",
       },
@@ -116,8 +112,8 @@ export const coCurricularData: CoCurricularSectionData[] = [
     id: "cultural-activities",
     title: "Cultural Activities",
     subtitle: "Celebrating traditions, values and shared joy in the school community.",
-    image: "/images/rakshabandhan.png",
-    images: ["/images/rakshabandhan.png", "/images/school.jpeg"],
+    image: "/images/gallery/gallery11.jpg",
+    images: ["/images/gallery/gallery11.jpg", "/images/school.jpeg"],
     layout: "gallery",
     accent: "orange",
     items: [

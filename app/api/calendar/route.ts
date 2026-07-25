@@ -1,0 +1,8 @@
+import { NextResponse } from "next/server";
+import { getCalendarEvents } from "@/services/calendar";
+
+export async function GET() {
+  const result = await getCalendarEvents();
+
+  return NextResponse.json(result);
+}

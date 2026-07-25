@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { TfiEmail } from "react-icons/tfi";
 import { PiPhone } from "react-icons/pi";
-import { FaFacebook, FaYoutube } from "react-icons/fa";
+import { FaFacebook, FaYoutube, FaUser, FaMoneyBillWave, FaCreditCard, FaQuestionCircle } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { CONTACT } from "@/config/contact";
 
@@ -14,6 +14,7 @@ type NavItem = {
   label: string;
   href?: string;
   children?: NavItem[];
+  icon?: "user" | "money" | "card" | "question";
 };
 
 export default function Navbar() {
@@ -30,7 +31,14 @@ export default function Navbar() {
       children: [
         { href: "/academics/curriculum", label: "Curriculum" },
         { href: "/academics/co-curricular", label: "Co-Curricular" },
-        { href: "/academics/calender", label: "Calender" },
+        { href: "/academics/calender", label: "Calendar" },
+      ],
+    },
+    {
+      label: "Admission",
+      children: [
+        { href: "/admission/admission-process", label: "Admission Process", icon: "user" },
+        { href: "/admission/fees", label: "School Fee", icon: "money" },
       ],
     },
     { href: "/gallery", label: "Gallery" },
@@ -66,7 +74,8 @@ export default function Navbar() {
     const isOpen = activeDropdown === item.label;
     const isActive = item.href
       ? pathname === item.href || pathname.startsWith(`${item.href}/`)
-      : pathname === "/academics" || pathname.startsWith("/academics/");
+      : (item.label === "Academics" && (pathname === "/academics" || pathname.startsWith("/academics/"))) ||
+        (item.label === "Admission" && (pathname === "/admission" || pathname.startsWith("/admission") || pathname === "/academics/fees" || pathname.startsWith("/academics/fees") || pathname === "/payment-portal" || pathname.startsWith("/payment-portal") || pathname === "/faqs" || pathname.startsWith("/faqs")));
 
     if (isMobile) {
       return (
@@ -95,8 +104,13 @@ export default function Navbar() {
                     className="overflow-hidden bg-gray-50"
                   >
                     {item.children?.map((child) => {
-                      const isChildActive =
-                        pathname === child.href || pathname.startsWith(`${child.href}/`);
+                      const isChildActive = pathname === child.href || pathname.startsWith(`${child.href}/`);
+                      const iconMap: Record<string, React.ReactElement> = {
+                        user: <FaUser className="h-4 w-4" />,
+                        money: <FaMoneyBillWave className="h-4 w-4" />,
+                        card: <FaCreditCard className="h-4 w-4" />,
+                        question: <FaQuestionCircle className="h-4 w-4" />,
+                      };
 
                       return (
                         <li key={child.label}>
@@ -106,12 +120,11 @@ export default function Navbar() {
                               setMenuOpen(false);
                               setActiveDropdown(null);
                             }}
-                            className={`block px-8 py-2 text-sm transition ${
-                              isChildActive
-                                ? "text-orange-600"
-                                : "text-gray-700 hover:text-orange-600"
+                            className={`flex items-center gap-3 px-8 py-2 text-sm transition ${
+                              isChildActive ? "text-orange-600" : "text-gray-700 hover:text-orange-600"
                             }`}
                           >
+                            {child.icon && <span className={isChildActive ? "text-orange-600" : "text-gray-400"}>{iconMap[child.icon]}</span>}
                             {child.label}
                           </Link>
                         </li>
@@ -166,23 +179,27 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 8 }}
-                  className="absolute left-0 top-full mt-3 w-56 rounded-xl border border-gray-200 bg-white p-2 shadow-xl"
+                  className="absolute left-0 top-full mt-3 min-w-60 rounded-xl border border-gray-200 bg-white p-2 shadow-xl"
                 >
                   {item.children?.map((child) => {
-                    const isChildActive =
-                      pathname === child.href || pathname.startsWith(`${child.href}/`);
+                    const isChildActive = pathname === child.href || pathname.startsWith(`${child.href}/`);
+                    const iconMap: Record<string, React.ReactElement> = {
+                      user: <FaUser className="h-4 w-4" />,
+                      money: <FaMoneyBillWave className="h-4 w-4" />,
+                      card: <FaCreditCard className="h-4 w-4" />,
+                      question: <FaQuestionCircle className="h-4 w-4" />,
+                    };
 
                     return (
                       <Link
                         key={child.label}
                         href={child.href ?? "/"}
                         onClick={() => setActiveDropdown(null)}
-                        className={`block rounded-lg px-3 py-2 text-sm font-medium transition ${
-                          isChildActive
-                            ? "bg-orange-50 text-orange-600"
-                            : "text-gray-700 hover:bg-gray-50 hover:text-orange-600"
+                        className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition ${
+                          isChildActive ? "bg-orange-50 text-orange-600" : "text-gray-700 hover:bg-orange-50 hover:text-orange-600"
                         }`}
                       >
+                        {child.icon && <span className={isChildActive ? "text-orange-600" : "text-gray-400"}>{iconMap[child.icon]}</span>}
                         {child.label}
                       </Link>
                     );

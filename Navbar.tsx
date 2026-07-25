@@ -32,7 +32,8 @@ export default function Navbar() {
       children: [
         { href: "/academics/curriculum", label: "Curriculum" },
         { href: "/academics/co-curricular", label: "Co-Curricular" },
-        { href: "/academics/calender", label: "Calender" },
+        { href: "/academics/calender", label: "Calendar" },
+        { href: "/academics/fees", label: "Fee Structure" },
       ],
     },
     {

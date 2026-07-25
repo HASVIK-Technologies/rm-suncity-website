@@ -1,30 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { BiChevronLeft, BiChevronRight, BiCalendar, BiBook, BiFlag, BiStar } from "react-icons/bi";
-
-const events = [
-  { month: "April", day: 1, title: "New Session Begins", type: "academic", color: "bg-blue-500" },
-  { month: "April", day: 15, title: "Summer Camp Starts", type: "event", color: "bg-purple-500" },
-  { month: "May", day: 1, title: "Labour Day Holiday", type: "holiday", color: "bg-red-500" },
-  { month: "May", day: 15, title: "Summer Break Begins", type: "break", color: "bg-amber-500" },
-  { month: "July", day: 1, title: "School Reopens", type: "academic", color: "bg-blue-500" },
-  { month: "July", day: 15, title: "PTM - Term 1", type: "meeting", color: "bg-green-500" },
-  { month: "August", day: 15, title: "Independence Day", type: "holiday", color: "bg-red-500" },
-  { month: "September", day: 5, title: "Teacher's Day", type: "event", color: "bg-purple-500" },
-  { month: "October", day: 2, title: "Gandhi Jayanti", type: "holiday", color: "bg-red-500" },
-  { month: "October", day: 15, title: "Dussehra Break", type: "break", color: "bg-amber-500" },
-  { month: "November", day: 1, title: "Diwali Holidays", type: "holiday", color: "bg-red-500" },
-  { month: "November", day: 14, title: "Children's Day", type: "event", color: "bg-purple-500" },
-  { month: "December", day: 25, title: "Christmas Celebration", type: "event", color: "bg-purple-500" },
-  { month: "December", day: 31, title: "Winter Break Begins", type: "break", color: "bg-amber-500" },
-  { month: "January", day: 1, title: "New Year", type: "holiday", color: "bg-red-500" },
-  { month: "January", day: 14, title: "Winter Break Ends", type: "academic", color: "bg-blue-500" },
-  { month: "January", day: 26, title: "Republic Day", type: "holiday", color: "bg-red-500" },
-  { month: "February", day: 14, title: "Annual Day", type: "event", color: "bg-purple-500" },
-  { month: "March", day: 10, title: "Final Exams Begin", type: "academic", color: "bg-blue-500" },
-  { month: "March", day: 31, title: "Session Ends", type: "academic", color: "bg-blue-500" },
-];
+import type { CalendarEvent } from "@/services/calendar";
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -38,8 +16,30 @@ const legend = [
 
 export default function CalenderPage() {
   const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth());
+  const [events, setEvents] = useState<CalendarEvent[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const monthEvents = events.filter((e) => months.indexOf(e.month) === selectedMonth);
+  useEffect(() => {
+    async function loadEvents() {
+      try {
+        const response = await fetch("/api/calendar");
+        if (!response.ok) {
+          throw new Error("Unable to load calendar events");
+        }
+        const data = await response.json();
+        console.log("Fetched calendar events:", data);
+        setEvents(data.events ?? []);
+      } catch {
+        setEvents([]);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    loadEvents();
+  }, []);
+
+  const monthEvents = events.filter((event) => months.indexOf(event.month) === selectedMonth);
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-50 via-orange-50/30 to-slate-50">
@@ -57,10 +57,10 @@ export default function CalenderPage() {
           <div className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-white" />
           <div className="absolute -bottom-10 -left-10 h-60 w-60 rounded-full bg-white" />
         </div>
-        <div className="relative mx-auto max-w-6xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/80">Academics</p>
-          <h1 className="mt-3 text-4xl font-bold text-white sm:text-5xl">Academic Calendar</h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/90">
+        <div className="relative mx-auto max-w-7xl">
+          <p className="text-sm text-center font-semibold uppercase tracking-[0.2em] text-amber-600">Academics</p>
+          <h1 className="mt-3 text-center text-4xl font-bold text-white sm:text-5xl">Academic Calendar</h1>
+          <p className="mt-4 text-center max-w-7xl text-lg text-white/90">
             Stay updated with important dates, events, holidays, and academic milestones throughout the year.
           </p>
         </div>
@@ -114,11 +114,18 @@ export default function CalenderPage() {
                   <h3 className="text-lg font-bold text-gray-900">Events & Dates</h3>
                 </div>
 
-                {monthEvents.length > 0 ? (
+                {isLoading ? (
+                  <div className="flex flex-col items-center justify-center py-12 text-center">
+                    <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gray-100">
+                      <BiCalendar className="text-2xl text-gray-400" />
+                    </div>
+                    <p className="text-gray-500">Loading calendar events…</p>
+                  </div>
+                ) : monthEvents.length > 0 ? (
                   <div className="space-y-3">
                     {monthEvents.map((event, index) => (
                       <div
-                        key={index}
+                        key={`${event.month}-${event.day}-${event.title}-${index}`}
                         className="flex items-center gap-4 rounded-xl border border-gray-100 bg-gray-50/50 p-4 transition-all hover:border-orange-200 hover:bg-orange-50/30"
                       >
                         <div className={`flex h-12 w-12 flex-shrink-0 flex-col items-center justify-center rounded-xl text-white ${event.color}`}>
@@ -167,7 +174,7 @@ export default function CalenderPage() {
                       <BiBook className="text-lg text-blue-600" />
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-gray-900">{events.filter((e) => e.type === "academic").length}</p>
+                      <p className="text-2xl font-bold text-gray-900">{events.filter((event) => event.type === "academic").length}</p>
                       <p className="text-xs text-gray-500">Academic Days</p>
                     </div>
                   </div>
@@ -176,7 +183,7 @@ export default function CalenderPage() {
                       <BiFlag className="text-lg text-red-600" />
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-gray-900">{events.filter((e) => e.type === "holiday").length}</p>
+                      <p className="text-2xl font-bold text-gray-900">{events.filter((event) => event.type === "holiday").length}</p>
                       <p className="text-xs text-gray-500">Holidays</p>
                     </div>
                   </div>
@@ -185,20 +192,13 @@ export default function CalenderPage() {
                       <BiStar className="text-lg text-purple-600" />
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-gray-900">{events.filter((e) => e.type === "event").length}</p>
+                      <p className="text-2xl font-bold text-gray-900">{events.filter((event) => event.type === "event").length}</p>
                       <p className="text-xs text-gray-500">Events</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Back Link */}
-          <div className="mt-10">
-            <Link href="/academics" className="inline-flex items-center gap-2 text-sm font-semibold text-orange-600 hover:text-orange-700">
-              ← Back to Academics overview
-            </Link>
           </div>
         </div>
       </section>

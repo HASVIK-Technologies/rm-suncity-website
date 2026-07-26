@@ -7,7 +7,7 @@ import CountUp from "react-countup";
 
 export default function AboutSection() {
   return (
-    <section className="relative w-full overflow-hidden bg-white pt-8 pb-12 px-4 -mt-0.5">
+    <section className="relative w-full overflow-hidden bg-white pt-8 pb-12 px-6 -mt-0.5">
       <div className="max-w-7xl mx-auto">
         <MainTitle title="About Us" />
 
@@ -18,7 +18,6 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="px-4 sm:px-6 md:px-10"
           >
             <p className="text-gray-700 leading-relaxed mb-6">
               RM Suncity Public School was founded in 2012 with a vision to deliver

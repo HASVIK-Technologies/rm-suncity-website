@@ -134,12 +134,6 @@ export default function AdmissionPage() {
               ))}
             </div>
           </div>
-
-          <div className="mt-6">
-            <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-orange-600 hover:text-orange-700">
-              ← Back to Home
-            </Link>
-          </div>
         </div>
       </section>
     </main>

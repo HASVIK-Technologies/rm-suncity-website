@@ -19,8 +19,8 @@ type Slide = {
 const slides: Slide[] = heroSlides as Slide[];
 
 export default function Hero() {
-
   const [index, setIndex] = useState(0);
+  const [viewport, setViewport] = useState<"mobile" | "tablet" | "desktop">("desktop");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -30,6 +30,36 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const updateViewport = () => {
+      if (window.innerWidth < 640) {
+        setViewport("mobile");
+      } else if (window.innerWidth < 1024) {
+        setViewport("tablet");
+      } else {
+        setViewport("desktop");
+      }
+    };
+
+    updateViewport();
+    window.addEventListener("resize", updateViewport);
+
+    return () => window.removeEventListener("resize", updateViewport);
+  }, []);
+
+  const getSlideSrc = (slide: Slide, slideIndex: number) => {
+    if (slideIndex !== 0) return slide.src;
+
+    switch (viewport) {
+      case "mobile":
+        return "/images/school-mobile.jpeg";
+      case "tablet":
+        return "/images/school-tablet.jpeg";
+      default:
+        return "/images/school.jpeg";
+    }
+  };
+
   return (
     <section className="relative w-full overflow-hidden pt-20 pb-28 sm:pb-32 md:pb-36 min-h-150 sm:min-h-162.5 md:min-h-175 lg:min-h-160 flex items-center">
       {/* Animated Background */}
@@ -38,7 +68,7 @@ export default function Hero() {
           <motion.div
             key={i}
             className="absolute inset-0 bg-cover bg-top"
-            style={{ backgroundImage: `url(${slide.src})`, backgroundColor: "rgba(0,0,0,0.4)", backgroundBlendMode: "darken" }}
+            style={{ backgroundImage: `url(${getSlideSrc(slide, i)})`, backgroundColor: "rgba(0,0,0,0.4)", backgroundBlendMode: "darken" }}
             animate={{ opacity: i === index ? 1 : 0 }}
             transition={{ duration: 1.5 }}
           />

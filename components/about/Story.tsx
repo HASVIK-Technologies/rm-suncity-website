@@ -27,7 +27,7 @@ export default function StorySection() {
         >
           {/* Image */}
           <img
-            src="/images/school.png"
+            src="/images/school-tablet.jpeg"
             alt="School"
             className="relative w-full h-full object-cover"
           />

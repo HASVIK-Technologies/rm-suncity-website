@@ -18,7 +18,7 @@ export default function Olympiad() {
           viewport={{ once: true }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-            <MainTitle title="Olympiad Competitions" color="white" />
+            <MainTitle title="Olympiads" color="white" />
           </div>
         </motion.div>
 

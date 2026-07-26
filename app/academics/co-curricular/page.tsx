@@ -17,7 +17,7 @@ export default function CoCurricularPage() {
       <section className="px-4 py-12 sm:px-6 sm:py-16 md:py-12 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <MainTitle title="Co-Curricular Activities" />
-          <p className="mx-auto mb-12 max-w-3xl text-center text-lg leading-8 text-gray-600 sm:text-xl">
+          <p className="mx-auto mb-12 max-w-3xl text-center text-base leading-8 text-gray-600 sm:text-lg">
             Our co-curricular programs are designed to complement academic learning, fostering creativity, teamwork, and personal growth. Students can explore a wide range of activities that enhance their skills and passions.
           </p>
           <div className="space-y-8 md:space-y-12">

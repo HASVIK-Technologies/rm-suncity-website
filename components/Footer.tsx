@@ -153,7 +153,7 @@ export default function Footer() {
               © {new Date().getFullYear()} RM Suncity Public School. All rights reserved.
             </p>
             <p className="text-gray-500 text-xs">
-              Designed & Developed by <a href="https://www.hasviktech.com" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:text-orange-400 transition-colors">HASVIK Technologies</a>
+              Designed & Developed by <a href="https://www.hasviktech.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 transition-colors">HASVIK Technologies</a>
             </p>
           </div>
         </div>

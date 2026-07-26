@@ -120,7 +120,7 @@ export default function Navbar() {
                               setMenuOpen(false);
                               setActiveDropdown(null);
                             }}
-                            className={`flex items-center gap-3 px-8 py-2 text-sm transition ${
+                            className={`flex items-center gap-3 px-8 py-4 text-sm transition ${
                               isChildActive ? "text-orange-600" : "text-gray-700 hover:text-orange-600"
                             }`}
                           >

@@ -113,7 +113,7 @@ export const coCurricularData: CoCurricularSectionData[] = [
     title: "Cultural Activities",
     subtitle: "Celebrating traditions, values and shared joy in the school community.",
     image: "/images/gallery/gallery11.jpg",
-    images: ["/images/gallery/gallery11.jpg", "/images/school.jpeg"],
+    images: ["/images/gallery/gallery11.jpg", "/images/holistic.jpg"],
     layout: "gallery",
     accent: "orange",
     items: [

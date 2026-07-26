@@ -55,7 +55,7 @@ const items = [
 export default function Highlights() {
   return (
     <section className="pt-1 pb-12 bg-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-0">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -63,7 +63,7 @@ export default function Highlights() {
           viewport={{ once: true }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 mb-8">
-            <MainTitle title="Our Highlights" />
+            <MainTitle title="Highlights of RM Suncity" />
           </div>
         </motion.div>
 

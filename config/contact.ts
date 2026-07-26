@@ -2,9 +2,9 @@ export const CONTACT = {
   whatsappNumber: "919235818178",
   whatsappDisplay: "+91 92358 18178",
   whatsappUrl: "https://wa.me/919235818178",
-  phoneNumber: "+918922985156",
-  phoneDisplay: "+91 89229 85156",
-  phoneUrl: "tel:+918922985156",
+  phoneNumber: "+919721773151",
+  phoneDisplay: "+91 97217 73151",
+  phoneUrl: "tel:+919721773151",
   email: "rmsuncity2012@gmail.com",
   emailUrl: "mailto:rmsuncity2012@gmail.com",
   locationUrl:

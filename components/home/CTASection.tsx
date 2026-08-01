@@ -77,7 +77,7 @@ export default function VisitSection() {
             </p>
 
             <div className="flex flex-col gap-3 mb-6 text-sm sm:text-base">
-              <motion.a
+              <motion.div
                 whileHover={{ scale: 1.02 }}
                 className="inline-flex items-center gap-2 font-semibold"
               >
@@ -89,7 +89,7 @@ export default function VisitSection() {
                   <BiPhoneCall className="text-xl" />
                   {CONTACT.phoneDisplay}
                 </a>
-              </motion.a>
+              </motion.div>
 
               <motion.a
                 whileHover={{ scale: 1.02 }}

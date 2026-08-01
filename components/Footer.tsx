@@ -1,23 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { FaFacebook, FaInstagram, FaYoutube, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaYoutube, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock, FaWhatsapp } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { CONTACT } from "@/config/contact";
 
 const quickLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Academics", href: "/academics" },
-  { name: "Gallery", href: "/gallery" },
+  { name: "Fee Structure", href: "/admission/fees" },
+  { name: "Calendar", href: "/academics/calender" },
   { name: "Contact", href: "/contact" },
-];
-
-const usefulLinks = [
-  { name: "Admission", href: "/admission" },
-  { name: "Notice Board", href: "/admin/add-notice" },
-  { name: "Privacy Policy", href: "/privacy" },
-  { name: "Terms & Conditions", href: "/terms" },
 ];
 
 const socialLinks = [
@@ -39,7 +32,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="space-y-4 text-center md:text-left"
+            className="space-y-4 mb-6 text-center md:text-left"
           >
             {/* Logo */}
             <div className="flex items-center justify-center md:justify-start space-x-3">
@@ -82,18 +75,17 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="space-y-4 text-center md:text-left"
+            className="space-y-4 mb-6 text-center md:text-left"
           >
-            <h3 className="text-white font-semibold text-lg flex items-center md:justify-end lg:justify-start group px-3 py-2">
+            <h3 className="mb-0 text-white font-semibold text-lg flex items-center justify-center md:justify-end lg:justify-start group px-3">
               Quick Links
-              {/* <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-12 h-0.5 bg-orange-500 rounded"></span> */}
             </h3>
-            <ul className="flex flex-wrap justify-center md:flex-col md:justify-start gap-2 pt-4">
+            <ul className="flex flex-col flex-wrap justify-center md:justify-start gap-2 pt-4">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-orange-400 transition-colors duration-300 text-sm flex items-center md:justify-end lg:justify-start group px-3 py-1"
+                    className="text-gray-400 hover:text-orange-400 transition-colors duration-300 text-sm flex items-center justify-center md:justify-end lg:justify-start group px-3 py-1"
                   >
                     <span className="w-0 h-0.5 bg-orange-500 mr-2 group-hover:w-2 group-hover:mr-2 transition-all duration-300"></span>
                     {link.name}
@@ -109,32 +101,38 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="space-y-4 text-center md:text-left"
+            className="space-y-4 mb-6 text-center lg:text-left md:col-span-2 lg:col-span-1"
           >
-            <h3 className="text-white font-semibold text-lg relative inline-block">
+            <h3 className="mb-0 text-white font-semibold text-lg relative inline-block px-6">
               Contact Info
               {/* <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-12 h-0.5 bg-orange-500 rounded"></span> */}
             </h3>
             <ul className="space-y-4 pt-4">
-              <li className="flex items-start justify-center md:justify-start space-x-3">
+              <li className="flex items-start justify-center lg:justify-start space-x-3 px-6">
                 <FaMapMarkerAlt className="text-orange-500 mt-1 flex-shrink-0" size={16} />
                 <span className="text-gray-400 text-sm leading-relaxed">
                   RM Suncity Public School, Khejuri Road Pillue, Maniyar, Gor Pokhar, Ballia, Uttar Pradesh 277302
                 </span>
               </li>
-              <li className="flex items-center justify-center md:justify-start space-x-3">
+              <li className="flex items-center justify-center lg:justify-start space-x-3 px-6">
                 <FaPhoneAlt className="text-orange-500 flex-shrink-0" size={16} />
                 <a href={`tel:${CONTACT.phoneNumber}`} className="text-gray-400 hover:text-orange-400 transition-colors text-sm">
                   {CONTACT.phoneNumber}
                 </a>
               </li>
-              <li className="flex items-center justify-center md:justify-start space-x-3">
+              <li className="flex items-center justify-center lg:justify-start space-x-3 px-6">
+                <FaWhatsapp className="text-orange-500 flex-shrink-0" size={16} />
+                <a href={`https://wa.me/${CONTACT.whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 transition-colors text-sm">
+                  {CONTACT.whatsappDisplay}
+                </a>
+              </li>
+              <li className="flex items-center justify-center lg:justify-start space-x-3 px-6">
                 <FaEnvelope className="text-orange-500 flex-shrink-0" size={16} />
                 <a href={`mailto:${CONTACT.email}`} className="text-gray-400 hover:text-orange-400 transition-colors text-sm">
                   {CONTACT.email}
                 </a>
               </li>
-              <li className="flex items-start justify-center md:justify-start space-x-3">
+              <li className="flex items-start justify-center lg:justify-start space-x-3 px-6">
                 <FaClock className="text-orange-500 mt-1 flex-shrink-0" size={16} />
                 <span className="text-gray-400 text-sm">
                   Mon - Sat: 8:00 AM - 6:00 PM

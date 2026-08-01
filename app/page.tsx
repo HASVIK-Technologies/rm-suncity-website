@@ -7,6 +7,7 @@ import AboutUs from "@/components/home/AboutUs"
 import FAQs from "@/components/home/FAQs"
 import Olympiad from "@/components/home/Olympiad"
 import MomentsSection from "@/components/shared/MomentsSection"
+import MentorsSection from "@/components/home/MentorsSection"
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <MomentsSection />
       <ManagerMessage />
       <PrincipalMessage />
+      <MentorsSection />
       <CTASection />
       <FAQs />
     </main>

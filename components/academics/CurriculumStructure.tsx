@@ -7,7 +7,37 @@ import {
   BiTrendingUp,
   BiHappyBeaming,
 } from "react-icons/bi";
+import {
+  FaLanguage,
+  FaCalculator,
+  FaUsers,
+  FaPalette,
+  FaPuzzlePiece,
+  FaMusic,
+  FaFlask,
+  FaOm,
+  FaGlobeAsia,
+  FaLaptopCode,
+  FaBrain,
+  FaBookOpen,
+} from "react-icons/fa";
 import MainTitle from "../MainTitle";
+import type { ComponentType } from "react";
+
+const SUBJECT_ICONS: Record<string, ComponentType<{ className?: string }>> = {
+  Hindi: FaLanguage,
+  English: FaBookOpen,
+  Mathematics: FaCalculator,
+  "Social Skills": FaUsers,
+  "Art & Craft": FaPalette,
+  "Creative Play": FaPuzzlePiece,
+  "Music & Movement": FaMusic,
+  Science: FaFlask,
+  Sanskrit: FaOm,
+  "Social Science": FaGlobeAsia,
+  "Computer Science": FaLaptopCode,
+  "GK/Reasoning": FaBrain,
+};
 
 export default function CurriculumStructure() {
   const data = [
@@ -113,19 +143,25 @@ export default function CurriculumStructure() {
                   {item.desc}
                 </p>
 
-                <div className="mt-5">
-                  <p className="mb-3 text-sm font-semibold text-gray-800">
+                <div className="mt-5 pt-5">
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-gray-500">
                     Key subjects
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {item.subjects?.map((sub, idx) => (
-                      <span
-                        key={idx}
-                        className="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700"
-                      >
-                        {sub}
-                      </span>
-                    ))}
+                    {item.subjects?.map((sub, idx) => {
+                      const SubIcon = SUBJECT_ICONS[sub];
+                      return (
+                        <span
+                          key={idx}
+                          className="group inline-flex items-center gap-2 rounded-xl border border-orange-100 bg-orange-50/60 px-3 py-1.5 text-sm font-medium text-gray-700 transition hover:border-orange-300 hover:bg-orange-100/70"
+                        >
+                          {SubIcon && (
+                            <SubIcon className="text-sm text-orange-500 transition group-hover:scale-110" />
+                          )}
+                          {sub}
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
               </motion.div>

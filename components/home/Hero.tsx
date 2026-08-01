@@ -120,7 +120,7 @@ export default function Hero() {
                   <div className="flex align-center gap-3 text-white mb-2 justify-center">
                     <FaPhoneAlt className="text-white text-md sm:text-lg shrink-0" />
                     <p className="text-sm sm:text-base font-semibold text-white">
-                      {slides[index].phone ?? CONTACT.phoneNumber}
+                      {slides[index].phone ?? CONTACT.phoneNumber}, <span className="ms-1">  {slides[index].phone ?? CONTACT.managerPhoneNumber}</span>
                     </p>
                   </div>
 

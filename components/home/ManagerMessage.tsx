@@ -5,82 +5,105 @@ import CountUp from "react-countup";
 
 export default function ManagerMessage() {
   return (
-    <section className="relative overflow-hidden bg-slate-950/5 pt-12 sm:pt-16">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9 }}
-          viewport={{ once: true }}
-          className="overflow-hidden rounded-[2rem] bg-white shadow-[0_40px_120px_-80px_rgba(15,23,42,0.35)] p-6 md:p-8 lg:p-10"
-        >
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="relative order-last lg:order-first">
+    <section className="relative overflow-hidden bg-white pt-20 pb-10 sm:pt-24">
+      {/* Soft glow */}
+      <div className="pointer-events-none absolute -left-24 top-10 h-96 w-96 rounded-full bg-orange-200/40 blur-3xl" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:grid lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
+          {/* ================= IMAGE ================= */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="order-1 relative mx-auto mb-14 w-full max-w-sm lg:order-1 lg:mb-0"
+          >
+            <div className="relative overflow-hidden rounded-3xl ring-1 ring-orange-100 shadow-[0_50px_120px_-60px_rgba(234,88,12,0.35)]">
               <img
                 src="/images/manager.png"
-                alt="School Manager"
-                className="h-full min-h-[420px] w-full object-cover"
+                alt="Mr. Rajesh Sony, School Manager"
+                className="h-[420px] w-full object-cover sm:h-[460px]"
               />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent" />
             </div>
 
-            <div className="py-6">
-              <span className="inline-flex items-center rounded-full bg-orange-50 px-4 py-1 text-sm font-semibold uppercase tracking-[0.24em] text-orange-700">
-                Manager’s Message
+            {/* Badge */}
+            <div className="absolute left-1/2 -bottom-5 -translate-x-1/2">
+              <span className="inline-flex items-center gap-2 rounded-full bg-orange-600 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-lg shadow-orange-600/30">
+                <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                Manager
               </span>
+            </div>
+          </motion.div>
 
-              <h2 className="mt-6 text-3xl sm:text-4xl font-semibold leading-tight text-slate-950">
-                Inspiring leadership in a single, confident vision.
-              </h2>
+          {/* ================= CONTENT ================= */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="order-2 pt-4 text-center lg:pt-0 lg:text-left"
+          >
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-orange-600">
+              Leadership
+            </p>
 
-              <p className="mt-6 max-w-2xl text-base leading-8 text-slate-700">
-                At RM Suncity Public School, leadership means nurturing every
-                student with clarity, care, and a purposeful direction. We focus
-                on building a culture of achievement, wellbeing and strong
-                values.
-              </p>
+            <h2 className="mt-4 font-[family-name:var(--font-fraunces)] text-3xl font-semibold leading-[1.15] text-slate-950 sm:text-4xl lg:text-[2.75rem]">
+              Inspiring leadership in a single, confident vision.
+            </h2>
 
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-[1.5rem] bg-slate-50 p-5">
-                  <p className="text-sm uppercase tracking-[0.24em] text-slate-500">
-                    Our Focus
-                  </p>
-                  <p className="mt-3 text-slate-700 leading-7">
-                    Strong foundations through student support, wellbeing and
-                    parent partnership.
-                  </p>
-                </div>
+            <p className="mx-auto mt-6 max-w-xl text-base leading-8 text-slate-600 lg:mx-0">
+              At RM Suncity Public School, leadership means nurturing every
+              student with clarity, care, and a purposeful direction. We focus
+              on building a culture of achievement, wellbeing and strong values.
+            </p>
 
-                <div className="rounded-[1.5rem] bg-slate-50 p-5">
-                  <p className="text-sm uppercase tracking-[0.24em] text-slate-500">
-                    School Culture
-                  </p>
-                  <p className="mt-3 text-slate-700 leading-7">
-                    Encouraging curiosity, respect and collaboration in every
-                    classroom.
-                  </p>
-                </div>
+            {/* Desktop divider */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              transition={{ duration: 0.9, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="mt-8 hidden h-px w-full origin-left bg-gradient-to-r from-orange-500 via-amber-300 to-transparent lg:block"
+            />
+
+            {/* Leadership Stats */}
+            <div className="mt-10 flex flex-col gap-8 text-center lg:flex-row lg:items-center lg:text-left">
+              {/* Number */}
+              <div className="flex shrink-0 items-center justify-center gap-3 lg:justify-start">
+                <span className="font-[family-name:var(--font-fraunces)] text-5xl font-semibold leading-none text-orange-600">
+                  <CountUp
+                    end={15}
+                    duration={2}
+                    enableScrollSpy
+                    scrollSpyOnce
+                  />
+                  +
+                </span>
+
+                <span className="text-xs uppercase leading-[1.35] tracking-[0.18em] text-slate-500">
+                  Years of
+                  <br />
+                  Leadership
+                </span>
               </div>
 
-              <p className="mt-8 text-sm font-medium uppercase tracking-[0.22em] text-slate-500">
-                — Mr. Rajesh Sony, Manager
+              {/* Description */}
+              <p className="text-sm leading-7 text-slate-600 lg:border-l lg:border-slate-200 lg:pl-8">
+                Leading with consistency and vision, while nurturing a school
+                culture built on curiosity, respect, and strong parent
+                partnership.
               </p>
             </div>
-          </div>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between rounded-[1.5rem] bg-slate-950/5 p-6">
-            <div>
-              <p className="text-6xl font-semibold text-orange-500">
-                <CountUp end={15} duration={2} enableScrollSpy scrollSpyOnce />+
-              </p>
-              <p className="mt-2 text-xs uppercase tracking-[0.15em] text-slate-500">
-                Years of Leadership
-              </p>
-            </div>
-            <p className="max-w-xl text-slate-700 leading-7">
-              Leading with consistency, vision and a commitment to meaningful
-              school growth.
+
+            {/* Signature */}
+            <p className="mt-8 font-[family-name:var(--font-fraunces)] text-xl italic text-slate-700">
+              — Mr. Rajesh Sony, Manager
             </p>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

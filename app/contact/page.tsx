@@ -100,6 +100,11 @@ export default function Contact() {
 
   const contactPersons = [
     {
+      name: "RM Suncity Helpline",
+      phone: "+91 89229 85156",
+      phoneUrl: "tel:+918922985156",
+    },
+    {
       name: "Manager: Rajesh Kumar Soni",
       phone: "+91 97217 73151",
       phoneUrl: "tel:+919721773151",
@@ -110,7 +115,7 @@ export default function Contact() {
       phoneUrl: "tel:+918738881415",
     },
     {
-      name: "Help Desk: Arpit Soni",
+      name: "Mentor & Director: Arpit Soni",
       phone: "+91 74600 09899",
       phoneUrl: "tel:+917460009899",
     },
@@ -118,8 +123,8 @@ export default function Contact() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-amber-50 px-4 py-20 sm:py-24">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(249,115,22,0.12),_transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(234,179,8,0.16),_transparent_28%)]" />
+      <section className="relative overflow-hidden px-4 py-20 sm:py-24">
+        <div className="absolute inset-0" />
         <div className="relative mx-auto max-w-7xl">
           <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr]">
             <motion.div
@@ -242,8 +247,58 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:py-20">
+      <section className="px-4 py-16 sm:py-20 bg-amber-50">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+          
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="overflow-hidden rounded-[32px] border border-gray-100 bg-white shadow-xl shadow-gray-100"
+          >
+            <div className="border-b border-gray-100 p-6">
+              <div className="flex items-center gap-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-500 text-white">
+                  <FaMapMarkerAlt />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900">Find our school</h3>
+                  <p className="text-sm text-gray-500">A quick look at our location</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-4 sm:p-6">
+              <div className="mb-4 flex items-start gap-3 rounded-2xl border border-gray-100 bg-gray-50 p-4">
+                <FaMapMarkerAlt className="mt-1 text-orange-500" />
+                <div>
+                  <p className="font-semibold text-gray-900">R.M. Suncity Public School</p>
+                  <p className="text-sm text-gray-600">Khejuri Road Pillue, Maniyar, Gor Pokhar, Ballia, Uttar Pradesh 277302</p>
+                </div>
+              </div>
+
+              <div className="mb-4 flex items-start gap-3 rounded-2xl border border-gray-100 bg-gray-50 p-4">
+                <FaClock className="mt-1 text-orange-500" />
+                <div>
+                  <p className="font-semibold text-gray-900">Office hours</p>
+                  <p className="text-sm text-gray-600">Monday to Saturday · 8:00 AM to 5:00 PM</p>
+                </div>
+              </div>
+
+              <div className="overflow-hidden rounded-2xl border border-gray-100">
+                <iframe
+                  src={CONTACT.mapEmbedUrl}
+                  width="100%"
+                  height="320"
+                  allowFullScreen
+                  loading="lazy"
+                  className="w-full"
+                />
+              </div>
+            </div>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -384,54 +439,6 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="overflow-hidden rounded-[32px] border border-gray-100 bg-white shadow-xl shadow-gray-100"
-          >
-            <div className="border-b border-gray-100 bg-gradient-to-r from-orange-50 to-amber-50 p-6">
-              <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-500 text-white">
-                  <FaMapMarkerAlt />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900">Find our school</h3>
-                  <p className="text-sm text-gray-500">A quick look at our location</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="p-4 sm:p-6">
-              <div className="mb-4 flex items-start gap-3 rounded-2xl border border-gray-100 bg-gray-50 p-4">
-                <FaMapMarkerAlt className="mt-1 text-orange-500" />
-                <div>
-                  <p className="font-semibold text-gray-900">R.M. Suncity Public School</p>
-                  <p className="text-sm text-gray-600">Khejuri Road Pillue, Maniyar, Gor Pokhar, Ballia, Uttar Pradesh 277302</p>
-                </div>
-              </div>
-
-              <div className="mb-4 flex items-start gap-3 rounded-2xl border border-gray-100 bg-gray-50 p-4">
-                <FaClock className="mt-1 text-orange-500" />
-                <div>
-                  <p className="font-semibold text-gray-900">Office hours</p>
-                  <p className="text-sm text-gray-600">Monday to Saturday · 8:00 AM to 5:00 PM</p>
-                </div>
-              </div>
-
-              <div className="overflow-hidden rounded-2xl border border-gray-100">
-                <iframe
-                  src={CONTACT.mapEmbedUrl}
-                  width="100%"
-                  height="320"
-                  allowFullScreen
-                  loading="lazy"
-                  className="w-full"
-                />
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
     </>

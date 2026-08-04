@@ -59,7 +59,7 @@ export default function AchievementSection() {
               {/* Floating Badge */}
               <div className="absolute top-6 left-6 bg-orange-500 backdrop-blur-md px-4 py-2 shadow-lg">
                 <p className="text-sm font-semibold text-white">
-                  9+ Years of Excellence
+                  15+ Years of Excellence
                 </p>
               </div>
             </div>

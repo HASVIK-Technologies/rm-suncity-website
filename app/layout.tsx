@@ -5,6 +5,14 @@ import FloatingActions from "@/components/FloatingActions";
 import NoticeWidget from "@/components/Notifications";
 import { Toaster } from "react-hot-toast";
 import { getNotifications } from "@/services/notifications";
+import { Fraunces } from "next/font/google";
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
+});
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -25,7 +33,7 @@ export default async function RootLayout({
   const { notifications: notificationItems } = await getNotifications();
 
   return (
-    <html lang="en">
+    <html lang="en" className={fraunces.variable}>
       <body>
         <Navbar />
         {children}

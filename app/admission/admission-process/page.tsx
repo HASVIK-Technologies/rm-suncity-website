@@ -72,7 +72,7 @@ export default function AdmissionPage() {
             </div>
 
             <div className="grid gap-4 md:grid-cols-2">
-              {steps.map((step, index) => {
+              {steps.map((step) => {
                 const Icon = step.icon;
                 return (
                   <div key={step.title} className="rounded-2xl border border-gray-200 bg-gray-50 p-5">
@@ -106,8 +106,10 @@ export default function AdmissionPage() {
                 For admission enquiries, class availability, or fee-related questions, please contact the school office.
               </p>
               <div className="mt-5 space-y-3 text-sm text-gray-700">
-                <p className="font-medium">Phone: {CONTACT.phoneDisplay}</p>
-                <p className="font-medium">Email: {CONTACT.email}</p>
+                <p>Phone: <span className="ms-1 font-medium">{CONTACT.phoneDisplay}</span></p>
+                <p>Manager: <span className="ms-1 font-medium">{CONTACT.managerPhoneNumber}</span></p>
+                <p>Email: <span className="ms-1 font-medium">{CONTACT.email}</span></p>
+                <p>WhatsApp: <span className="ms-1 font-medium">{CONTACT.whatsappDisplay}</span></p>
               </div>
               <a
                 href={`${CONTACT.whatsappUrl}?text=${encodeURIComponent("Hello, I would like to enquire about admissions at RM Suncity Public School.")}`}

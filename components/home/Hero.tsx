@@ -56,10 +56,7 @@ export default function Hero() {
       case "tablet":
         return "/images/school-tablet.jpg";
       default:
-
-        return "/images/school.png";
-        
-
+        return "/images/school.jpg";
     }
   };
 

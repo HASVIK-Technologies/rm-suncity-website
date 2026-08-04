@@ -20,8 +20,8 @@ export const coCurricularData: CoCurricularSectionData[] = [
     id: "arts-creativity",
     title: "Arts & Creativity",
     subtitle: "Nurturing imagination through colour, design, and handmade expression.",
-    image: "/images/drawing.jpeg",
-    images: ["/images/drawing.jpeg", "/images/rangoli.jpg"],
+    image: "/images/drawing.png",
+    images: ["/images/drawing.png", "/images/rangoli.jpg"],
     layout: "stack",
     accent: "orange",
     items: [
@@ -39,8 +39,8 @@ export const coCurricularData: CoCurricularSectionData[] = [
     id: "performing-arts",
     title: "Performing Arts",
     subtitle: "Bringing rhythm, movement, voice and stagecraft to life.",
-    image: "/images/holistic.jpg",
-    images: ["/images/holistic.jpg", "/images/creative.jpg"],
+    image: "/images/holistic.png",
+    images: ["/images/holistic.png", "/images/creative.jpg"],
     layout: "gallery",
     accent: "purple",
     items: [
@@ -93,8 +93,8 @@ export const coCurricularData: CoCurricularSectionData[] = [
     id: "academic-enrichment",
     title: "Academic Enrichment",
     subtitle: "Encouraging curiosity beyond the regular classroom curriculum.",
-    image: "/images/olympiad-prize.jpeg",
-    images: ["/images/olympiad-prize.jpeg", "/images/olympiad-prize-2.jpeg"],
+    image: "/images/olympiad-prize.png",
+    images: ["/images/olympiad-prize.png", "/images/olympiad-prize-2.png"],
     layout: "split",
     accent: "sky",
     items: [
@@ -113,7 +113,7 @@ export const coCurricularData: CoCurricularSectionData[] = [
     title: "Cultural Activities",
     subtitle: "Celebrating traditions, values and shared joy in the school community.",
     image: "/images/gallery/gallery11.jpg",
-    images: ["/images/gallery/gallery11.jpg", "/images/holistic.jpg"],
+    images: ["/images/gallery/gallery11.jpg", "/images/holistic.png"],
     layout: "gallery",
     accent: "orange",
     items: [

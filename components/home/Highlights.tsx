@@ -24,13 +24,13 @@ const items = [
     title: "Holistic Development",
     description:
       "We support overall student growth through balanced learning in academics, sports, creativity, discipline, and character building.",
-    image: "/images/holistic.jpg",
+    image: "/images/holistic.png",
   },
   {
     title: "Computer Lab",
     description:
       "Students gain practical technology skills in our computer lab with access to modern systems and guided learning sessions.",
-    image: "/images/computer-lab.jpg",
+    image: "/images/computer-lab.png",
   },
   {
     title: "Rakshabandhan",

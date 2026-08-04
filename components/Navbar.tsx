@@ -38,7 +38,7 @@ export default function Navbar() {
       label: "Admission",
       children: [
         { href: "/admission/admission-process", label: "Admission Process", icon: "user" },
-        { href: "/admission/fees", label: "School Fee", icon: "money" },
+        { href: "/admission/fees", label: "Fee Structure", icon: "money" },
       ],
     },
     { href: "/gallery", label: "Gallery" },
@@ -261,7 +261,7 @@ export default function Navbar() {
               className="w-10 h-10 object-contain"
             />
             <div>
-              <h5 className="font-bold text-orange-600 leading-tight">RM Suncity</h5>
+              <h5 className="font-bold text-orange-600 leading-tight">RM SUNCITY</h5>
               <p className="text-xs font-semibold text-gray-700 uppercase tracking-wider">
                 Public School
               </p>

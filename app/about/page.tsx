@@ -6,7 +6,7 @@ import Achievements from "@/components/about/Achievements";
 
 export default function About() {
   return (
-    <main style={{ background: 'url("/images/bg_img1.jpg") no-repeat center/cover' }}>
+    <main style={{ background: 'url("/images/bg_img1.png") no-repeat center/cover' }}>
       <HeroAbout />
       <StorySection />
       <OurMission />

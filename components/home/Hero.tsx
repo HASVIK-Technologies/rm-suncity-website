@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import { FaPhoneAlt, FaMapMarkerAlt, FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import heroSlides from "@/data/heroSlides.json";
 import { CONTACT } from "@/config/contact";
@@ -120,7 +120,13 @@ export default function Hero() {
                   <div className="flex align-center gap-3 text-white mb-2 justify-center">
                     <FaPhoneAlt className="text-white text-md sm:text-lg shrink-0" />
                     <p className="text-sm sm:text-base font-semibold text-white">
-                      {slides[index].phone ?? CONTACT.phoneNumber}
+                      {slides[index].phone ?? CONTACT.phoneNumber}, <span className="ms-1">  {slides[index].phone ?? CONTACT.managerPhoneNumber}</span>
+                    </p>
+                  </div>
+                  <div className="flex align-center gap-3 text-white mb-2 justify-center">
+                    <FaWhatsapp className="text-white text-md sm:text-lg shrink-0" />
+                    <p className="text-sm sm:text-base font-semibold text-white">
+                      {slides[index].phone ?? CONTACT.whatsappDisplay}
                     </p>
                   </div>
 

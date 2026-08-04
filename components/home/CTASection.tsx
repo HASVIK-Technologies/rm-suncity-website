@@ -1,11 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  BiMap,
-  BiLogoWhatsapp,
-  BiEnvelope,
-} from "react-icons/bi";
+import { BiMap, BiLogoWhatsapp, BiEnvelope, BiPhoneCall } from "react-icons/bi";
 import { CONTACT } from "@/config/contact";
 
 export default function VisitSection() {
@@ -79,6 +75,37 @@ export default function VisitSection() {
               Public School nurtures academic excellence, discipline, and
               character development.
             </p>
+
+            <div className="flex flex-col gap-3 mb-6 text-sm sm:text-base">
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="inline-flex items-center gap-2 font-semibold"
+              >
+                <span>Helpline - RM Suncity: </span>
+                <a
+                  href={`tel:${CONTACT.phoneNumber}`}
+                  className="flex text-orange-600 hover:text-orange-700 transition"
+                >
+                  <BiPhoneCall className="text-xl" />
+                  {CONTACT.phoneDisplay}
+                </a>
+              </motion.div>
+
+              <motion.a
+                whileHover={{ scale: 1.02 }}
+                href={`tel:${CONTACT.managerPhoneNumber}`}
+                className="inline-flex items-center gap-2 font-semibold"
+              >
+                <span>Manager - Mr. Rajesh Soni: </span>
+                <a
+                  href={`tel:${CONTACT.managerPhoneNumber}`}
+                  className="flex text-orange-600 hover:text-orange-700 transition"
+                >
+                  <BiPhoneCall className="text-xl" />
+                  {CONTACT.managerPhoneDisplay}
+                </a>
+              </motion.a>
+            </div>
 
             <motion.a
               whileHover={{ scale: 1.05 }}

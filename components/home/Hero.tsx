@@ -52,11 +52,11 @@ export default function Hero() {
 
     switch (viewport) {
       case "mobile":
-        return "/images/school-mobile.jpeg";
+        return "/images/school-mobile.jpg";
       case "tablet":
-        return "/images/school-tablet.jpeg";
+        return "/images/school-tablet.jpg";
       default:
-        return "/images/school.jpeg";
+        return "/images/school.jpg";
     }
   };
 

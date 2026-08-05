@@ -45,32 +45,32 @@ export default function Olympiad() {
 
           <div className="flex flex-wrap justify-center gap-4 mt-4">
             <img
-              src="/images/olympiad1.jpeg"
+              src="/images/olympiad1.png"
               alt="Olympiad 1"
               className="w-full md:w-[48%] lg:w-[23%] object-cover rounded-lg shadow-md"
             />
             <img
-              src="/images/olympiad2.jpeg"
+              src="/images/olympiad2.png"
               alt="Olympiad 2"
               className="w-full md:w-[48%] lg:w-[23%] object-cover rounded-lg shadow-md"
             />
             <img
-              src="/images/olympiad3.jpeg"
+              src="/images/olympiad3.png"
               alt="Olympiad 3"
               className="w-full md:w-[48%] lg:w-[23%] object-cover rounded-lg shadow-md"
             />
             <img
-              src="/images/olympiad4.jpeg"
+              src="/images/olympiad4.png"
               alt="Olympiad 4"
               className="w-full md:w-[48%] lg:w-[23%] object-cover rounded-lg shadow-md"
             />
             <img
-              src="/images/olympiad-prize.jpeg"
+              src="/images/olympiad-prize.png"
               alt="Olympiad 5"
               className="w-full md:w-[48%] lg:w-[47.5%] object-cover rounded-lg shadow-md"
             />
             <img
-              src="/images/olympiad-prize-2.jpeg"
+              src="/images/olympiad-prize-2.png"
               alt="Olympiad 5"
               className="w-full md:w-[48%] lg:w-[47.5%] object-cover rounded-lg shadow-md"
             />

@@ -114,8 +114,8 @@ export default function Academics() {
           </div>
         </section>
 
-        <section className="bg-white px-4 py-12 sm:px-6 sm:py-16 md:py-20">
-          <div className="mx-auto max-w-5xl rounded-[32px] border border-gray-100 bg-gradient-to-r from-orange-500 to-orange-600 p-8 text-center text-white shadow-lg sm:p-10">
+        <section className="bg-gray-100 px-4 py-12 sm:px-6 sm:py-16 md:py-20">
+          <div className="mx-auto max-w-5xl rounded-[32px] bg-gradient-to-r from-amber-500 to-amber-600 p-8 text-center text-white shadow-lg sm:p-10">
             <h2 className="text-2xl font-semibold sm:text-3xl">
               Enroll today for a complete school journey
             </h2>

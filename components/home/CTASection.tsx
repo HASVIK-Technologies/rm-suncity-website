@@ -91,9 +91,8 @@ export default function VisitSection() {
                 </a>
               </motion.div>
 
-              <motion.a
+              <motion.div
                 whileHover={{ scale: 1.02 }}
-                href={`tel:${CONTACT.managerPhoneNumber}`}
                 className="inline-flex items-center gap-2 font-semibold"
               >
                 <span>Manager - Mr. Rajesh Soni: </span>
@@ -104,7 +103,7 @@ export default function VisitSection() {
                   <BiPhoneCall className="text-xl" />
                   {CONTACT.managerPhoneDisplay}
                 </a>
-              </motion.a>
+              </motion.div>
             </div>
 
             <motion.a

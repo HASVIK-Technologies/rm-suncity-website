@@ -220,7 +220,7 @@ export default function ScheduleTable() {
               className="inline-flex items-center gap-2 rounded-full bg-orange-600 px-4 py-2 text-xs font-semibold text-white shadow-sm shadow-orange-600/20 transition hover:bg-orange-700"
             >
               <BiDownload className="text-base" aria-hidden />
-              Export as PDF
+              Download Timetable
             </button>
 
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-gray-500">
@@ -250,9 +250,9 @@ export default function ScheduleTable() {
         </div>
 
         <p className="mt-6 max-w-3xl text-xs leading-relaxed text-gray-500 sm:text-[13px]">
-          Maintained by the school office. Not every class sits every date
-          some have fewer exams or a preparation day instead. Updates appear
-          here automatically.
+          Maintained by the school office. Not every class sits every date some
+          have fewer exams or a preparation day instead. Updates appear here
+          automatically.
         </p>
       </div>
 

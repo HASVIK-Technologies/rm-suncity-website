@@ -6,7 +6,14 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { TfiEmail } from "react-icons/tfi";
 import { PiPhone } from "react-icons/pi";
-import { FaFacebook, FaYoutube, FaUser, FaMoneyBillWave, FaCreditCard, FaQuestionCircle } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaYoutube,
+  FaUser,
+  FaMoneyBillWave,
+  FaCreditCard,
+  FaQuestionCircle,
+} from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { CONTACT } from "@/config/contact";
 
@@ -32,13 +39,18 @@ export default function Navbar() {
         { href: "/academics/curriculum", label: "Curriculum" },
         { href: "/academics/co-curricular", label: "Co-Curricular" },
         { href: "/academics/calender", label: "Calendar" },
+        { href: "/academics/exam-schedule", label: "Examination Schedule" },
       ],
     },
     {
       label: "Admission",
       children: [
-        { href: "/admission/admission-process", label: "Admission Process", icon: "user" },
-        { href: "/admission/fees", label: "Fee Structure", icon: "money" },
+        {
+          href: "/admission/admission-process",
+          label: "Admission Process",
+          icon: "user",
+        },
+        { href: "/admission/fees", label: "School Fee", icon: "money" },
       ],
     },
     { href: "/gallery", label: "Gallery" },
@@ -74,8 +86,17 @@ export default function Navbar() {
     const isOpen = activeDropdown === item.label;
     const isActive = item.href
       ? pathname === item.href || pathname.startsWith(`${item.href}/`)
-      : (item.label === "Academics" && (pathname === "/academics" || pathname.startsWith("/academics/"))) ||
-        (item.label === "Admission" && (pathname === "/admission" || pathname.startsWith("/admission") || pathname === "/academics/fees" || pathname.startsWith("/academics/fees") || pathname === "/payment-portal" || pathname.startsWith("/payment-portal") || pathname === "/faqs" || pathname.startsWith("/faqs")));
+      : (item.label === "Academics" &&
+          (pathname === "/academics" || pathname.startsWith("/academics/"))) ||
+        (item.label === "Admission" &&
+          (pathname === "/admission" ||
+            pathname.startsWith("/admission") ||
+            pathname === "/academics/fees" ||
+            pathname.startsWith("/academics/fees") ||
+            pathname === "/payment-portal" ||
+            pathname.startsWith("/payment-portal") ||
+            pathname === "/faqs" ||
+            pathname.startsWith("/faqs")));
 
     if (isMobile) {
       return (
@@ -86,11 +107,15 @@ export default function Navbar() {
                 type="button"
                 onClick={() => setActiveDropdown(isOpen ? null : item.label)}
                 className={`flex w-full items-center justify-between px-6 py-3 text-left transition ${
-                  isActive ? "text-orange-600" : "text-gray-900 hover:text-orange-600"
+                  isActive
+                    ? "text-orange-600"
+                    : "text-gray-900 hover:text-orange-600"
                 }`}
               >
                 <span>{item.label}</span>
-                <span className={`text-sm transition-transform ${isOpen ? "rotate-180" : ""}`}>
+                <span
+                  className={`text-sm transition-transform ${isOpen ? "rotate-180" : ""}`}
+                >
                   ▾
                 </span>
               </button>
@@ -104,7 +129,9 @@ export default function Navbar() {
                     className="overflow-hidden bg-gray-50"
                   >
                     {item.children?.map((child) => {
-                      const isChildActive = pathname === child.href || pathname.startsWith(`${child.href}/`);
+                      const isChildActive =
+                        pathname === child.href ||
+                        pathname.startsWith(`${child.href}/`);
                       const iconMap: Record<string, React.ReactElement> = {
                         user: <FaUser className="h-4 w-4" />,
                         money: <FaMoneyBillWave className="h-4 w-4" />,
@@ -121,10 +148,22 @@ export default function Navbar() {
                               setActiveDropdown(null);
                             }}
                             className={`flex items-center gap-3 px-8 py-4 text-sm transition ${
-                              isChildActive ? "text-orange-600" : "text-gray-700 hover:text-orange-600"
+                              isChildActive
+                                ? "text-orange-600"
+                                : "text-gray-700 hover:text-orange-600"
                             }`}
                           >
-                            {child.icon && <span className={isChildActive ? "text-orange-600" : "text-gray-400"}>{iconMap[child.icon]}</span>}
+                            {child.icon && (
+                              <span
+                                className={
+                                  isChildActive
+                                    ? "text-orange-600"
+                                    : "text-gray-400"
+                                }
+                              >
+                                {iconMap[child.icon]}
+                              </span>
+                            )}
                             {child.label}
                           </Link>
                         </li>
@@ -139,7 +178,9 @@ export default function Navbar() {
               href={item.href ?? "/"}
               onClick={() => setMenuOpen(false)}
               className={`block px-6 py-3 transition ${
-                isActive ? "text-orange-600" : "text-gray-900 hover:text-orange-600"
+                isActive
+                  ? "text-orange-600"
+                  : "text-gray-900 hover:text-orange-600"
               }`}
             >
               {item.label}
@@ -162,13 +203,17 @@ export default function Navbar() {
               type="button"
               onClick={() => setActiveDropdown(isOpen ? null : item.label)}
               className={`flex items-center gap-1 px-2 py-2 font-semibold transition-colors duration-300 ${
-                isActive ? "text-orange-600" : "text-gray-800 hover:text-orange-600"
+                isActive
+                  ? "text-orange-600"
+                  : "text-gray-800 hover:text-orange-600"
               }`}
               aria-expanded={isOpen}
               aria-haspopup="true"
             >
               <span>{item.label}</span>
-              <span className={`text-sm transition-transform ${isOpen ? "rotate-180" : ""}`}>
+              <span
+                className={`text-sm transition-transform ${isOpen ? "rotate-180" : ""}`}
+              >
                 ▾
               </span>
             </button>
@@ -182,7 +227,9 @@ export default function Navbar() {
                   className="absolute left-0 top-full mt-3 min-w-60 rounded-xl border border-gray-200 bg-white p-2 shadow-xl"
                 >
                   {item.children?.map((child) => {
-                    const isChildActive = pathname === child.href || pathname.startsWith(`${child.href}/`);
+                    const isChildActive =
+                      pathname === child.href ||
+                      pathname.startsWith(`${child.href}/`);
                     const iconMap: Record<string, React.ReactElement> = {
                       user: <FaUser className="h-4 w-4" />,
                       money: <FaMoneyBillWave className="h-4 w-4" />,
@@ -196,10 +243,22 @@ export default function Navbar() {
                         href={child.href ?? "/"}
                         onClick={() => setActiveDropdown(null)}
                         className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition ${
-                          isChildActive ? "bg-orange-50 text-orange-600" : "text-gray-700 hover:bg-orange-50 hover:text-orange-600"
+                          isChildActive
+                            ? "bg-orange-50 text-orange-600"
+                            : "text-gray-700 hover:bg-orange-50 hover:text-orange-600"
                         }`}
                       >
-                        {child.icon && <span className={isChildActive ? "text-orange-600" : "text-gray-400"}>{iconMap[child.icon]}</span>}
+                        {child.icon && (
+                          <span
+                            className={
+                              isChildActive
+                                ? "text-orange-600"
+                                : "text-gray-400"
+                            }
+                          >
+                            {iconMap[child.icon]}
+                          </span>
+                        )}
                         {child.label}
                       </Link>
                     );
@@ -212,7 +271,9 @@ export default function Navbar() {
           <Link
             href={item.href ?? "/"}
             className={`relative px-2 py-2 font-semibold transition-colors duration-300 ${
-              isActive ? "text-orange-600" : "text-gray-800 hover:text-orange-600"
+              isActive
+                ? "text-orange-600"
+                : "text-gray-800 hover:text-orange-600"
             }`}
           >
             {item.label}
@@ -253,7 +314,10 @@ export default function Navbar() {
         whileInView={{}}
         className="sticky top-0 z-50 bg-white shadow-md transition-all duration-300"
       >
-        <div ref={navRef} className="max-w-7xl mx-auto flex items-center justify-between px-6 h-16">
+        <div
+          ref={navRef}
+          className="max-w-7xl mx-auto flex items-center justify-between px-6 h-16"
+        >
           <Link href="/" className="flex gap-2 items-center">
             <img
               src="/images/logo.png"
@@ -261,7 +325,9 @@ export default function Navbar() {
               className="w-10 h-10 object-contain"
             />
             <div>
-              <h5 className="font-bold text-orange-600 leading-tight">RM SUNCITY</h5>
+              <h5 className="font-bold text-orange-600 leading-tight">
+                RM Suncity
+              </h5>
               <p className="text-xs font-semibold text-gray-700 uppercase tracking-wider">
                 Public School
               </p>

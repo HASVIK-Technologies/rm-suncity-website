@@ -48,9 +48,8 @@ export default function Navbar() {
         {
           href: "/admission/admission-process",
           label: "Admission Process",
-          icon: "user",
         },
-        { href: "/admission/fees", label: "School Fee", icon: "money" },
+        { href: "/admission/fees", label: "Fee Structure"},
       ],
     },
     { href: "/gallery", label: "Gallery" },

@@ -9,6 +9,7 @@ const quickLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Fee Structure", href: "/admission/fees" },
+  {name: "Examination Schedule", href: "/academics/exam-schedule"},
   { name: "Calendar", href: "/academics/calender" },
   { name: "Contact", href: "/contact" },
 ];

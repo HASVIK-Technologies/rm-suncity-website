@@ -21,7 +21,7 @@ const quickLinks = [
   { name: "Fee Structure", href: "/admission/fees" },
   { name: "Examination Schedule", href: "/academics/exam-schedule" },
   { name: "Academic Calendar", href: "/academics/calender" },
-  { name: "Gallery", href: "/gallery" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 const socialLinks = [

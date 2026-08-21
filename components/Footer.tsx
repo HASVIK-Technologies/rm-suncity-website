@@ -1,17 +1,27 @@
 "use client";
 
 import Image from "next/image";
-import { FaFacebook, FaInstagram, FaYoutube, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock, FaWhatsapp } from "react-icons/fa";
+import Link from "next/link";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaYoutube,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaClock,
+  FaWhatsapp,
+} from "react-icons/fa";
 import { motion } from "framer-motion";
 import { CONTACT } from "@/config/contact";
 
 const quickLinks = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
+  { name: "About Us", href: "/about" },
   { name: "Fee Structure", href: "/admission/fees" },
-  {name: "Examination Schedule", href: "/academics/exam-schedule"},
-  { name: "Calendar", href: "/academics/calender" },
-  { name: "Contact", href: "/contact" },
+  { name: "Examination Schedule", href: "/academics/exam-schedule" },
+  { name: "Academic Calendar", href: "/academics/calender" },
+  { name: "Gallery", href: "/gallery" },
 ];
 
 const socialLinks = [
@@ -26,7 +36,6 @@ export default function Footer() {
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-          
           {/* Column 1: School Info & Social */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -45,12 +54,15 @@ export default function Footer() {
                 className="w-12 h-12 object-contain"
               />
               <div>
-                <h3 className="text-white font-bold text-lg leading-tight">RM Suncity</h3>
+                <h3 className="text-white font-bold text-lg leading-tight">
+                  RM Suncity
+                </h3>
                 <p className="text-orange-400 text-xs">Public School</p>
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Nurturing young minds with excellence in education, character building, and holistic development since inception.
+              Nurturing young minds with excellence in education, character
+              building, and holistic development since inception.
             </p>
             <div className="flex justify-center md:justify-start space-x-3 pt-2">
               {socialLinks.map((social) => (
@@ -84,13 +96,13 @@ export default function Footer() {
             <ul className="flex flex-col flex-wrap justify-center md:justify-start gap-2 pt-4">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-gray-400 hover:text-orange-400 transition-colors duration-300 text-sm flex items-center justify-center md:justify-end lg:justify-start group px-3 py-1"
                   >
                     <span className="w-0 h-0.5 bg-orange-500 mr-2 group-hover:w-2 group-hover:mr-2 transition-all duration-300"></span>
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -110,31 +122,58 @@ export default function Footer() {
             </h3>
             <ul className="space-y-4 pt-4">
               <li className="flex items-start justify-center lg:justify-start space-x-3 px-6">
-                <FaMapMarkerAlt className="text-orange-500 mt-1 flex-shrink-0" size={16} />
+                <FaMapMarkerAlt
+                  className="text-orange-500 mt-1 flex-shrink-0"
+                  size={16}
+                />
                 <span className="text-gray-400 text-sm leading-relaxed">
-                  RM Suncity Public School, Khejuri Road Pillue, Maniyar, Gor Pokhar, Ballia, Uttar Pradesh 277302
+                  RM Suncity Public School, Khejuri Road Pillue, Maniyar, Gor
+                  Pokhar, Ballia, Uttar Pradesh 277302
                 </span>
               </li>
               <li className="flex items-center justify-center lg:justify-start space-x-3 px-6">
-                <FaPhoneAlt className="text-orange-500 flex-shrink-0" size={16} />
-                <a href={`tel:${CONTACT.phoneNumber}`} className="text-gray-400 hover:text-orange-400 transition-colors text-sm">
+                <FaPhoneAlt
+                  className="text-orange-500 flex-shrink-0"
+                  size={16}
+                />
+                <a
+                  href={`tel:${CONTACT.phoneNumber}`}
+                  className="text-gray-400 hover:text-orange-400 transition-colors text-sm"
+                >
                   {CONTACT.phoneNumber}
                 </a>
               </li>
               <li className="flex items-center justify-center lg:justify-start space-x-3 px-6">
-                <FaWhatsapp className="text-orange-500 flex-shrink-0" size={16} />
-                <a href={`https://wa.me/${CONTACT.whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 transition-colors text-sm">
+                <FaWhatsapp
+                  className="text-orange-500 flex-shrink-0"
+                  size={16}
+                />
+                <a
+                  href={`https://wa.me/${CONTACT.whatsappNumber}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-orange-400 transition-colors text-sm"
+                >
                   {CONTACT.whatsappDisplay}
                 </a>
               </li>
               <li className="flex items-center justify-center lg:justify-start space-x-3 px-6">
-                <FaEnvelope className="text-orange-500 flex-shrink-0" size={16} />
-                <a href={`mailto:${CONTACT.email}`} className="text-gray-400 hover:text-orange-400 transition-colors text-sm">
+                <FaEnvelope
+                  className="text-orange-500 flex-shrink-0"
+                  size={16}
+                />
+                <a
+                  href={`mailto:${CONTACT.email}`}
+                  className="text-gray-400 hover:text-orange-400 transition-colors text-sm"
+                >
                   {CONTACT.email}
                 </a>
               </li>
               <li className="flex items-start justify-center lg:justify-start space-x-3 px-6">
-                <FaClock className="text-orange-500 mt-1 flex-shrink-0" size={16} />
+                <FaClock
+                  className="text-orange-500 mt-1 flex-shrink-0"
+                  size={16}
+                />
                 <span className="text-gray-400 text-sm">
                   Mon - Sat: 8:00 AM - 6:00 PM
                 </span>
@@ -149,14 +188,23 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 text-center md:text-left">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} RM Suncity Public School. All rights reserved.
+              © {new Date().getFullYear()} RM Suncity Public School. All rights
+              reserved.
             </p>
             <p className="text-gray-500 text-xs">
-              Designed & Developed by <a href="https://www.hasviktech.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 transition-colors">HASVIK Technologies</a>
+              Designed & Developed by{" "}
+              <a
+                href="https://www.hasviktech.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:text-blue-400 transition-colors"
+              >
+                HASVIK Technologies
+              </a>
             </p>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

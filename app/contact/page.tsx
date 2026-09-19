@@ -239,7 +239,7 @@ export default function Contact() {
                   <span className="font-semibold">Visit our campus</span>
                 </div>
                 <p className="text-sm text-gray-700">
-                  R.M. Suncity Public School, Khejuri Road Pillue, Maniyar, Gor Pokhar, Ballia, Uttar Pradesh 277302
+                  R.M. Suncity Public School, Khejuri Road Pillue, Maniar Ballia (U.P.) 277207
                 </p>
               </div>
             </motion.div>
@@ -274,7 +274,7 @@ export default function Contact() {
                 <FaMapMarkerAlt className="mt-1 text-orange-500" />
                 <div>
                   <p className="font-semibold text-gray-900">R.M. Suncity Public School</p>
-                  <p className="text-sm text-gray-600">Khejuri Road Pillue, Maniyar, Gor Pokhar, Ballia, Uttar Pradesh 277302</p>
+                  <p className="text-sm text-gray-600">Khejuri Road Pillue, Maniar Ballia (U.P.) 277207</p>
                 </div>
               </div>
 

@@ -127,8 +127,7 @@ export default function Footer() {
                   size={16}
                 />
                 <span className="text-gray-400 text-sm leading-relaxed">
-                  RM Suncity Public School, Khejuri Road Pillue, Maniyar, Gor
-                  Pokhar, Ballia, Uttar Pradesh 277302
+                  RM Suncity Public School, Khejuri Road Pillue, Maniar Ballia (U.P.) 277207
                 </span>
               </li>
               <li className="flex items-center justify-center lg:justify-start space-x-3 px-6">

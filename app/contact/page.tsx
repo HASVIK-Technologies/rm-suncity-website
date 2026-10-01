@@ -282,7 +282,7 @@ export default function Contact() {
                 <FaClock className="mt-1 text-orange-500" />
                 <div>
                   <p className="font-semibold text-gray-900">Office hours</p>
-                  <p className="text-sm text-gray-600">Monday to Saturday · 8:00 AM to 5:00 PM</p>
+                  <p className="text-sm text-gray-600">Monday to Saturday · 8:00 AM to 3:00 PM</p>
                 </div>
               </div>
 

@@ -81,7 +81,9 @@ export default function NoticeWidget({ notifications = [] }: NoticeWidgetProps) 
                       <div className="flex items-start justify-between gap-3">
                         <div>
                           <p className="text-sm font-medium leading-relaxed text-white">{notice.title}</p>
-                          <p className="mt-1 text-xs text-gray-400">{notice.summary}</p>
+                          <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-gray-400">
+                            {notice.summary}
+                          </p>
                         </div>
 
                         {notice.isNew && (

@@ -22,7 +22,7 @@ export default function ManagerMessage() {
             <div className="relative overflow-hidden rounded-3xl ring-1 ring-orange-100 shadow-[0_50px_120px_-60px_rgba(234,88,12,0.35)]">
               <img
                 src="/images/manager.png"
-                alt="Mr. Rajesh Sony, School Manager"
+                alt="Mr. Rajesh Soni, School Manager"
                 className="h-[420px] w-full object-cover sm:h-[460px]"
               />
 
@@ -100,7 +100,7 @@ export default function ManagerMessage() {
 
             {/* Signature */}
             <p className="mt-8 font-[family-name:var(--font-fraunces)] text-xl italic text-slate-700">
-              — Mr. Rajesh Sony, Manager
+              — Mr. Rajesh Soni, Manager
             </p>
           </motion.div>
         </div>

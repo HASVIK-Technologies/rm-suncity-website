@@ -174,7 +174,7 @@ export default function Footer() {
                   size={16}
                 />
                 <span className="text-gray-400 text-sm">
-                  Mon - Sat: 8:00 AM - 6:00 PM
+                  Mon - Sat: 8:30 AM - 3:00 PM
                 </span>
               </li>
             </ul>

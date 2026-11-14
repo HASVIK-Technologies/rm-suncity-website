@@ -3,32 +3,41 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { FaPlay } from "react-icons/fa";
+import type { YouTubeVideo } from "@/services/gallery";
 
-const videos = [
+type DisplayVideo = Pick<YouTubeVideo, "id" | "title" | "description" | "videoId">;
+
+const fallbackVideos: DisplayVideo[] = [
   {
+    id: "fallback-1",
     title: "Annual Function: Save the Girl",
     videoId: "FzyWBVnk2AI",
-    category: "Role Play",
+    description: "Role Play",
   },
   {
+    id: "fallback-2",
     title: "Annual Function: Social Media Drama",
     videoId: "OtgtJPoV9rU",
-    category: "Drama",
+    description: "Drama",
   },
   {
+    id: "fallback-3",
     title: "Annual Function: Cultural Dance Program",
     videoId: "sAWoT8YfAAE",
-    category: "Cultural Dance",
+    description: "Cultural Dance",
   },
   {
+    id: "fallback-4",
     title: "Annual Function: Vande Mataram",
     videoId: "fqRiTqlmNLI",
-    category: "Patritic Performance",
+    description: "Patritic Performance",
   },
 ];
 
-export default function MomentsSection() {
-  const [activeVideo, setActiveVideo] = useState(videos[0]);
+export default function MomentsSection({ videos }: { videos: DisplayVideo[] }) {
+  const displayVideos = videos.length > 0 ? videos : fallbackVideos;
+  const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
+  const activeVideo = displayVideos.find((video) => video.videoId === activeVideoId) ?? displayVideos[0];
 
   return (
     <section className="bg-gradient-to-b from-black via-gray-900 to-black text-white py-16 px-6">
@@ -74,11 +83,11 @@ export default function MomentsSection() {
           viewport={{ once: true }}
           className="space-y-4"
         >
-          {videos.map((video, index) => (
+          {displayVideos.map((video) => (
             <motion.div
-              key={index}
+              key={video.id}
               whileHover={{ scale: 1.03 }}
-              onClick={() => setActiveVideo(video)}
+              onClick={() => setActiveVideoId(video.videoId)}
               className={`flex items-center gap-4 p-3 rounded-xl cursor-pointer transition ${
                 activeVideo.videoId === video.videoId
                   ? "bg-yellow-500/10 border border-yellow-400"
@@ -102,7 +111,7 @@ export default function MomentsSection() {
               {/* Info */}
               <div>
                 <h3 className="font-semibold">{video.title}</h3>
-                <p className="text-sm text-gray-400">{video.category}</p>
+                <p className="text-sm text-gray-400">{video.description}</p>
               </div>
             </motion.div>
           ))}

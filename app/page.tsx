@@ -8,15 +8,21 @@ import FAQs from "@/components/home/FAQs"
 import Olympiad from "@/components/home/Olympiad"
 import MomentsSection from "@/components/shared/MomentsSection"
 import MentorsSection from "@/components/home/MentorsSection"
+import { getHighlightsData, getVideosData } from "@/services/gallery"
 
-export default function Home() {
+export default async function Home() {
+  const [{ images }, { videos }] = await Promise.all([
+    getHighlightsData(),
+    getVideosData(),
+  ])
+
   return (
     <main className="bg-white">
       <Hero />
       <AboutUs />
       <Olympiad />
-      <Highlights />
-      <MomentsSection />
+      <Highlights images={images} />
+      <MomentsSection videos={videos} />
       <ManagerMessage />
       <PrincipalMessage />
       <MentorsSection />

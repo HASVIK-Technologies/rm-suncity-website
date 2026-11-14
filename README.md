@@ -20,6 +20,21 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Gallery photos
+
+The gallery reads rows from the `Gallery` tab in the configured Google spreadsheet. Add these columns in the first row:
+
+| S. No. | Title (Optional) | Description (Optional) | URL (Image URL on Google Drive) |
+| --- | --- | --- | --- |
+
+Add one photo per row. Upload each image to Google Drive, set its sharing access to **Anyone with the link** (Viewer), and paste its Drive link in the URL column. The website converts standard Drive share links to image URLs; rows without a valid Google Drive image URL are skipped. Titles and descriptions appear on hover only when both are filled in. If the sheet has no usable image URLs (or cannot be read), the existing local gallery photos are displayed instead.
+
+The spreadsheet must be accessible to the service account configured by the existing `GOOGLE_SHEET_ID` and Google service-account environment variables.
+
+The homepage “Highlights of RM Suncity” section reads from the `Highlights` tab. Add `S. No.`, `Title`, `Description`, and `URL (Image URL on Google Drive)` as the headers; every row must include a title, description, and valid Drive image URL. If the tab is missing or has no usable rows, the original homepage highlights are shown.
+
+The “Moments at RM Suncity School” video section reads from the `Videos` tab. Add `S. No.`, `Title`, `Description`, and `URL (youtube URL)` as the headers; every row must include a title, description, and valid YouTube video URL. If the tab is missing or has no usable rows, the existing videos are shown.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

@@ -6,53 +6,58 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 import MainTitle from "../MainTitle";
+import type { GalleryImage } from "@/services/gallery";
 
-const items = [
+type HighlightItem = Pick<GalleryImage, "title" | "description" | "src">;
+
+const defaultItems: HighlightItem[] = [
   {
     title: "Quality Education",
     description:
       "Providing strong academic foundations through structured learning and experienced, dedicated teachers guiding every student.",
-    image: "/images/QualityEducation.jpg",
+    src: "/images/QualityEducation.jpg",
   },
   {
     title: "Experienced Teachers",
     description:
       "Our skilled teachers guide students with care, personal attention, and mentorship to help them achieve their full potential.",
-    image: "/images/teachers.png",
+    src: "/images/teachers.png",
   },
   {
     title: "Holistic Development",
     description:
       "We support overall student growth through balanced learning in academics, sports, creativity, discipline, and character building.",
-    image: "/images/holistic.png",
+    src: "/images/holistic.png",
   },
   {
     title: "Computer Lab",
     description:
       "Students gain practical technology skills in our computer lab with access to modern systems and guided learning sessions.",
-    image: "/images/computer-lab.png",
+    src: "/images/computer-lab.png",
   },
   {
     title: "Rakshabandhan",
     description:
       "Students celebrate Rakshabandhan together, learning the values of love, respect, tradition, and strong community bonding.",
-    image: "/images/rakshabandhan.png",
+    src: "/images/rakshabandhan.png",
   },
   {
     title: "Rewarding Achievements",
     description:
       "We recognize and celebrate student achievements in academics and activities to inspire confidence and continued success.",
-    image: "/images/reward.png",
+    src: "/images/reward.png",
   },
   {
     title: "Creative Learning",
     description:
       "Creative activities like art, music, storytelling, and projects help students express ideas and develop innovative thinking.",
-    image: "/images/creative.jpg",
+    src: "/images/creative.jpg",
   },
 ];
 
-export default function Highlights() {
+export default function Highlights({ images }: { images: HighlightItem[] }) {
+  const items = images.length > 0 ? images : defaultItems;
+
   return (
     <section className="pt-1 pb-12 bg-white">
       <div className="max-w-7xl mx-auto px-6">
@@ -108,7 +113,7 @@ export default function Highlights() {
                   {/* Image */}
                   <div className="h-64 overflow-hidden shrink-0">
                     <img
-                      src={item.image}
+                      src={item.src}
                       alt={item.title}
                       className="w-full h-full object-cover hover:scale-110 transition duration-500"
                     />

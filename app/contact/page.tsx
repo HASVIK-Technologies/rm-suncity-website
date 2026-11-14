@@ -331,6 +331,10 @@ export default function Contact() {
             </AnimatePresence>
 
             <form onSubmit={handleSubmit} className="space-y-4">
+              <p className="text-sm text-gray-600">
+                Submitting opens WhatsApp and shares the details you enter with the school. Please avoid including sensitive information about children.
+                See our <a className="text-orange-700 underline" href="/privacy">Privacy Policy</a>.
+              </p>
               <div>
                 <label htmlFor="name" className="mb-2 block text-sm font-semibold text-gray-700">
                   Full Name <span className="text-red-500">*</span>
@@ -342,6 +346,10 @@ export default function Contact() {
                   <input
                     type="text"
                     id="name"
+                    name="name"
+                    autoComplete="name"
+                    maxLength={100}
+                    required
                     value={name}
                     onChange={handleNameChange}
                     placeholder="Enter your full name"
@@ -371,6 +379,10 @@ export default function Contact() {
                   <input
                     type="tel"
                     id="mobile"
+                    name="mobile"
+                    autoComplete="tel-national"
+                    inputMode="numeric"
+                    required
                     value={mobile}
                     onChange={handleMobileChange}
                     placeholder="Enter 10-digit mobile number"
@@ -396,6 +408,8 @@ export default function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
+                  maxLength={1000}
                   value={message}
                   onChange={handleMessageChange}
                   placeholder="How can we help you?"

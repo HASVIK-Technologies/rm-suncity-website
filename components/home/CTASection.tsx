@@ -41,6 +41,7 @@ export default function VisitSection() {
                 whileHover={{ scale: 1.05 }}
                 href={CONTACT.locationUrl}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-lg w-full sm:w-auto flex justify-center items-center gap-2 border-2 border-white bg-white text-orange-600 px-6 py-3 font-semibold hover:bg-transparent hover:border-white hover:text-white transition"
               >
                 <BiMap className="text-xl" />
@@ -112,6 +113,7 @@ export default function VisitSection() {
               transition={{ duration: 2, repeat: Infinity }}
               href={`${CONTACT.whatsappUrl}?text=Hello%21%20I%20want%20to%20visit%20your%20campus.%20Please%20let%20me%20know%20the%20available%20slots.`}
               target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto flex justify-center items-center gap-2 bg-green-500 text-white px-6 py-3 font-semibold hover:bg-green-600 transition"
             >
               <BiLogoWhatsapp className="text-xl" />
@@ -133,8 +135,9 @@ export default function VisitSection() {
         <iframe
           className="w-full h-full"
           src={CONTACT.mapEmbedUrl}
+          title="Map showing RM Suncity Public School"
           loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
+          referrerPolicy="strict-origin-when-cross-origin"
         ></iframe>
       </motion.div>
     </section>

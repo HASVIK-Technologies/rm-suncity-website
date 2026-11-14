@@ -59,10 +59,12 @@ export default function SchoolVideos() {
         >
           <iframe
             className="w-full h-[300px] md:h-[400px]"
-            src={`https://www.youtube.com/embed/${activeVideo.videoId}?autoplay=1&mute=1`}
+            src={`https://www.youtube-nocookie.com/embed/${activeVideo.videoId}?autoplay=1&mute=1`}
             title={activeVideo.title}
             allow="autoplay; encrypted-media"
             allowFullScreen
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
           />
         </motion.div>
 
@@ -78,7 +80,7 @@ export default function SchoolVideos() {
             <motion.div
               key={index}
               whileHover={{ scale: 1.03 }}
-              onClick={() => setActiveVideo(video)}
+                  onClick={() => setActiveVideo(video)}
               className={`flex items-center gap-4 p-3 rounded-xl cursor-pointer transition ${
                 activeVideo.videoId === video.videoId
                   ? "bg-yellow-500/10 border border-yellow-400"

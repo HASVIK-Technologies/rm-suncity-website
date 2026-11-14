@@ -68,10 +68,12 @@ export default function MomentsSection({ videos }: { videos: DisplayVideo[] }) {
         >
           <iframe
             className="w-full h-[300px] md:h-[400px]"
-            src={`https://www.youtube.com/embed/${activeVideo.videoId}?autoplay=1&mute=1`}
+            src={`https://www.youtube-nocookie.com/embed/${activeVideo.videoId}?autoplay=1&mute=1`}
             title={activeVideo.title}
             allow="autoplay; encrypted-media"
             allowFullScreen
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
           />
         </motion.div>
 

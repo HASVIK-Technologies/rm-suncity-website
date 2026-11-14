@@ -22,6 +22,8 @@ const quickLinks = [
   { name: "Examination Schedule", href: "/academics/exam-schedule" },
   { name: "Academic Calendar", href: "/academics/calender" },
   { name: "Contact Us", href: "/contact" },
+  { name: "Privacy Policy", href: "/privacy" },
+  { name: "Terms of Use", href: "/terms" },
 ];
 
 const socialLinks = [

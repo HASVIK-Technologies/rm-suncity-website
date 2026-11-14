@@ -20,6 +20,7 @@ export const revalidate = 0;
 export const metadata = {
   title: "RM Suncity Public School",
   description: "Quality education and holistic development.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://rmsuncity.com"),
   icons: {
     icon: "/images/logo.png",
   },
